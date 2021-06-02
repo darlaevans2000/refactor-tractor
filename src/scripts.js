@@ -251,7 +251,7 @@ stairsCalendarFlightsAverageWeekly.innerText = user.calculateAverageFlightsThisW
 
 stairsCalendarStairsAverageWeekly.innerText = (user.calculateAverageFlightsThisWeek(todayDate) * 12).toFixed(0);
 
-stairsTrendingButton.addEventListener('click', function() {
+stairsTrendingButton.addEventListener('click', function () {
   user.findTrendingStairsDays();
   trendingStairsPhraseContainer.innerHTML = `<p class='trend-line'>${user.trendingStairsDays[0]}</p>`;
 });
@@ -260,7 +260,7 @@ stepsCalendarTotalActiveMinutesWeekly.innerText = user.calculateAverageMinutesAc
 
 stepsCalendarTotalStepsWeekly.innerText = user.calculateAverageStepsThisWeek(todayDate);
 
-stepsTrendingButton.addEventListener('click', function() {
+stepsTrendingButton.addEventListener('click', function () {
   user.findTrendingStepDays();
   trendingStepsPhraseContainer.innerHTML = `<p class='trend-line'>${user.trendingStepDays[0]}</p>`;
 });
