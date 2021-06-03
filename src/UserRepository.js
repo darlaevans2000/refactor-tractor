@@ -26,6 +26,8 @@ class UserRepository {
     }, 0);
     return totalSleepQuality / this.users.length;
   }
+
+  **********************************
   /* calculateAverageActivity(date, task) {
       let count = this.users.map(user => {
       return user.activityRecord.filter(activity => activity.date === date)
@@ -39,6 +41,8 @@ class UserRepository {
   }, 0);
   return Math.round(sum / count.length)
 }*/
+
+// *** Activity record is now a part of activity class not user class
   calculateAverageSteps(date) {
     let allUsersStepsCount = this.users.map(user => {
       return user.activityRecord.filter(activity => {
@@ -81,6 +85,8 @@ class UserRepository {
     }, 0);
     return Math.round(sumOfMinutesActive / allUsersMinutesActiveCount.length);
   }
+
+  ************************
   calculateAverageDailyWater(date) {
     let todaysDrinkers = this.users.filter(user => {
       return user.addDailyOunces(date) > 0;
