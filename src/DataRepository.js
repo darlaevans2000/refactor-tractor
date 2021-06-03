@@ -39,7 +39,12 @@ class DataRepository {
     return Math.round(sum / numDays);
   }
 
-  // Highest value
+  getHighestValue(dataSet, property) {
+    this.dataSet.sort((a,b) => {
+      return b.property - a.property
+    })[0].property
+  }
+
   // Sort userdata by desired value/property
   // return index[0]
 
