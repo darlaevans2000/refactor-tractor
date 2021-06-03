@@ -45,12 +45,16 @@ class DataRepository {
     })[0].property
   }
 
-  // Sort userdata by desired value/property
-  // return index[0]
+  getWeeklyAverage(){
+    let values = this.getWeekValues(endDate, property);
+    let sum = values.reduce((total, currentVal) => {
+      total += currentVal;
+      return total;
+    }, 0);
 
-  // Weekly average
-  // call getWeekValues
-  // reduce & get average, similar to all time average
+    return Math.round(sum / values.length);
+  }
+
 }
 
 export default DataRepository;
