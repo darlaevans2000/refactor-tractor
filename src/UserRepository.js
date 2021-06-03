@@ -13,6 +13,7 @@ class UserRepository {
     let goals = this.users.map(function(user) {
       return user.dailyStepGoal;
     });
+    // dataRepo.getAllTimeAvgDaily(goals)
     let total = goals.reduce(function(sum, goal) {
       sum += goal;
       return sum;
@@ -20,6 +21,7 @@ class UserRepository {
     return total / this.users.length;
   }
   calculateAverageSleepQuality() {
+    // dataRepo.getAllTimeAvgDaily();
     let totalSleepQuality = this.users.reduce((sum, user) => {
       sum += user.sleepQualityAverage;
       return sum;
@@ -91,6 +93,7 @@ class UserRepository {
     let todaysDrinkers = this.users.filter(user => {
       return user.addDailyOunces(date) > 0;
     });
+    // dataRepo.getAllTimeAvgDaily();
     let sumDrankOnDate = todaysDrinkers.reduce((sum, drinker) => {
       return sum += drinker.addDailyOunces(date);
     }, 0)
