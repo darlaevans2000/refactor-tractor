@@ -28,6 +28,16 @@ class DataRepository {
       return this.userData.slice(start, end);
     }
   }
+
+  getAllTimeAvgDaily(property) {
+    let numDays = this.userData.length;
+    let sum = this.userData.reduce((total, element) => {
+      total += element[property];
+      return total;
+    }, 0);
+
+    return Math.round(sum / numDays);
+  }
 }
 
 export default DataRepository;
