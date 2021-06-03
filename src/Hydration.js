@@ -3,21 +3,17 @@ class Hydration extends DataRepository {
     super(id, dataSet);
   }
 
-  // Calculate average ounces per day for all time
   getAllTimeAvgOz(property) {
-    super.getAllTimeAvgDaily(property);
+    return super.getAllTimeAvgDaily(property);
   }
 
-  // Find how many ounces consumed on a specific day
   getOzOnDate(date, property) {
-    super.getGivenDayValue(date, property);
+    return super.getGivenDayValue(date, property);
   }
 
-  // Find how many ounces consumed on each day of a given week
   getWeekOfOz(endDate, property) {
-    super.getWeekValues(endDate, property);
+    return super.getWeekValues(endDate, property);
   }
-
 }
 
 export default Hydration;
