@@ -10,6 +10,7 @@ class UserRepository {
 
   calculateAverageStepGoal() {
     let goals = this.users.map(user => user.dailyStepGoal);
+      // dataRepo.getAllTimeAvgDaily(goals)
     let total = goals.reduce((sum, goal) => {
       sum += goal;
       return sum;
@@ -18,6 +19,7 @@ class UserRepository {
   }
 
   calculateAverageSleepQuality() {
+    // dataRepo.getAllTimeAvgDaily();
     let totalSleepQuality = this.users.reduce((sum, user) => {
       sum += user.sleepQualityAverage;
       return sum;
@@ -25,6 +27,22 @@ class UserRepository {
     return totalSleepQuality / this.users.length;
   }
 
+  **********************************
+  /* calculateAverageActivity(date, task) {
+      let count = this.users.map(user => {
+      return user.activityRecord.filter(activity => activity.date === date)
+    }
+    })
+      let sum = count.reduce((total, activityList) => {
+      activityList.forEach(activity => {
+        total += activity.task;
+    });
+    return total;
+  }, 0);
+  return Math.round(sum / count.length)
+}*/
+
+// *** Activity record is now a part of activity class not user class
   calculateAverageSteps(date) {
     let allUsersStepsCount = this.users.map(user => {
       user.activityRecord.filter(activity => activity.date === date;);
@@ -69,6 +87,7 @@ class UserRepository {
 
   calculateAverageDailyWater(date) {
     let todaysDrinkers = this.users.filter(user => user.addDailyOunces(date) > 0);
+      // dataRepo.getAllTimeAvgDaily();
 
     let sumDrankOnDate = todaysDrinkers.reduce((sum, drinker) => {
       return sum += drinker.addDailyOunces(date);
