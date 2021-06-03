@@ -26,6 +26,19 @@ class UserRepository {
     }, 0);
     return totalSleepQuality / this.users.length;
   }
+  /* calculateAverageActivity(date, task) {
+      let count = this.users.map(user => {
+      return user.activityRecord.filter(activity => activity.date === date)
+    }
+    })
+      let sum = count.reduce((total, activityList) => {
+      activityList.forEach(activity => {
+        total += activity.task;
+    });
+    return total;
+  }, 0);
+  return Math.round(sum / count.length)
+}*/
   calculateAverageSteps(date) {
     let allUsersStepsCount = this.users.map(user => {
       return user.activityRecord.filter(activity => {

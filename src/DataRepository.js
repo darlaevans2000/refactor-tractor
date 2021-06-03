@@ -45,6 +45,7 @@ class DataRepository {
     })[0].property
   }
 
+// parameters for this function???
   getWeeklyAverage(){
     let values = this.getWeekValues(endDate, property);
     let sum = values.reduce((total, currentVal) => {
