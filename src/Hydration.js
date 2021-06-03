@@ -14,6 +14,9 @@ class Hydration extends DataRepository {
   }
 
   // Find how many ounces consumed on each day of a given week
+  getWeekOfOz(endDate, property) {
+    super.getWeekValues(endDate, property);
+  }
 
 }
 
