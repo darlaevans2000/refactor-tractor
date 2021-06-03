@@ -1,7 +1,7 @@
 class DataRepository {
   constructor(id, dataSet) {
     this.userData = [];
-    this.findUserData(id, dataSet);
+    findUserData(id, dataSet);
   }
 
   findUserData(id, dataSet) {
@@ -25,7 +25,6 @@ class DataRepository {
       // If they choose a date that doesn't have previous data; ex. 2019/06/16
       return false
     } else {
-      // This is an array of data objects
       return this.userData.slice(start, end);
     }
   }
@@ -42,15 +41,15 @@ class DataRepository {
 
   getHighestValue(dataSet, property) {
     this.dataSet.sort((a,b) => {
-      return b[property] - a[property]
-    })[0][property]
+      return b.property - a.property
+    })[0].property
   }
 
 // parameters for this function???
-  getWeeklyAverage(endDate, property){
+  getWeeklyAverage(){
     let values = this.getWeekValues(endDate, property);
     let sum = values.reduce((total, currentVal) => {
-      total += currentVal[property];
+      total += currentVal;
       return total;
     }, 0);
 
