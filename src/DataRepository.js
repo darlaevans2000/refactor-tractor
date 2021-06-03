@@ -38,6 +38,14 @@ class DataRepository {
 
     return Math.round(sum / numDays);
   }
+
+  // Highest value
+  // Sort userdata by desired value/property
+  // return index[0]
+
+  // Weekly average
+  // call getWeekValues
+  // reduce & get average, similar to all time average
 }
 
 export default DataRepository;
