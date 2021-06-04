@@ -13,6 +13,10 @@ class Sleep extends DataRepository {
     return super.getAllTimeAvgDaily('sleepQuality');
   }
 
+  getWeekOfSleepData(endDate) {
+    return super.getWeekValues(endDate);
+  }
+
   calculateAverageHoursThisWeek(endDate) {
     return super.getWeeklyAverage(endDate, 'hoursSlept');
   }
@@ -27,14 +31,6 @@ class Sleep extends DataRepository {
 
   getSleepQualityOnDate(date) {
     return super.getGivenDayValue(date, 'sleepQuality');
-  }
-
-  getHoursSleptForWeek(endDate) {
-    return super.getWeekValues(endDate, 'hoursSlept');
-  }
-
-  getSleepQualityForWeek(endDate) {
-    return super.getWeekValues(endDate, 'sleepQuality');
   }
 }
 

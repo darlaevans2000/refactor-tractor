@@ -32,5 +32,66 @@ describe.only('Sleep', function() {
 
   it('Should calculate the average sleep quality over all time', function() {
     expect(sleepData.getAllTimeAvgSleepQuality()).to.equal(2.4);
+  });
+
+  it('Should return a week of sleep data values', function() {
+    expect(sleepData.getWeekOfSleepData('2019/06/24')).to.deep.equal([
+      {
+        "userID": 1,
+        "date": "2019/06/18",
+        "hoursSlept": 10.4,
+        "sleepQuality": 3.1
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/19",
+        "hoursSlept": 10.7,
+        "sleepQuality": 1.2
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/20",
+        "hoursSlept": 9.3,
+        "sleepQuality": 1.2
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/21",
+        "hoursSlept": 7.8,
+        "sleepQuality": 4.2
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/22",
+        "hoursSlept": 7,
+        "sleepQuality": 3
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/23",
+        "hoursSlept": 7.8,
+        "sleepQuality": 1.5
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/24",
+        "hoursSlept": 8,
+        "sleepQuality": 1.3
+      }
+    ]);
+  });
+
+  it('Should return false if an invalid date is entered', function() {
+    expect(sleepData.getWeekOfSleepData('2019/06/16')).to.equal(false);
+    expect(sleepData.getWeekOfSleepData('aaaaaaa')).to.equal(false);
+    expect(sleepData.getWeekOfSleepData('06/14/2021')).to.equal(false);
   })
+
+  // it('Should calculate the average hours slept over a given week', function() {
+  //   expect(sleepData.calculateAverageHoursThisWeek('2019/06/24')).to.equal(8.7);
+  // });
+
+  // it('Should return false if an invalid date is entered', function() {
+  //   expect(sleepData.calculateAverageHoursThisWeek('2019/06/16')).to.equal(false);
+  // });
 });
