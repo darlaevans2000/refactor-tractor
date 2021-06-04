@@ -51,4 +51,6 @@ const testUserData = [
       3
     ]
   },
-]
+];
+
+export default testUserData;

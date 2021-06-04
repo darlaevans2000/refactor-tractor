@@ -279,4 +279,6 @@ const testActivityData = [
     "minutesActive": 118,
     "flightsOfStairs": 10
   },
-]
+];
+
+export default testActivityData;
