@@ -26,7 +26,8 @@ class DataRepository {
       return false
     } else {
       // This is an array of data objects
-      return this.userData.slice(start, end);
+      let weekValues = this.userData.slice(start, end);
+      return weekValues;
     }
   }
 

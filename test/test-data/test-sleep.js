@@ -240,3 +240,5 @@ const testSleepData = [
     "sleepQuality": 3.5
   },
 ]
+
+export default testSleepData;

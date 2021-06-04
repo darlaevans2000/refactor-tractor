@@ -280,3 +280,5 @@ const testActivityData = [
     "flightsOfStairs": 10
   },
 ]
+
+export default testActivityData;
