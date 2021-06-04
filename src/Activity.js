@@ -80,7 +80,11 @@ class Activity extends DataRepository {
     return this.getAverageDaily('numSteps', date);
   };
 
-  getAverageDaily(date, stat) {
+  getAverageMinutesOnDay(date) {
+    return this.getAverageDaily('minutesActive', date);
+  }
+
+  getAverageDaily(stat, date) {
     const allUserDataDate = this.dataSet(date);
     return allUserDataDate.reduce((total, user) => {
       total += user[stat];
