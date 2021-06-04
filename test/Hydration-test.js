@@ -7,7 +7,7 @@ import DataRepository from '../src/DataRepository';
 import testHydrationData from './test-data/test-hydration';
 import testUserData from './test-data/test-users';
 
-describe.only('Hydration', () => {
+describe('Hydration', () => {
   let hydration, dataRepo, user, user1;
 
   beforeEach(() => {
@@ -45,13 +45,13 @@ describe.only('Hydration', () => {
     expect(weekOfWater.length).to.equal(7);
   })
 
-  it('should return an error if there is no data for the date input' () => {
+  // it('should return an error if there is no data for the date input' () => {
 
-  })
+  // })
 
-  it('should return an error if the date input does not match the format' () => {
+  // it('should return an error if the date input does not match the format' () => {
 
-  })
+  // })
 
   // it('should have a date', () => {
   //   expect(hydrate3.date).to.equal('2019/06/16');

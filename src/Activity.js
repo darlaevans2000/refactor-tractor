@@ -1,6 +1,4 @@
 import DataRepository from './DataRepository';
-
-
 class Activity extends DataRepository {
   constructor(id, dataSet) {
     super(id, dataSet);
@@ -105,3 +103,4 @@ findFriendsTotalStepsForWeek(users, date) {
   }
 
 }
+export default Activity 
