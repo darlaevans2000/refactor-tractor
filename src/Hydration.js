@@ -1,12 +1,13 @@
 import DataRepository from './DataRepository';
 
+
 class Hydration extends DataRepository {
   constructor(id, dataSet) {
     super(id, dataSet);
   }
 
   getAllTimeAvgOz() {
-    let output = super.getAllTimeAvgDaily(property);
+    let output = super.getAllTimeAvgDaily('numOunces');
     return Math.round(output);
   }
 

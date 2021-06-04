@@ -10,11 +10,9 @@
     this.friendsNames = [];
   }
   getFirstName() {
-    var names = this.name.split(' ');
+    let names = this.name.split(' ');
     return names[0].toUpperCase();
   }
-
-
 
   findFriendsNames(users) {
     this.friends.forEach(friend => {

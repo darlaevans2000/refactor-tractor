@@ -1,5 +1,6 @@
 import DataRepository from './DataRepository';
 
+
 class Activity extends DataRepository {
   constructor(id, dataSet) {
     super(id, dataSet);
