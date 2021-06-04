@@ -3,6 +3,14 @@ class Sleep extends DataRepository {
     super(id, dataSet);
   }
 
+  getAvgHoursSleptPerDay() {
+    return super.getAllTimeAvgDaily('hoursSlept');
+  }
+
+  getAllTimeAvgSleepQuality() {
+    return super.getAllTimeAvgDaily('sleepQuality');
+  }
+
   // calculateAverageHoursThisWeek() {
 
   // }
