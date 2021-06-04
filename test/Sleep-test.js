@@ -99,4 +99,12 @@ describe.only('Sleep', function() {
     expect(sleepData.calculateAverageHoursThisWeek('2019/06/16')).to.equal(false);
     expect(sleepData.calculateAverageHoursThisWeek('fish')).to.equal(false);
   });
+
+  it('Should get the number of hours slept on a given date', function() {
+    expect(sleepData.getHoursSleptOnDate('2019/06/18')).to.equal(10.4);
+  });
+
+  it('Should get the sleep quality for a given date', function() {
+    expect(sleepData.getSleepQualityOnDate('2019/06/18')).to.equal(3.1);
+  });
 });
