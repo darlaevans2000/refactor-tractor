@@ -14,12 +14,23 @@ describe.only('Sleep', function() {
     user1 = new User(testUserData[1]);
   });
 
-  it('should be a function', function() {
+  it('Should be a function', function() {
     expect(Sleep).to.be.a('function');
   });
 
-  it('should be an instance of Sleep', function() {
+  it('Should be an instance of Sleep', function() {
     expect(sleepData).to.be.an.instanceof(Sleep);
   });
 
+  it('Should contain user sleep data', function() {
+    expect(sleepData.userData[2]).to.deep.equal({ userID: 1, date: '2019/06/17', hoursSlept: 8, sleepQuality: 2.6 });
+  });
+
+  it('Should calculate the average hours slept per day for all time', function() {
+    expect(sleepData.getAvgHoursSleptPerDay()).to.equal(7.9);
+  });
+
+  it('Should calculate the average sleep quality over all time', function() {
+    expect(sleepData.getAllTimeAvgSleepQuality()).to.equal(2.4);
+  })
 });
