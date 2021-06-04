@@ -39,6 +39,18 @@ class Activity extends DataRepository {
     // add another parameter to get weekly average that is the id?
   }
 
+  getAvgStepsOnDay(date) {
+    return this.getAvgDaily('numSteps', date);
+  };
+
+  getAvgMinutesOnDay(date) {
+    return this.getAvgDaily('minutesActive', date);
+  }
+
+  getAvgFlightsOnDay(date) {
+    return this.getAvgDaily('flightsOfStairs', date);
+  }
+
   achievedGoal(user, day) {
     if (user === undefined || day === undefined || user.id !== day.userID) return null;
     return day.numSteps > user.dailyStepGoal;
@@ -60,18 +72,6 @@ class Activity extends DataRepository {
     }, 0);
     // we may have to change findUserData a little to get this working
   };
-
-  getAvgStepsOnDay(date) {
-    return this.getAvgDaily('numSteps', date);
-  };
-
-  getAvgMinutesOnDay(date) {
-    return this.getAvgDaily('minutesActive', date);
-  }
-
-  getAvgFlightsOnDay(date) {
-    return this.getAvgDaily('flightsOfStairs', date);
-  }
 
   getAvgDaily(stat, date) {
     const allUserDataDate = this.dataSet(date);
