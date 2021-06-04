@@ -74,11 +74,31 @@ class Activity extends DataRepository {
   };
 
   getAvgDaily(stat, date) {
-    const allUserDataDate = this.dataSet(date);
-    return allUserDataDate.reduce((total, user) => {
+    const userDataDate = this.dataSet(date);
+    return userDataDate.reduce((total, user) => {
       total += user[stat];
       return total;
-    }, 0) / allUserDataDate.length;
+    }, 0) / userDataDate.length;
   }
 
+findFriendsTotalStepsForWeek(users, date) {
+    this.friends.map(friend => {
+      let matchedFriend = users.find(user => user.id === friend);
+      matchedFriend.calculateTotalStepsThisWeek(date);
+      this.friendsActivityRecords.push(
+        {
+          'id': matchedFriend.id,
+          'firstName': matchedFriend.name.toUpperCase().split(' ')[0],
+          'totalWeeklySteps': matchedFriend.totalStepsThisWeek
+        })
+    })
+    this.calculateTotalStepsThisWeek(date);
+    this.friendsActivityRecords.push({
+      'id': this.id,
+      'firstName': 'YOU',
+      'totalWeeklySteps': this.totalStepsThisWeek
+    });
+    this.friendsActivityRecords = this.friendsActivityRecords.sort((a, b) => b.totalWeeklySteps - a.totalWeeklySteps);
+  }
+  
 }
