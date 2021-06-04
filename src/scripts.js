@@ -7,6 +7,7 @@ import sleepData from './data/sleep';
 import hydrationData from './data/hydration';
 
 import UserRepository from './UserRepository';
+import DataRepository form './DataRepository';
 import User from './User';
 import Activity from './Activity';
 import Hydration from './Hydration';
