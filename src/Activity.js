@@ -1,21 +1,6 @@
 class Activity extends DataRepository {
   constructor(id, dataSet) {
     super(id, dataSet);
-    // this.userId = id;
-    // this.date = data.date;
-    // this.steps = dataSet.steps;
-    // this.minutesActive = data.minutesActive;
-    // this.flightsOfStairs = data.flightsOfStairs;
-    // this.milesWalked = 0;
-    // this.reachedStepGoal = null;
-    // this.totalStepsThisWeek = 0; 
-    // this.activityRecord = [];
-    // this.accomplishedDays = []; - activity (stepsExceededDays???)
-    // this.trendingStepDays = []; -  # of days in a row that step goal has been exceeded - activity
-    // this.trendingStairsDays = []; - # of days in a row that ?????  - activity
-    // this.friendsActivityRecords = [] - activity
-
-    // this.doActivity(userRepository);
   }
 
   getStepsTaken(date, id) {
@@ -39,17 +24,17 @@ class Activity extends DataRepository {
     return (steps === null ? null : steps * strideLength / 5280);
   };
 
-  getAverageActivityThruWeek(id, endDate) {
+  getAvgActivityThruWeek(id, endDate) {
     return this.getWeeklyAverage(id, 'minutesActive', endDate)
     // add another parameter to get weekly average that is the id?
   }
 
-  getAverageStepsThruWeek(id, endDate) {
+  getAvgStepsThruWeek(id, endDate) {
     return this.getWeeklyAverage(id, 'numSteps', endDate)
     // add another parameter to get weekly average that is the id?
   }
 
-  getAverageFlightsThruWeek(id, endDate) {
+  getAvgFlightsThruWeek(id, endDate) {
     return this.getWeeklyAverage(id, 'flightsOfStairs', endDate)
     // add another parameter to get weekly average that is the id?
   }
@@ -76,27 +61,24 @@ class Activity extends DataRepository {
     // we may have to change findUserData a little to get this working
   };
 
-  getAverageStepsOnDay(date) {
-    return this.getAverageDaily('numSteps', date);
+  getAvgStepsOnDay(date) {
+    return this.getAvgDaily('numSteps', date);
   };
 
-  getAverageMinutesOnDay(date) {
-    return this.getAverageDaily('minutesActive', date);
+  getAvgMinutesOnDay(date) {
+    return this.getAvgDaily('minutesActive', date);
   }
 
-  getAverageFlightsOnDay(date) {
-    return this.getAverageDaily('flightsOfStairs', date);
+  getAvgFlightsOnDay(date) {
+    return this.getAvgDaily('flightsOfStairs', date);
   }
 
-  getAverageDaily(stat, date) {
+  getAvgDaily(stat, date) {
     const allUserDataDate = this.dataSet(date);
     return allUserDataDate.reduce((total, user) => {
       total += user[stat];
       return total;
     }, 0) / allUserDataDate.length;
-  };
-}
-
-   
+  }
 
 }
