@@ -66,4 +66,13 @@ class Activity extends DataRepository {
     return daysAchieved || [];
   };
 
+  getStairRecord(user) {
+    if(this.findUserData(user.id, users).length ===0) {
+      return null;
+    }
+    return this.findUserData(user.id, users).reduce((a, b) => {
+      return (b.userID === user.id ? Math.max(a, b.flightsOfStairs) : a);
+    }, 0);
+  };
+
 }
