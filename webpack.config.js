@@ -5,11 +5,13 @@ module.exports = {
   "entry": "./src/scripts.js",
   "output": {
     "path": __dirname + '/dist',
-    "filename": "bundle.js"
+    "filename": "bundle.js",
+    sourceMapFilename: "bundle.js.map"
   },
   devServer: {
     contentBase: path.join(__dirname, 'dist')
   },
+  "devtool": "source-map",
   "module": {
     "rules": [
       {
