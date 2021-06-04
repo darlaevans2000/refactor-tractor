@@ -76,17 +76,17 @@ class Activity extends DataRepository {
     // we may have to change findUserData a little to get this working
   };
 
-  getAverageDaily(stat, date) {
-    let days = this.dataSet.filter((obj) => {
-      return moment(date).isSame(obj.date)
-    });
-    if(days.length === 0) return null;
-    let sum = days.reduce((total, currentUser) => {
-      total += currentUser[stat]
-      return total
-    },0);
-    return sum / days.length;
-  }
+  getAverageStepsOnDay(date) {
+    return this.getAverageDaily('numSteps', date);
+  };
+
+  getAverageDaily(date, stat) {
+    const allUserDataDate = this.dataSet(date);
+    return allUserDataDate.reduce((total, user) => {
+      total += user[stat];
+      return total;
+    }, 0) / allUserDataDate.length;
+  };
 }
 
    
