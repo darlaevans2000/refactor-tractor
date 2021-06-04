@@ -7,7 +7,6 @@ class DataRepository {
   findUserData(id, dataSet) {
     let matchingData = dataSet.filter(element => element.userID === id);
     this.userData = matchingData;
-    // We might have to sort this by date?
   }
 
   getGivenDayValue(date, property) {
@@ -21,6 +20,12 @@ class DataRepository {
     let start = lastIndex - 6;
     let end = lastIndex + 1;
 
+<<<<<<< HEAD
+    if (start < 0) {
+      return false
+    } else {
+      return this.userData.slice(start, end);
+=======
     if (!this.userData[start]) {
       // If they choose a date that doesn't have previous data; ex. 2019/06/16
       return false
@@ -28,6 +33,7 @@ class DataRepository {
       // This is an array of data objects
       let weekValues = this.userData.slice(start, end);
       return weekValues;
+>>>>>>> main
     }
   }
 
@@ -47,17 +53,20 @@ class DataRepository {
     })[0][property]
   }
 
-// parameters for this function???
-  getWeeklyAverage(endDate, property){
+  getWeeklyAverage(endDate, property) {
     let values = this.getWeekValues(endDate, property);
-    let sum = values.reduce((total, currentVal) => {
-      total += currentVal[property];
-      return total;
-    }, 0);
 
-    return Number.parseFloat((sum / values.length).toFixed(1));
+    if (!values) {
+      return false;
+    } else {
+      let sum = values.reduce((total, currentVal) => {
+        total += currentVal[property];
+        return total;
+      }, 0);
+
+      return Number.parseFloat((sum / values.length).toFixed(1));
+    }
   }
-
 }
 
 export default DataRepository;

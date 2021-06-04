@@ -7,7 +7,7 @@
     this.strideLength = userData.strideLength;
     this.dailyStepGoal = userData.dailyStepGoal;
     this.friends = userData.friends;
-    this.friendsNames = []; 
+    this.friendsNames = [];
   }
   getFirstName() {
     let names = this.name.split(' ');

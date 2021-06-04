@@ -1,93 +1,110 @@
 import { expect } from 'chai';
 
+import DataRepository from '../src/DataRepository';
 import Sleep from '../src/Sleep';
-import UserRepository from '../src/UserRepository';
 import User from '../src/User';
+import testSleepData from './test-data/test-sleep';
+import testUserData from './test-data/test-users';
 
-describe('Sleep', function() {
-  let sleep;
-  let user1;
-  let user2;
-  let userRepository;
+describe.only('Sleep', function() {
+  let sleepData, user1;
+
   beforeEach(() => {
-    user1 = new User({
-      'id': 1,
-      'name': 'Luisa Hane',
-      'address': '15195 Nakia Tunnel, Erdmanport VA 19901-1697',
-      'email': 'Diana.Hayes1@hotmail.com',
-      'strideLength': 4.3,
-      'dailyStepGoal': 10000,
-      'friends': [
-        16,
-        4,
-        8
-      ]
-    });
-    user2 = new User({
-      "id": 2,
-      "name": "Jarvis Considine",
-      "address": "30086 Kathryn Port, Ciceroland NE 07273",
-      "email": "Dimitri.Bechtelar11@gmail.com",
-      "strideLength": 4.5,
-      "dailyStepGoal": 5000,
-      "friends": [
-        9,
-        18,
-        24,
-        19
-      ]
-    })
-    userRepository = new UserRepository();
-    userRepository.users.push(user1, user2);
-    sleep1 = new Sleep({
-      "userID": 1,
-      "date": "2019/06/15",
-      "hoursSlept": 6.1,
-      "sleepQuality": 2.2
-    }, userRepository);
-    sleep2 = new Sleep({
-      "userID": 2,
-      "date": "2019/06/25",
-      "hoursSlept": 7.3,
-      "sleepQuality": 3.2
-    }, userRepository);
-    sleep3 = new Sleep({
-      "userID": 1,
-      "date": "2019/07/17",
-      "hoursSlept": 9.3,
-      "sleepQuality": 1.4
-    }, userRepository);
+    sleepData = new Sleep(1, testSleepData);
+    user1 = new User(testUserData[1]);
   });
-  it('should be a function', function() {
+
+  it('Should be a function', function() {
     expect(Sleep).to.be.a('function');
   });
-  it('should be an instance of activity', function() {
-    expect(sleep1).to.be.an.instanceof(Sleep);
+
+  it('Should be an instance of Sleep', function() {
+    expect(sleepData).to.be.an.instanceof(Sleep);
   });
-  it('should hold a userId', function() {
-    expect(sleep2.userId).to.equal(2);
+
+  it('Should contain user sleep data', function() {
+    expect(sleepData.userData[2]).to.deep.equal({ userID: 1, date: '2019/06/17', hoursSlept: 8, sleepQuality: 2.6 });
   });
-  it('should hold a date', function() {
-    expect(sleep3.date).to.equal("2019/07/17");
+
+  it('Should calculate the average hours slept per day for all time', function() {
+    expect(sleepData.getAvgHoursSleptPerDay()).to.equal(7.9);
   });
-  it('should hold hours slept', function() {
-    expect(sleep1.hoursSlept).to.equal(6.1);
+
+  it('Should calculate the average sleep quality over all time', function() {
+    expect(sleepData.getAllTimeAvgSleepQuality()).to.equal(2.4);
   });
-  it('should hold sleep quality', function() {
-    expect(sleep3.sleepQuality).to.equal(1.4);
+
+  it('Should return a week of sleep data values', function() {
+    expect(sleepData.getWeekOfSleepData('2019/06/24')).to.deep.equal([
+      {
+        "userID": 1,
+        "date": "2019/06/18",
+        "hoursSlept": 10.4,
+        "sleepQuality": 3.1
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/19",
+        "hoursSlept": 10.7,
+        "sleepQuality": 1.2
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/20",
+        "hoursSlept": 9.3,
+        "sleepQuality": 1.2
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/21",
+        "hoursSlept": 7.8,
+        "sleepQuality": 4.2
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/22",
+        "hoursSlept": 7,
+        "sleepQuality": 3
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/23",
+        "hoursSlept": 7.8,
+        "sleepQuality": 1.5
+      },
+      {
+        "userID": 1,
+        "date": "2019/06/24",
+        "hoursSlept": 8,
+        "sleepQuality": 1.3
+      }
+    ]);
   });
-  describe('sleep', function() {
-    it('should update user\'s slept hours record', function() {
-      expect(user1.sleepHoursRecord.length).to.equal(2);
-    });
-    it('should update user\'s slept hours record', function() {
-      expect(user2.sleepQualityRecord.length).to.equal(1);
-    });
-    it('should update user\'s slept hours average', function() {
-      expect(user1.hoursSleptAverage).to.equal('7.7');
-    });
-    it('should update user\'s sleep quality average', function() {
-      expect(user1.sleepQualityAverage).to.equal('1.8');
-    });
-  })
+
+  it('Should return false if an invalid date is entered', function() {
+    expect(sleepData.getWeekOfSleepData('2019/06/16')).to.equal(false);
+    expect(sleepData.getWeekOfSleepData('aaaaaaa')).to.equal(false);
+    expect(sleepData.getWeekOfSleepData('06/14/2021')).to.equal(false);
+  });
+
+  it('Should calculate the average hours slept over a given week', function() {
+    expect(sleepData.calculateAverageHoursThisWeek('2019/06/24')).to.equal(8.7);
+  });
+
+  it('Should calculate the average sleep quality over a given week', function() {
+    expect(sleepData.calculateAverageQualityThisWeek('2019/06/24')).to.equal(2.2);
+  });
+
+  it('Should return false if an invalid date is entered', function() {
+    expect(sleepData.calculateAverageHoursThisWeek('2019/06/16')).to.equal(false);
+    expect(sleepData.calculateAverageHoursThisWeek('fish')).to.equal(false);
+  });
+
+  it('Should get the number of hours slept on a given date', function() {
+    expect(sleepData.getHoursSleptOnDate('2019/06/18')).to.equal(10.4);
+  });
+
+  it('Should get the sleep quality for a given date', function() {
+    expect(sleepData.getSleepQualityOnDate('2019/06/18')).to.equal(3.1);
+  });
 });
