@@ -25,10 +25,12 @@ class Activity extends DataRepository {
 
   getMinutesActive(date, id) {
     return this.getGivenDayValue(date, id, 'minutesActive');
+    //add id as a parameter getGivenDayValue?
   }
 
   getFlightsClimbed(date, id) {
     return this.getGivenDayValue(date, id, 'flightsOfStairs');
+    //add id as a parameter getGivenDayValue?
   }
 
   getMilesWalked(date, user) {
@@ -36,5 +38,20 @@ class Activity extends DataRepository {
     let strideLength = user.strideLength;
     return (steps === null ? null : steps * strideLength / 5280);
   };
+
+  getAverageActivityThruWeek(id, endDate) {
+    return this.getWeeklyAverage(id, 'minutesActive', endDate)
+    // add another parameter to get weekly average that is the id?
+  }
+
+  getAverageStepsThruWeek(id, endDate) {
+    return this.getWeeklyAverage(id, 'numSteps', endDate)
+    // add another parameter to get weekly average that is the id?
+  }
+
+  getAverageFlightsThruWeek(id, endDate) {
+    return this.getWeeklyAverage(id, 'flightsOfStairs', endDate)
+    // add another parameter to get weekly average that is the id?
+  }
 
 }
