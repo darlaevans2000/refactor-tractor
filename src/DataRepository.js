@@ -45,14 +45,18 @@ class DataRepository {
 
   getWeeklyAverage(endDate, property) {
     let values = this.getWeekValues(endDate, property);
-    let sum = values.reduce((total, currentVal) => {
-      total += currentVal[property];
-      return total;
-    }, 0);
 
-    return Number.parseFloat((sum / values.length).toFixed(1));
+    if (!values) {
+      return false;
+    } else {
+      let sum = values.reduce((total, currentVal) => {
+        total += currentVal[property];
+        return total;
+      }, 0);
+
+      return Number.parseFloat((sum / values.length).toFixed(1));
+    }
   }
-
 }
 
 export default DataRepository;

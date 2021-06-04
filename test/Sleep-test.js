@@ -85,13 +85,18 @@ describe.only('Sleep', function() {
     expect(sleepData.getWeekOfSleepData('2019/06/16')).to.equal(false);
     expect(sleepData.getWeekOfSleepData('aaaaaaa')).to.equal(false);
     expect(sleepData.getWeekOfSleepData('06/14/2021')).to.equal(false);
-  })
+  });
 
-  // it('Should calculate the average hours slept over a given week', function() {
-  //   expect(sleepData.calculateAverageHoursThisWeek('2019/06/24')).to.equal(8.7);
-  // });
+  it('Should calculate the average hours slept over a given week', function() {
+    expect(sleepData.calculateAverageHoursThisWeek('2019/06/24')).to.equal(8.7);
+  });
 
-  // it('Should return false if an invalid date is entered', function() {
-  //   expect(sleepData.calculateAverageHoursThisWeek('2019/06/16')).to.equal(false);
-  // });
+  it('Should calculate the average sleep quality over a given week', function() {
+    expect(sleepData.calculateAverageQualityThisWeek('2019/06/24')).to.equal(2.2);
+  });
+
+  it('Should return false if an invalid date is entered', function() {
+    expect(sleepData.calculateAverageHoursThisWeek('2019/06/16')).to.equal(false);
+    expect(sleepData.calculateAverageHoursThisWeek('fish')).to.equal(false);
+  });
 });
