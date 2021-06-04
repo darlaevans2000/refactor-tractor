@@ -7,15 +7,16 @@ import DataRepository from '../src/DataRepository';
 import testHydrationData from './test-data/test-hydration';
 import testUserData from './test-data/test-users';
 
-describe('Hydration', function() {
+describe.only('Hydration', () => {
   let hydration, dataRepo, user, user1;
 
   beforeEach(() => {
     user1 = testUserData[0];
     user = new User(user1);
     dataRepo = new DataRepository(user.id, testHydrationData);
-    hydration = new Hydration(dataRepo[user].id, testHydrationData);
-  })
+    hydration = new Hydration(user.id, testHydrationData);
+  });
+
   it('should be a function', () => {
     expect(Hydration).to.be.a('function');
   });
