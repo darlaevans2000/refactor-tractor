@@ -5,12 +5,12 @@ class Activity extends DataRepository {
   }
 
   getStepsTaken(date, id) {
-    return this.getGivenDayValue(date, id, 'numSteps');
+    return this.getGivenDayValue(date, 'numSteps');
     //add id as a parameter getGivenDayValue?
   }
 
   getMinutesActive(date, id) {
-    return this.getGivenDayValue(date, id, 'minutesActive');
+    return this.getGivenDayValue(date,'minutesActive');
     //add id as a parameter getGivenDayValue?
   }
 

@@ -24,24 +24,53 @@ describe.only('Activity', () => {
   it('should be an instance of activity', function() {
     expect(activity).to.be.an.instanceof(Activity);
   });
-//   it('should hold a userId', function() {
-//     expect(activity2.userId).to.equal(2);
-//   });
-//   it('should hold a date', function() {
-//     expect(activity1.date).to.equal("2019/06/15");
-//   });
-//   it('should hold number of steps', function() {
-//     expect(activity1.steps).to.equal(3684);
-//   });
-//   it('should hold minutes active', function() {
-//     expect(activity2.minutesActive).to.equal(280);
-//   });
-//   it('should hold flights of stairs', function() {
-//     expect(activity2.flightsOfStairs).to.equal(22);
-//   });
-//   it('should have a default value of 0 for miles walked', function() {
-//     expect(activity2.milesWalked).to.equal(0);
-//   });
+
+  it('should have the same userID for the dataset', function() {
+    let day1Data = activity.userData[0]
+    let day10Data = activity.userData[9]
+
+    expect(day1Data.userID).to.equal(1);
+    expect(day10Data.userID).to.equal(1);
+  });
+
+  it('should hold a date', function() {
+    let day1Data = activity.userData[0]
+    let day10Data = activity.userData[9]
+
+    expect(day1Data.date).to.equal('2019/06/15');
+    expect(day10Data.date).to.equal('2019/06/24');
+  });
+
+  it('Should contain user activity data', function() {
+    expect(activity.userData[0]).to.deep.equal({"userID": 1, "date": "2019/06/15", "numSteps": 3577, "minutesActive": 140, "flightsOfStairs": 16});
+  });
+
+  
+  it('should hold number of steps', function() {
+    expect(activity.userData[0].numSteps).to.equal(3577);
+  });
+
+  it('should hold minutes active', function() {
+    expect(activity.userData[0].minutesActive).to.equal(140);
+  });
+
+  it('should hold flights of stairs', function() {
+    expect(activity.userData[0].flightsOfStairs).to.equal(16);
+  });
+
+  it('should return the number of miles a user walked on a given day', function() {
+    let feetWalked = user1.strideLength * testActivityData[0].numSteps;
+    expect(activity.getMilesWalked("2019/06/15", user1)).to.equal(feetWalked / 5280);
+   });
+
+   it('should return the minutes active for a specific user for a given day', function() {
+      expect(activity.getMinutesActive("2019/06/15", user1.id)).to.equal(140);
+    });
+
+
+  // it('should have a default value of 0 for miles walked', function() {
+  //   expect(activity.milesWalked).to.equal(0);
+  // });
 //   it('should have a default value of null for reached step goal', function() {
 //     expect(activity2.reachedStepGoal).to.equal(null);
 //   });
