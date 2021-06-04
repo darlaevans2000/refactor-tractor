@@ -1,3 +1,5 @@
+import DataRepository from './DataRepository';
+
 class Hydration extends DataRepository {
   constructor(id, dataSet) {
     super(id, dataSet);

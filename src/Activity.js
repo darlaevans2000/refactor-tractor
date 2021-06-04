@@ -1,3 +1,5 @@
+import DataRepository from './DataRepository';
+
 class Activity extends DataRepository {
   constructor(id, dataSet) {
     super(id, dataSet);
@@ -100,5 +102,5 @@ findFriendsTotalStepsForWeek(users, date) {
     });
     this.friendsActivityRecords = this.friendsActivityRecords.sort((a, b) => b.totalWeeklySteps - a.totalWeeklySteps);
   }
-  
+
 }
