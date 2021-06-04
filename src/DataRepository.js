@@ -54,7 +54,7 @@ class DataRepository {
       return total;
     }, 0);
 
-    return Math.round(sum / values.length);
+    return Number.parseFloat((sum / values.length).toFixed(1));
   }
 
 }
