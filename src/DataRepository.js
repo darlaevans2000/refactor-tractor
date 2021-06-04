@@ -21,7 +21,7 @@ class DataRepository {
     let start = lastIndex - 6;
     let end = lastIndex + 1;
 
-    if (!userData[start]) {
+    if (!this.userData[start]) {
       // If they choose a date that doesn't have previous data; ex. 2019/06/16
       return false
     } else {
