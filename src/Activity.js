@@ -54,4 +54,16 @@ class Activity extends DataRepository {
     // add another parameter to get weekly average that is the id?
   }
 
+  achievedGoal(user, day) {
+    if (user === undefined || day === undefined || user.id !== day.userID) return null;
+    return day.numSteps > user.dailyStepGoal;
+  };
+
+  getDaysAchievedGoal(user) {
+    let daysAchieved = this.data.filter((date) => {
+      return this.achievedGoal(user, date)
+    })
+    return daysAchieved || [];
+  };
+
 }
