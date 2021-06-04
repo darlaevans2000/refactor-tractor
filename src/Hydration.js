@@ -3,8 +3,9 @@ class Hydration extends DataRepository {
     super(id, dataSet);
   }
 
-  getAllTimeAvgOz(property) {
-    return super.getAllTimeAvgDaily(property);
+  getAllTimeAvgOz() {
+    let output = super.getAllTimeAvgDaily(property);
+    return Math.round(output);
   }
 
   getOzOnDate(date, property) {

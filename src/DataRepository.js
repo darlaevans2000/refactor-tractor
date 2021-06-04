@@ -25,6 +25,7 @@ class DataRepository {
       // If they choose a date that doesn't have previous data; ex. 2019/06/16
       return false
     } else {
+      // This is an array of data objects
       return this.userData.slice(start, end);
     }
   }
@@ -36,7 +37,7 @@ class DataRepository {
       return total;
     }, 0);
 
-    return Math.round(sum / numDays);
+    return Number.parseFloat((sum / numDays).toFixed(1));
   }
 
   getHighestValue(dataSet, property) {
