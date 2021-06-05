@@ -27,6 +27,7 @@ class DataRepository {
     }
   }
 
+
   getAllTimeAvgDaily(property) {
     let numDays = this.userData.length;
     let sum = this.userData.reduce((total, element) => {
