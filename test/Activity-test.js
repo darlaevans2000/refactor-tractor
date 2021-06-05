@@ -43,49 +43,39 @@ describe.only('Activity', () => {
   it('Should contain user activity data', function() {
     expect(activity.userData[0]).to.deep.equal({"userID": 1, "date": "2019/06/15", "numSteps": 3577, "minutesActive": 140, "flightsOfStairs": 16});
   });
-
+  it('should return the number of steps a user had on a given day', function() {
+    expect(activity.getStepsTaken("2019/06/15")).to.equal(3577);
+  });
   
-  it('should hold number of steps', function() {
-    expect(activity.userData[0].numSteps).to.equal(3577);
+  it('should return the number of minutes a user was active on a given day', function() {
+    expect(activity.getMinutesActive("2019/06/15")).to.equal(140);
   });
-
-  it('should hold minutes active', function() {
-    expect(activity.userData[0].minutesActive).to.equal(140);
+  
+  it('should return the number of flights of stairs a user did on a given day', function() {
+    expect(activity.getFlightsClimbed("2019/06/15")).to.equal(16);
   });
-
-  it('should hold flights of stairs', function() {
-    expect(activity.userData[0].flightsOfStairs).to.equal(16);
+  
+  
+  it('should return the minutes active for a specific user for a given day', function() {
+    expect(activity.getMinutesActive("2019/06/15", user1.id)).to.equal(140);
+  });
+  
+  it('should return the average number of minutes of activity for a week', function() {
+    expect(activity.getAvgActivityThruWeek('2019/06/24')).to.equal(153.9);
+  });
+  
+  it('should return the average number of steps for a week', function() {
+    expect(activity.getAvgStepsThruWeek('2019/06/24')).to.equal(9355.6);
+  });
+  
+  it('should return the average number of flights of stairs for a week', function() {
+    expect(activity.getAvgFlightsThruWeek('2019/06/24')).to.equal(13.6);
   });
 
   it('should return the number of miles a user walked on a given day', function() {
     let feetWalked = user1.strideLength * testActivityData[0].numSteps;
     expect(activity.getMilesWalked("2019/06/15", user1)).to.equal(feetWalked / 5280);
    });
-
-  it('should return the number of minutes a user was active on a given day', function() {
-    expect(activity.getMinutesActive("2019/06/15")).to.equal(140);
-   });
-
-  it('should return the number of flights of stairs a user did on a given day', function() {
-    expect(activity.getFlightsClimbed("2019/06/15")).to.equal(16);
-   });
-   
-
-   it('should return the minutes active for a specific user for a given day', function() {
-      expect(activity.getMinutesActive("2019/06/15", user1.id)).to.equal(140);
-    });
-
-    it('should return the average number of minutes of activity for a week', function() {
-      expect(activity.getAvgActivityThruWeek('2019/06/24')).to.equal(153.9);
-    });
-
-    it('should return the average number of steps for a week', function() {
-      expect(activity.getAvgStepsThruWeek('2019/06/24')).to.equal(9355.6);
-    });
-
-    it('should return the average number of flights of stairs for a week', function() {
-      expect(activity.getAvgFlightsThruWeek('2019/06/24')).to.equal(13.6);
-    });
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
   // });

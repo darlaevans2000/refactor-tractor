@@ -4,9 +4,8 @@ class Activity extends DataRepository {
     super(id, dataSet);
   }
 
-  getStepsTaken(date, id) {
+  getStepsTaken(date) {
     return this.getGivenDayValue(date, 'numSteps');
-    //add id as a parameter getGivenDayValue?
   }
 
   getMinutesActive(date) {
