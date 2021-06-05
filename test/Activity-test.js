@@ -75,6 +75,9 @@ describe.only('Activity', () => {
       expect(activity.getAvgStepsThruWeek('2019/06/24')).to.equal(9355.6);
     });
 
+    it('should return the average number of flights of stairs for a week', function() {
+      expect(activity.getAvgFlightsThruWeek('2019/06/24')).to.equal(13.6);
+    });
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
   // });

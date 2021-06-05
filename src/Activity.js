@@ -33,9 +33,8 @@ class Activity extends DataRepository {
     return super.getWeeklyAverage(endDate, 'numSteps')
   }
 
-  getAvgFlightsThruWeek(id, endDate) {
-    return this.getWeeklyAverage(id, 'flightsOfStairs', endDate)
-    // add another parameter to get weekly average that is the id?
+  getAvgFlightsThruWeek(endDate) {
+    return super.getWeeklyAverage(endDate, 'flightsOfStairs')
   }
 
   getAvgStepsOnDay(date) {
