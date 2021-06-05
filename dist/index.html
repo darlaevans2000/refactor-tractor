@@ -10,201 +10,201 @@
   </head>
   <body>
     <header>
-      <h1><span id="header-name"></span>FitLit</h1>
-      <button type="button" name="button" id="profile-button"><i class="fas fa-user-circle"></i></button>
-      <section class="hide" id="user-info-dropdown">
-        <h5 id="dropdown-name"></h5>
-        <p class="dropdown-p" id="dropdown-email"></p>
-        <p class="dropdown-p" id="dropdown-goal"></p>
+      <h1><span id="headerName"></span>FitLit</h1>
+      <button type="button" class="profile-button" name="button" id="profileButton"><i class="fas fa-user-circle"></i></button>
+      <section class="hide" id="userInfoDropdown">
+        <h5 id="dropdownName"></h5>
+        <p class="dropdown-p" id="dropdownEmail"></p>
+        <p class="dropdown-p" id="dropdownGoal"></p>
         <br />
         <!-- <p class="dropdown-p" id="dropdown-friends">FRIENDS TOTAL STEPS THIS WEEK</p>
         <div id="dropdown-friends-steps-container"></div> -->
       </section>
     </header>
     <main>
-      <section class="card-container" id="steps-card-container">
-        <section class="main-card" id="steps-main-card">
+      <section class="card-container steps-container" id="stepsCardContainer">
+        <section class="main-card" id="stepsMainCard">
           <div class="main-card-top-row">
             <button type="button" name="button" class="info-button" id="stepsInfoButton"><i class="fas fa-info-circle"></i></button>
             <h3>You have walked</h3>
             <button type="button" name="button" class="friends-button" id="stepsFriendsButton"><i class="fas fa-users"></i></button>
           </div>
-          <h2 id="steps-user-steps-today">X</h2>
+          <h2 id="stepsUserStepsToday">X</h2>
           <div class="main-card-top-row">
             <button type="button" name="button" class="trending-button steps-trending-button">x</button>
             <h3>steps today</h3>
             <button type="button" name="button" class="calendar-button" id="stepsCalendarButton"><i class="far fa-calendar-alt"></i></button>
           </div>
         </section>
-        <section class="info-card hide" id="steps-info-card">
+        <section class="info-card hide" id="stepsInfoCard">
           <button type="button" name="button" class="go-back-button steps-go-back-button"></button>
           <div class="card-data-line">
             <p>Total active minutes today:</p>
-            <h4 id="steps-info-active-minutes-today"></h4>
+            <h4 id="stepsInfoActiveMinutesToday"></h4>
           </div>
           <div class="card-data-line">
             <p>Total miles walked today:</p>
-            <h4 id="steps-info-miles-walked-today"></h4>
+            <h4 id="stepsInfoMilesWalkedToday"></h4>
           </div>
         </section>
-        <section class="friends-card hide" id="steps-friends-card">
+        <section class="friends-card hide" id="stepsFriendsCard">
           <button type="button" name="button" class="go-back-button steps-go-back-button"></button>
           <div class="card-data-line">
             <p>All users' average active minutes today:</p>
-            <h4 id="steps-friend-active-minutes-average-today"></h4>
+            <h4 id="stepsFriendActiveMinutesAverageToday"></h4>
           </div>
           <div class="card-data-line">
             <p>All users' average steps today:</p>
-            <h4 id="steps-friend-steps-average-today"></h4>
+            <h4 id="stepsFriendStepsAverageToday"></h4>
           </div>
           <div class="card-data-line">
             <p>All users' average step goal:</p>
-            <h4 id="steps-friend-average-step-goal"></h4>
+            <h4 id="stepsFriendAverageStepGoal"></h4>
           </div>
         </section>
-        <section class="trending-card hide" id="steps-trending-card">
+        <!-- <section class="trending-card hide" id="steps-trending-card">
           <button type="button" name="button" class="go-back-button steps-go-back-button"></button>
           <div class="card-data-line trending-steps-phrase-container">
           </div>
-        </section>
-        <section class="calendar-card hide" id="steps-calendar-card">
+        </section> -->
+        <section class="calendar-card hide" id="stepsCalendarCard">
           <button type="button" name="button" class="go-back-button steps-go-back-button"></button>
           <div class="card-data-line">
             <p>Your weekly average minutes active:</p>
-            <h4 id="steps-calendar-total-active-minutes-weekly"></h4>
+            <h4 id="stepsCalendarTotalActiveMinutesWeekly"></h4>
           </div>
           <div class="card-data-line">
             <p>Your total weekly step count:</p>
-            <h4 id="steps-calendar-total-steps-weekly"></h4>
+            <h4 id="stepsCalendarTotalStepsWeekly"></h4>
           </div>
         </section>
       </section>
-      <section class="card-container" id="hydration-card-container">
-        <section class="main-card" id="hydration-main-card">
+      <section class="card-container hydration-container" id="hydrationCardContainer">
+        <section class="main-card" id="hydrationMainCard">
           <div class="main-card-top-row">
             <button type="button" name="button" class="info-button" id="hydrationInfoButton"><i class="fas fa-info-circle"></i></button>
             <h3>You have had</h3>
             <button type="button" name="button" class="friends-button" id="hydrationFriendsButton"><i class="fas fa-users"></i></button>
           </div>
-          <h2 id="hydration-user-ounces-today"></h2>
+          <h2 id="hydrationUserOuncesToday"></h2>
           <div class="main-card-bottom-row">
             <h3>ounces of water today</h3>
             <button type="button" name="button" class="calendar-button" id="hydrationCalendarButton"><i class="far fa-calendar-alt"></i></button>
           </div>
         </section>
-        <section class="info-card hide" id="hydration-info-card">
+        <section class="info-card hide" id="hydrationInfoCard">
           <button type="button" name="button" class="go-back-button hydration-go-back-button"></button>
           <div class="card-data-line">
             <p>Glasses of water consumed today:</p>
-            <h4 id="hydration-info-glasses-today"></h4>
+            <h4 id="hydrationInfoGlassesToday"></h4>
           </div>
         </section>
-        <section class="friends-card hide" id="hydration-friends-card">
+        <section class="friends-card hide" id="hydrationFriendsCard">
           <button type="button" name="button" class="go-back-button hydration-go-back-button"></button>
           <div class="card-data-line">
             <p>All users' average daily ounces:</p>
-            <h4 id="hydration-friend-ounces-today"></h4>
+            <h4 id="hydrationFriendOuncesToday"></h4>
           </div>
         </section>
-        <section class="calendar-card hide" id="hydration-calendar-card">
+        <section class="calendar-card hide" id="hydrationCalendarCard">
           <button type="button" name="button" class="go-back-button hydration-go-back-button"></button>
           <div class="hydration-data-line">
             <p class="hydration-weekly-label">Yesterday:</p>
-            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydration-calendar-ounces-1day"></span> oz</h4>
+            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydrationCalendarOunces1Day"></span> oz</h4>
           </div>
           <div class="hydration-data-line">
             <p class="hydration-weekly-label">2 days ago:</p>
-            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydration-calendar-ounces-2day"></span> oz</h4>
+            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydrationCalendarOunces2Day"></span> oz</h4>
           </div>
           <div class="hydration-data-line">
             <p class="hydration-weekly-label">3 days ago:</p>
-            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydration-calendar-ounces-3day"></span> oz</h4>
+            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydrationCalendarOunces3Day"></span> oz</h4>
           </div>
           <div class="hydration-data-line">
             <p class="hydration-weekly-label">4 days ago:</p>
-            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydration-calendar-ounces-4day"></span> oz</h4>
+            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydrationCalendarOunces4Day"></span> oz</h4>
           </div>
           <div class="hydration-data-line">
             <p class="hydration-weekly-label">5 days ago:</p>
-            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydration-calendar-ounces-5day"></span> oz</h4>
+            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydrationCalendarOunces5Day"></span> oz</h4>
           </div>
           <div class="hydration-data-line">
             <p class="hydration-weekly-label">6 days ago:</p>
-            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydration-calendar-ounces-6day"></span> oz</h4>
+            <h4 class="hydration-weekly-amount"><span class="daily-oz" id="hydrationCalendarOunces6Day"></span> oz</h4>
           </div>
         </section>
       </section>
-      <section class="card-container" id="stairs-card-container">
-        <section class="main-card" id="stairs-main-card">
+      <section class="card-container stairs-container" id="stairsCardContainer">
+        <section class="main-card" id="stairsMainCard">
           <div class="main-card-top-row">
             <button type="button" name="button" class="info-button" id="stairsInfoButton"><i class="fas fa-info-circle"></i></button>
             <h3>You have climbed</h3>
             <button type="button" name="button" class="friends-button" id="stairsFriendsButton"><i class="fas fa-users"></i></button>
           </div>
-          <h2 id="stairs-user-stairs-today"></h2>
+          <h2 id="stairsUserStairsToday"></h2>
           <div class="main-card-top-row">
             <button type="button" name="button" class="trending-button stairs-trending-button">x</button>
             <h3>stairs today</h3>
             <button type="button" name="button" class="calendar-button" id="stairsCalendarButton"><i class="far fa-calendar-alt"></i></button>
           </div>
         </section>
-        <section class="info-card hide" id="stairs-info-card">
+        <section class="info-card hide" id="stairsInfoCard">
           <button type="button" name="button" class="go-back-button stairs-go-back-button"></button>
           <div class="card-data-line">
             <p>Flights climbed today</p>
-            <h4 id="stairs-info-flights-today"></h4>
+            <h4 id="stairsInfoFlightsToday"></h4>
           </div>
         </section>
-        <section class="friends-card hide" id="stairs-friends-card">
+        <section class="friends-card hide" id="stairsFriendsCard">
           <button type="button" name="button" class="go-back-button stairs-go-back-button"></button>
           <div class="card-data-line">
             <p>All users' average flights today</p>
-            <h4 id="stairs-friend-flights-average-today"></h4>
+            <h4 id="stairsFriendFlightsAverageToday"></h4>
           </div>
         </section>
-        <section class="trending-card hide" id="stairs-trending-card">
+        <!-- <section class="trending-card hide" id="stairs-trending-card">
           <button type="button" name="button" class="go-back-button stairs-go-back-button"></button>
           <div class="card-data-line trending-stairs-phrase-container">
           </div>
-        </section>
-        <section class="calendar-card hide" id="stairs-calendar-card">
+        </section> -->
+        <section class="calendar-card hide" id="stairsCalendarCard">
           <button type="button" name="button" class="go-back-button stairs-go-back-button"></button>
           <div class="card-data-line">
             <p>Your weekly flights climbed</p>
-            <h4 id="stairs-calendar-flights-average-weekly"></h4>
+            <h4 id="stairsCalendarFlightsAverageWeekly"></h4>
           </div>
           <div class="card-data-line">
             <p>Your weekly stairs climbed</p>
-            <h4 id="stairs-calendar-stairs-average-weekly"></h4>
+            <h4 id="stairsCalendarStairsAverageWeekly"></h4>
           </div>
         </section>
       </section>
-      <section class="card-container" id="sleep-card-container">
-        <section class="main-card" id="sleep-main-card">
+      <section class="card-container sleep-container" id="sleepCardContainer">
+        <section class="main-card" id="sleepMainCard">
           <div class="main-card-top-row">
             <button type="button" name="button" class="info-button" id="sleepInfoButton"><i class="fas fa-info-circle"></i></button>
             <h3>You slept</h3>
             <button type="button" name="button" class="friends-button" "sleepFriendsButton"><i class="fas fa-users"></i></button>
           </div>
-          <h2 id="sleep-user-hours-today"></h2>
+          <h2 id="sleepUserHoursToday"></h2>
           <div class="main-card-bottom-row">
             <h3>hours last night</h3>
             <button type="button" name="button" class="calendar-button" id="sleepCalendarButton"><i class="far fa-calendar-alt"></i></button>
           </div>
         </section>
-        <section class="info-card hide" id="sleep-info-card">
+        <section class="info-card hide" id="sleepInfoCard">
           <button type="button" name="button" class="go-back-button sleep-go-back-button"></button>
           <div class="card-data-line">
             <p>Sleep quality last night</p>
-            <h4 id="sleep-info-quality-today"></h4>
+            <h4 id="sleepInfoQualityToday"></h4>
           </div>
           <div class="card-data-line">
             <p>Overall number of hours average</p>
-            <h4 id="sleep-info-hours-average-alltime"></h4>
+            <h4 id="sleepInfoHoursAverageAlltime"></h4>
           </div>
           <div class="card-data-line">
             <p>Overall sleep quality average</p>
-            <h4 id="sleep-info-quality-average-alltime"></h4>
+            <h4 id="sleepInfoQualityAverageAlltime"></h4>
           </div>
         </section>
         <!-- <section class="friends-card hide" id="sleep-friends-card">
@@ -218,15 +218,15 @@
             <h4 id="sleep-friend-worst-sleeper"></h4>
           </div>
         </section> -->
-        <section class="calendar-card hide" id="sleep-calendar-card">
+        <section class="calendar-card hide" id="sleepCalendarCard">
           <button type="button" name="button" class="go-back-button sleep-go-back-button"></button>
           <div class="card-data-line">
             <p>Last week's hourly average</p>
-            <h4 id="sleep-calendar-hours-average-weekly"></h4>
+            <h4 id="sleepCalendarHoursAverageWeekly"></h4>
           </div>
           <div class="card-data-line">
             <p>Last week's quality average</p>
-            <h4 id="sleep-calendar-quality-average-weekly"></h4>
+            <h4 id="sleepCalendarQualityAverageWeekly"></h4>
           </div>
         </section>
       </section>
