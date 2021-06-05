@@ -38,9 +38,9 @@ class Activity extends DataRepository {
     return super.getAllTimeAvgDaily('numSteps');
   };
 
-  // getAvgMinutesOnDay(date) {
-  //   return this.getAvgDaily('minutesActive', date);
-  // }
+  getAvgMinutesOnDay() {
+    return super.getAllTimeAvgDaily('minutesActive');;
+  }
 
   // getAvgFlightsOnDay(date) {
   //   return this.getAvgDaily('flightsOfStairs', date);
