@@ -6,18 +6,18 @@ class Activity extends DataRepository {
     super(id, dataSet);
   }
 
-  getStepsTaken(date, id) {
-    return this.getGivenDayValue(date, id, 'numSteps');
+  getStepsTaken(date) {
+    return this.getGivenDayValue(date, 'numSteps');
     //add id as a parameter getGivenDayValue?
   }
 
-  getMinutesActive(date, id) {
-    return this.getGivenDayValue(date, id, 'minutesActive');
+  getMinutesActive(date) {
+    return this.getGivenDayValue(date, 'minutesActive');
     //add id as a parameter getGivenDayValue?
   }
 
   getFlightsClimbed(date, id) {
-    return this.getGivenDayValue(date, id, 'flightsOfStairs');
+    return this.getGivenDayValue(date, 'flightsOfStairs');
     //add id as a parameter getGivenDayValue?
   }
 
@@ -105,3 +105,5 @@ findFriendsTotalStepsForWeek(users, date) {
   }
 
 }
+
+export default Activity;

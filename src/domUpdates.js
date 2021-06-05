@@ -1,39 +1,78 @@
+import UserRepository from './UserRepository';
+import DataRepository from './DataRepository';
+import User from './User';
+import Activity from './Activity';
+import Hydration from './Hydration';
+import Sleep from './Sleep';
+import testUserData from '../test/test-data/test-users';
+import testHydrationData from '..//test/test-data/test-hydration';
+import testSleepData from '..//test/test-data/test-sleep';
+import testActivityData from '..//test/test-data/test-activity';
+
 let domUpdates = {
-  let infoButton =
-  greetUser(currentUser) {
-    let headerName = document.getElementById('header-name');
-    headerName.innerText = `${user.getFirstName()}'S `;
-  };
 
-  displayUserDetails(currentUser) {
-    let dropdownEmail = document.getElementById('dropdown-email');
-    let dropdownGoal = document.getElementById('dropdownGoal');
-    let dropdownName = document.getElementById('dropdown-name');
+  greetUser() {
+    let user = new User(testUserData[0]);
+    let headerName = document.getElementById('headerName');
+    headerName.innerText = `${user.getFirstName()}'S `
+  },
 
-    dropdownGoal.innerText = `DAILY STEP GOAL | ${user.dailyStepGoal}`;
-    dropdownEmail.innerText = `EMAIL | ${user.email}`;
+  displayUserDetails() {
+    let user = new User(testUserData[0]);
+    let dropdownEmail = document.getElementById('dropdownEmail')
+    let dropdownGoal = document.getElementById('dropdownGoal')
+    let dropdownName = document.getElementById('dropdownName')
+
+    dropdownGoal.innerText = `DAILY STEP GOAL | ${user.dailyStepGoal}`
+    dropdownEmail.innerText = `EMAIL | ${user.email}`
     dropdownName.innerText = user.name.toUpperCase();
-  };
+  },
 
-  displayMainCards(currentUser) {
-    let hydrationMainCard = document.getElementById('hydrationMainCard');
+  displayMainCards() {
+    let user = new User(testUserData[0]);
+    let hydration = new Hydration(user.id, testHydrationData);
+    let activity = new Activity(user.id, testActivityData);
+    let sleep = new Sleep(user.id, testSleepData);
+
+    let hydrationUserOuncesToday = document.getElementById('hydrationUserOuncesToday');
     let stepsUserStepsToday = document.getElementById('stepsUserStepsToday');
-    let stairsUserStairsToday = document.getElementById('stairsUser-stairsToday');
+    let stairsUserStairsToday = document.getElementById('stairsUserStairsToday');
     let sleepUserHoursToday = document.getElementById('sleepUserHoursToday');
 
-    let todayDate = "2019/09/22";
+    let todayDate = "2019/06/22";
     let ozToday = hydration.getOzOnDate(todayDate, 'numOunces');
-    let stepsToday = activity.getStepsTaken(todayDate, currentUser.id);
-    let stairsToday = activity.getFlightsClimbed(todayDate, currentUser.id)
+    console.log('working')
+    let stepsToday = activity.getStepsTaken(todayDate, user.id);
+    let stairsToday = activity.getFlightsClimbed(todayDate, user.id)
     let sleepToday = sleep.getHoursSleptOnDate(todayDate);
-    hydrationMainCard.innerText = `${ozToday}`;
-    stepsUserStepsToday.innerText = `${stepsToday}`;
-    stepsUserStairsToday.innerText = `${stairsToday}`;
-    sleepUserHoursToday.innerText = `${sleepToday}`;
+    hydrationUserOuncesToday.innerText = `${ozToday}`
+    stepsUserStepsToday.innerText = `${stepsToday}`
+    stairsUserStairsToday.innerText = `${stairsToday}`
+    sleepUserHoursToday.innerText = `${sleepToday}`
+  },
 
-  }
+  flipCard(cardToHide, cardToShow) {
+    cardToHide.classList.add('hide');
+    cardToShow.classList.remove('hide');
+  },
+
   displayHydrationCard() {
-  }
+    let hydrationMainCard = document.getElementById('hydrationMainCard');
+    let hydrationInfo = event.target.id
+    if (hydrationInfo === hydrationInfo) {
+       this.flipCard(hydrationMainCard, hydrationInfo)
+    }
+
+    // let hydrationCalendarCard = document.querySelector('#hydration-calendar-card');
+    // let hydrationFriendOuncesToday = document.querySelector('#hydration-friend-ounces-today');
+    // let hydrationFriendsCard = document.querySelector('#hydration-friends-card');
+    // let hydrationInfoCard = document.querySelector('#hydration-info-card');
+    // let hydrationInfoGlassesToday = document.querySelector('#hydration-info-glasses-today');
+    // let hydrationMainCard = document.querySelector('#hydration-main-card');
+    // let hydrationU serOuncesToday = document.querySelector('#hydration-user-ounces-today');
+
+  },
+
   displayStepsCard() {
     let stepsMainCard = document.getElementById('stepsMainCard');
     let stepsInfoCard = document.getElementById('stepsInfoCard');
@@ -49,7 +88,7 @@ let domUpdates = {
     let stepsFriendStepsAverageToday = document.getElementById('stepsFriendStepsAverageToday');
     let stepsTrendingButton = document.getElementById('.steps-trendingButton');
 
-  }
+  },
 
   displayStairsCard() {
     let stairsCalendarCard = document.getElementById('stairsCalendarCard');
@@ -62,7 +101,7 @@ let domUpdates = {
     let stairsMainCard = document.getElementById('stairsMainCard');
     let stairsTrendingButton = document.getElementByClass('stairsTrendingButton');
     let stairsTrendingCard = document.getElementById('stairs-trendingCard');
-  }
+  },
 
   displaySleepCard() {
     let sleepCalendarCard = document.querySelector('#sleepCalendarCard');
@@ -78,7 +117,7 @@ let domUpdates = {
     let sleepMainCard = document.querySelector('#sleepMainCard');
     let sleepUserHoursToday = document.querySelector('#sleepUserHoursToday');
 
-  }
+  },
 
 }
 

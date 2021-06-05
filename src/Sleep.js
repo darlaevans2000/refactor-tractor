@@ -5,7 +5,6 @@ class Sleep extends DataRepository {
   constructor(id, dataSet) {
     super(id, dataSet);
   }
-
   getAvgHoursSleptPerDay() {
     return super.getAllTimeAvgDaily('hoursSlept');
   }
