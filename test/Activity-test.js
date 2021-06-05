@@ -66,11 +66,9 @@ describe.only('Activity', () => {
     expect(activity.getMinutesActive("2019/06/15")).to.equal(140);
    });
 
-  // it('should return the number of flights a user did on a given day', function() {
-  //   let feetWalked = user1.strideLength * testActivityData[0].numSteps;
-  //   expect(activity.getMilesWalked("2019/06/15", user1)).to.equal(feetWalked / 5280);
-  //  });
-
+  it('should return the number of flights of stairs a user did on a given day', function() {
+    expect(activity.getFlightsClimbed("2019/06/15")).to.equal(16);
+   });
    
 
    it('should return the minutes active for a specific user for a given day', function() {

@@ -13,9 +13,8 @@ class Activity extends DataRepository {
     return this.getGivenDayValue(date, 'minutesActive');
   }
 
-  getFlightsClimbed(date, id) {
-    return this.getGivenDayValue(date, id, 'flightsOfStairs');
-    //add id as a parameter getGivenDayValue?
+  getFlightsClimbed(date) {
+    return this.getGivenDayValue(date, 'flightsOfStairs');
   }
 
   getMilesWalked(date, user) {
