@@ -20,12 +20,12 @@ class DataRepository {
     let start = lastIndex - 6;
     let end = lastIndex + 1;
 
-<<<<<<< HEAD
-    if (start < 0) {
-      return false
-    } else {
-      return this.userData.slice(start, end);
-=======
+// <<<<<<< HEAD
+    // if (start < 0) {
+    //   return false
+    // } else {
+    //   return this.userData.slice(start, end);
+// =======
     if (!this.userData[start]) {
       // If they choose a date that doesn't have previous data; ex. 2019/06/16
       return false
@@ -33,9 +33,10 @@ class DataRepository {
       // This is an array of data objects
       let weekValues = this.userData.slice(start, end);
       return weekValues;
->>>>>>> main
+// >>>>>>> main
     }
   }
+
 
   getAllTimeAvgDaily(property) {
     let numDays = this.userData.length;

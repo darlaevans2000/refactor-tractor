@@ -36,21 +36,19 @@ describe.only('Hydration', () => {
   });
 
   it('should find the number of ounces drank on a given day', () => {
-    let waterOnDate = hydration.getOzOnDate("2019/06/17", 'numOunces');
+    let waterOnDate = hydration.getOzOnDate('2019/06/17', 'numOunces');
     expect(waterOnDate).to.equal(96);
   });
 
   it('should find the number of ounces drank per day for any given week', () => {
-    let weekOfWater = hydration.getWeekOfOz("2019/06/24",'numOunces');
+    let weekOfWater = hydration.getWeekOfOz('2019/06/24','numOunces');
     expect(weekOfWater.length).to.equal(7);
   })
 
-  it('should return an error if there is no data for the date input' () => {
-
-  })
-
-  it('should return an error if the date input does not match the format' () => {
-
+  it('should return false if an invalid date is given', () => {
+    expect(hydration.getWeekOfOz('06/24/2019', 'numOunces')).to.equal(false);
+    expect(hydration.getWeekOfOz('potato', 'numOunces')).to.equal(false);
+    expect(hydration.getWeekOfOz('2021/06/19', 'numOunces')).to.equal(false);
   })
 
   // it('should have a date', () => {

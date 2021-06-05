@@ -14,11 +14,11 @@
     return names[0].toUpperCase();
   }
 
-  findFriendsNames(users) {
-    this.friends.forEach(friend => {
-      this.friendsNames.push(users.find(user => user.id === friend).getFirstName());
-    })
-  }
+  // findFriendsNames(users) {
+  //   this.friends.forEach(friend => {
+  //     this.friendsNames.push(users.find(user => user.id === friend).getFirstName());
+  //   })
+  // }
 
 
 }
