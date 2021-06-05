@@ -6,11 +6,12 @@
     <title>Refactor Tractor: FitLit</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
+    <script src="https://kit.fontawesome.com/10ffbe374d.js" crossorigin="anonymous"></script>
   </head>
   <body>
     <header>
       <h1><span id='header-name'></span>FitLit</h1>
-      <button type='button' name='button' id='profile-button'></button>
+      <button type='button' name='button' id='profile-button'><i class="fas fa-user-circle"></i></button>
       <section class='hide' id='user-info-dropdown'>
         <h5 id='dropdown-name'></h5>
         <p class='dropdown-p' id='dropdown-email'></p>
@@ -24,15 +25,15 @@
       <section class='card-container' id='steps-card-container'>
         <section class='main-card' id='steps-main-card'>
           <div class='main-card-top-row'>
-            <button type='button' name='button' class='info-button steps-info-button'></button>
+            <button type='button' name='button' class='info-button' id='stepsInfoButton'><i class="fas fa-info-circle"></i></button>
             <h3>You have walked</h3>
-            <button type='button' name='button' class='friends-button steps-friends-button'></button>
+            <button type='button' name='button' class="friends-button" id="stepsFriendsButton"><i class="fas fa-users"></i></button>
           </div>
           <h2 id='steps-user-steps-today'>X</h2>
           <div class='main-card-top-row'>
-            <button type='button' name='button' class='trending-button steps-trending-button'></button>
+            <button type='button' name='button' class='trending-button steps-trending-button'>x</button>
             <h3>Steps today</h3>
-            <button type='button' name='button' class='calendar-button steps-calendar-button'></button>
+            <button type="button" name="button" class="calendar-button" id="stepsCalendarButton"><i class="far fa-calendar-alt"></i></button>
           </div>
         </section>
         <section class='info-card hide' id='steps-info-card'>
@@ -81,14 +82,14 @@
       <section class='card-container' id='hydration-card-container'>
         <section class='main-card' id='hydration-main-card'>
           <div class='main-card-top-row'>
-            <button type='button' name='button' class='info-button hydration-info-button'></button>
+            <button type='button' name='button' class='info-button' id="hydrationInfoButton"><i class="fas fa-info-circle"></i></button>
             <h3>You have had</h3>
-            <button type='button' name='button' class='friends-button hydration-friends-button'></button>
+            <button type='button' name='button' class="friends-button" id="hydrationFriendsButton"><i class="fas fa-users"></i></button>
           </div>
           <h2 id='hydration-user-ounces-today'></h2>
           <div class='main-card-bottom-row'>
             <h3>Ounces of water today</h3>
-            <button type='button' name='button' class='calendar-button hydration-calendar-button'></button>
+            <button type='button' name='button' class="calendar-button" id="hydrationCalendarButton"><i class="far fa-calendar-alt"></i></button>
           </div>
         </section>
         <section class='info-card hide' id='hydration-info-card'>
@@ -136,15 +137,15 @@
       <section class='card-container' id='stairs-card-container'>
         <section class='main-card' id='stairs-main-card'>
           <div class='main-card-top-row'>
-            <button type='button' name='button' class='info-button stairs-info-button'></button>
+            <button type='button' name='button' class="info-button" id="stairsInfoButton"><i class="fas fa-info-circle"></i></button>
             <h3>You have climbed</h3>
-            <button type='button' name='button' class='friends-button stairs-friends-button'></button>
+            <button type='button' name='button' class="friends-button" id="stairsFriendsButton"><i class="fas fa-users"></i></button>
           </div>
           <h2 id='stairs-user-stairs-today'></h2>
           <div class='main-card-top-row'>
-            <button type='button' name='button' class='trending-button stairs-trending-button'></button>
+            <button type='button' name='button' class='trending-button stairs-trending-button'>x</button>
             <h3>Stairs today</h3>
-            <button type='button' name='button' class='calendar-button stairs-calendar-button'></button>
+            <button type='button' name='button' class="calendar-button" id="stairsCalendarButton"><i class="far fa-calendar-alt"></i></button>
           </div>
         </section>
         <section class='info-card hide' id='stairs-info-card'>
@@ -181,14 +182,14 @@
       <section class='card-container' id='sleep-card-container'>
         <section class='main-card' id='sleep-main-card'>
           <div class='main-card-top-row'>
-            <button type='button' name='button' class='info-button sleep-info-button'></button>
+            <button type='button' name='button' class="info-button" id="sleepInfoButton"><i class="fas fa-info-circle"></i></button>
             <h3>You slept</h3>
-            <button type='button' name='button' class='friends-button sleep-friends-button'></button>
+            <button type='button' name='button' class="friends-button" "sleepFriendsButton"><i class="fas fa-users"></i></button>
           </div>
           <h2 id='sleep-user-hours-today'></h2>
           <div class='main-card-bottom-row'>
             <h3>Hours last night</h3>
-            <button type='button' name='button' class='calendar-button sleep-calendar-button'></button>
+            <button type='button' name='button' class="calendar-button" id="sleepCalendarButton"><i class="far fa-calendar-alt"></i></button>
           </div>
         </section>
         <section class='info-card hide' id='sleep-info-card'>
