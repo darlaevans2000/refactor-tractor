@@ -6,7 +6,7 @@ import User from '../src/User';
 import testSleepData from './test-data/test-sleep';
 import testUserData from './test-data/test-users';
 
-describe('Sleep', function() {
+describe.only('Sleep', function() {
   let sleepData, user1;
 
   beforeEach(() => {

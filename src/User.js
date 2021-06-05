@@ -7,20 +7,21 @@
     this.strideLength = userData.strideLength;
     this.dailyStepGoal = userData.dailyStepGoal;
     this.friends = userData.friends;
-    this.friendsNames = [];
+    // this.friendsNames = [];
   }
   getFirstName() {
     let names = this.name.split(' ');
     return names[0].toUpperCase();
   }
-
   // findFriendsNames(users) {
   //   this.friends.forEach(friend => {
-  //     this.friendsNames.push(users.find(user => user.id === friend).getFirstName());
+  //     this.friendsNames.push(users.find(user => {
+  //       return user.id === friend}));
+  //
   //   })
+  //   this.friendsNames.getFirstName();
+  //   console.log(this.friendsNames);
   // }
-
-
 }
 
 export default User;

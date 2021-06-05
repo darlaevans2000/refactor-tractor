@@ -4,10 +4,16 @@ import User from '../src/User';
 import testUserData from './test-data/test-users';
 
 
-describe('User', () => {
+describe.only('User', () => {
   let user;
+  // user1, user2, user3, usersFriends;
+
   beforeEach(() => {
     user = new User(testUserData[0])
+    // user1 = testUserData[1];
+    // user2 = testUserData[2];
+    // user3 = testUserData[3];
+    // usersFriends = [user1, user2, user3];
   })
   it('should be a function', () => {
     expect(User).to.be.a('function');
@@ -39,22 +45,8 @@ describe('User', () => {
   it('getFirstName should return the first name of the user', () => {
     expect(user.getFirstName()).to.equal('LUISA');
   });
-  //
-  // it('findFriendsNames should find the first names of friends', function() {
-  //   let user2 = new User({
-  //     'id': 16,
-  //     'name': 'Ben Nist',
-  //   })
-  //   let user3 = new User({
-  //     'id': 4,
-  //     'name': 'John Firth',
-  //   })
-  //   let user4 = new User({
-  //     'id': 8,
-  //     'name': 'Nick Adams',
-  //   })
-  //   let users = [user2, user3, user4];
-  //   user.findFriendsNames(users);
-  //   expect(user.friendsNames).to.deep.equal(['BEN', 'JOHN', 'NICK']);
+  // it('findFriendsNames should find the first names of friends', () => {
+  //   user.findFriendsNames(usersFriends);
+  //   expect(user.friendsNames).to.deep.equal(['JARVIS', 'HERMINIA', 'MAE']);
   // });
 });
