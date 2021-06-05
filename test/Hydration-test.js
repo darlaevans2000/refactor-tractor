@@ -7,7 +7,7 @@ import DataRepository from '../src/DataRepository';
 import testHydrationData from './test-data/test-hydration';
 import testUserData from './test-data/test-users';
 
-describe.only('Hydration', () => {
+describe('Hydration', () => {
   let hydration, dataRepo, user, user1;
 
   beforeEach(() => {

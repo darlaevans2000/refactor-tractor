@@ -21,7 +21,7 @@ class DataRepository {
     let end = lastIndex + 1;
 
     if (start < 0) {
-      return false
+      return false;
     } else {
       return this.userData.slice(start, end);
     }
