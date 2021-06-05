@@ -42,9 +42,9 @@ class Activity extends DataRepository {
     return super.getAllTimeAvgDaily('minutesActive');;
   }
 
-  // getAvgFlightsOnDay(date) {
-  //   return this.getAvgDaily('flightsOfStairs', date);
-  // }
+  getAvgFlightsOnDay() {
+    return this.getAllTimeAvgDaily('flightsOfStairs');
+  }
 
   achievedGoal(user, day) {
     if (user === undefined || day === undefined || user.id !== day.userID) return null;

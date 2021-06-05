@@ -77,8 +77,8 @@ describe.only('Activity', () => {
     expect(activity.getAvgStepsOnDay()).to.equal(9003.2);
   });
 
-    it('Should calculate the average minutes active per day for all time', function() {
-    expect(activity.getAvgMinutesOnDay()).to.equal(156);
+  it('Should calculate the average flights of stairs climbed per day for all time', function() {
+    expect(activity.getAvgFlightsOnDay()).to.equal(16.5);
   });
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
