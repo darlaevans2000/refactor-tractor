@@ -63,11 +63,6 @@ h1 {
 }
 
 h2 {
-  font-size: 7vw;
-  letter-spacing: .1em;
-}
-
-h3 {
   display: inline;
   font-family: 'Work Sans', sans-serif;
   font-size: 3vw;
@@ -75,17 +70,12 @@ h3 {
   letter-spacing: .2em;
 }
 
+h3 {
+  font-size: 7vw;
+  letter-spacing: .1em;
+}
+
 h4 {
-  font-size: 6vw;
-}
-
-h5 {
-  font-size: 1.8vw;
-  padding-bottom: 1vw;
-  text-align: center;
-}
-
-p {
   font-family: 'Work Sans', sans-serif;
   font-size: 1.2vw;
   font-weight: 600;
@@ -95,6 +85,17 @@ p {
   text-align: right;
   width: 9vw;
   word-break: keep-all;
+}
+
+h5 {
+  font-size: 1.8vw;
+  padding-bottom: 1vw;
+  text-align: center;
+}
+
+p {
+  font-size: 6vw;
+  font-weight: 700;
 }
 
 /* MAIN */
@@ -192,7 +193,7 @@ main {
 .friends-button {
   background: none;
   color: #ffffff;
-  font-size: 3.4vw;
+  font-size: 3vw;
   border: none;
   display: inline;
   height: 3.4vw;
@@ -221,8 +222,9 @@ main {
 }
 
 .go-back-button {
-  background-position: center;
-  background-size: 3.4vw;
+  background: none;
+  color: #ffffff;
+  font-size: 3.4vw;
   border: none;
   height: 3.4vw;
   margin-left: 1vw;
