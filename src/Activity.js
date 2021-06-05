@@ -34,17 +34,17 @@ class Activity extends DataRepository {
     return super.getWeeklyAverage(endDate, 'flightsOfStairs')
   }
 
-  getAvgStepsOnDay(date) {
-    return this.getAvgDaily('numSteps', date);
+  getAvgStepsOnDay () {
+    return super.getAllTimeAvgDaily('numSteps');
   };
 
-  getAvgMinutesOnDay(date) {
-    return this.getAvgDaily('minutesActive', date);
-  }
+  // getAvgMinutesOnDay(date) {
+  //   return this.getAvgDaily('minutesActive', date);
+  // }
 
-  getAvgFlightsOnDay(date) {
-    return this.getAvgDaily('flightsOfStairs', date);
-  }
+  // getAvgFlightsOnDay(date) {
+  //   return this.getAvgDaily('flightsOfStairs', date);
+  // }
 
   achievedGoal(user, day) {
     if (user === undefined || day === undefined || user.id !== day.userID) return null;
@@ -68,13 +68,6 @@ class Activity extends DataRepository {
     // we may have to change findUserData a little to get this working
   };
 
-  getAvgDaily(stat, date) {
-    const userDataDate = this.dataSet(date);
-    return userDataDate.reduce((total, user) => {
-      total += user[stat];
-      return total;
-    }, 0) / userDataDate.length;
-  }
 
 }
 export default Activity 

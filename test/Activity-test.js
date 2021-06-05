@@ -43,6 +43,7 @@ describe.only('Activity', () => {
   it('Should contain user activity data', function() {
     expect(activity.userData[0]).to.deep.equal({"userID": 1, "date": "2019/06/15", "numSteps": 3577, "minutesActive": 140, "flightsOfStairs": 16});
   });
+
   it('should return the number of steps a user had on a given day', function() {
     expect(activity.getStepsTaken("2019/06/15")).to.equal(3577);
   });
@@ -53,11 +54,6 @@ describe.only('Activity', () => {
   
   it('should return the number of flights of stairs a user did on a given day', function() {
     expect(activity.getFlightsClimbed("2019/06/15")).to.equal(16);
-  });
-  
-  
-  it('should return the minutes active for a specific user for a given day', function() {
-    expect(activity.getMinutesActive("2019/06/15", user1.id)).to.equal(140);
   });
   
   it('should return the average number of minutes of activity for a week', function() {
@@ -76,6 +72,10 @@ describe.only('Activity', () => {
     let feetWalked = user1.strideLength * testActivityData[0].numSteps;
     expect(activity.getMilesWalked("2019/06/15", user1)).to.equal(feetWalked / 5280);
    });
+
+  it('Should calculate the average steps per day for all time', function() {
+    expect(activity.getAvgStepsOnDay()).to.equal(9003.2);
+  });
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
   // });
