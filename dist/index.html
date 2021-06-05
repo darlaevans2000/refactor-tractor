@@ -3,21 +3,21 @@
   <head>
     <meta charset="utf-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Trisha & Kayla's FitLit</title>
+    <title>Refactor Tractor: FitLit</title>
     <link href="https://fonts.googleapis.com/css?family=Oswald:400,700&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css?family=Work+Sans:300,400,700&display=swap" rel="stylesheet">
   </head>
   <body>
     <header>
-      <h1><span id='header-name'></span>FITLIT</h1>
+      <h1><span id='header-name'></span>FitLit</h1>
       <button type='button' name='button' id='profile-button'></button>
       <section class='hide' id='user-info-dropdown'>
         <h5 id='dropdown-name'></h5>
         <p class='dropdown-p' id='dropdown-email'></p>
         <p class='dropdown-p' id='dropdown-goal'></p>
         <br />
-        <p class='dropdown-p' id='dropdown-friends'>FRIENDS TOTAL STEPS THIS WEEK</p>
-        <div id='dropdown-friends-steps-container'></div>
+        <!-- <p class='dropdown-p' id='dropdown-friends'>FRIENDS TOTAL STEPS THIS WEEK</p>
+        <div id='dropdown-friends-steps-container'></div> -->
       </section>
     </header>
     <main>
@@ -25,39 +25,39 @@
         <section class='main-card' id='steps-main-card'>
           <div class='main-card-top-row'>
             <button type='button' name='button' class='info-button steps-info-button'></button>
-            <h3>YOU HAVE WALKED</h3>
+            <h3>You have walked</h3>
             <button type='button' name='button' class='friends-button steps-friends-button'></button>
           </div>
           <h2 id='steps-user-steps-today'>X</h2>
           <div class='main-card-top-row'>
             <button type='button' name='button' class='trending-button steps-trending-button'></button>
-            <h3>STEPS TODAY</h3>
+            <h3>Steps today</h3>
             <button type='button' name='button' class='calendar-button steps-calendar-button'></button>
           </div>
         </section>
         <section class='info-card hide' id='steps-info-card'>
           <button type='button' name='button' class='go-back-button steps-go-back-button'></button>
           <div class='card-data-line'>
-            <p>TOTAL ACTIVE MINUTES TODAY:</p>
+            <p>Total active minutes today:</p>
             <h4 id='steps-info-active-minutes-today'></h4>
           </div>
           <div class='card-data-line'>
-            <p>TOTAL MILES WALKED TODAY:</p>
+            <p>Total miles walked today:</p>
             <h4 id='steps-info-miles-walked-today'></h4>
           </div>
         </section>
         <section class='friends-card hide' id='steps-friends-card'>
           <button type='button' name='button' class='go-back-button steps-go-back-button'></button>
           <div class='card-data-line'>
-            <p>ALL USERS' AVERAGE ACTIVE MINUTES TODAY:</p>
+            <p>All users' average active minutes today:</p>
             <h4 id='steps-friend-active-minutes-average-today'></h4>
           </div>
           <div class='card-data-line'>
-            <p>ALL USERS' AVERAGE STEPS TODAY:</p>
+            <p>All users' average steps today:</p>
             <h4 id='steps-friend-steps-average-today'></h4>
           </div>
           <div class='card-data-line'>
-            <p>ALL USERS' AVERAGE STEP GOAL:</p>
+            <p>All users' average step goal:</p>
             <h4 id='steps-friend-average-step-goal'></h4>
           </div>
         </section>
@@ -69,11 +69,11 @@
         <section class='calendar-card hide' id='steps-calendar-card'>
           <button type='button' name='button' class='go-back-button steps-go-back-button'></button>
           <div class='card-data-line'>
-            <p>YOUR WEEKLY AVERAGE MINUTES:</p>
+            <p>Your weekly average minutes active:</p>
             <h4 id='steps-calendar-total-active-minutes-weekly'></h4>
           </div>
           <div class='card-data-line'>
-            <p>YOUR TOTAL WEEKLY STEP COUNT:</p>
+            <p>Your total weekly step count:</p>
             <h4 id='steps-calendar-total-steps-weekly'></h4>
           </div>
         </section>
@@ -82,53 +82,53 @@
         <section class='main-card' id='hydration-main-card'>
           <div class='main-card-top-row'>
             <button type='button' name='button' class='info-button hydration-info-button'></button>
-            <h3>YOU HAVE HAD</h3>
+            <h3>You have had</h3>
             <button type='button' name='button' class='friends-button hydration-friends-button'></button>
           </div>
           <h2 id='hydration-user-ounces-today'></h2>
           <div class='main-card-bottom-row'>
-            <h3>OZ OF WATER TODAY</h3>
+            <h3>Ounces of water today</h3>
             <button type='button' name='button' class='calendar-button hydration-calendar-button'></button>
           </div>
         </section>
         <section class='info-card hide' id='hydration-info-card'>
           <button type='button' name='button' class='go-back-button hydration-go-back-button'></button>
           <div class='card-data-line'>
-            <p>GLASSES OF WATER CONSUMED TODAY:</p>
+            <p>Glasses of water consumed today:</p>
             <h4 id='hydration-info-glasses-today'></h4>
           </div>
         </section>
         <section class='friends-card hide' id='hydration-friends-card'>
           <button type='button' name='button' class='go-back-button hydration-go-back-button'></button>
           <div class='card-data-line'>
-            <p>ALL USERS' AVERAGE DAILY OUNCES:</p>
+            <p>All users' average daily ounces:</p>
             <h4 id='hydration-friend-ounces-today'></h4>
           </div>
         </section>
         <section class='calendar-card hide' id='hydration-calendar-card'>
           <button type='button' name='button' class='go-back-button hydration-go-back-button'></button>
           <div class='hydration-data-line'>
-            <p class='hydration-weekly-label'>YESTERDAY:</p>
+            <p class='hydration-weekly-label'>Yesterday:</p>
             <h4 class='hydration-weekly-amount'><span class='daily-oz' id='hydration-calendar-ounces-1day'></span> oz</h4>
           </div>
           <div class='hydration-data-line'>
-            <p class='hydration-weekly-label'>2 DAYS AGO:</p>
+            <p class='hydration-weekly-label'>2 days ago:</p>
             <h4 class='hydration-weekly-amount'><span class='daily-oz' id='hydration-calendar-ounces-2day'></span> oz</h4>
           </div>
           <div class='hydration-data-line'>
-            <p class='hydration-weekly-label'>3 DAYS AGO:</p>
+            <p class='hydration-weekly-label'>3 days ago:</p>
             <h4 class='hydration-weekly-amount'><span class='daily-oz' id='hydration-calendar-ounces-3day'></span> oz</h4>
           </div>
           <div class='hydration-data-line'>
-            <p class='hydration-weekly-label'>4 DAYS AGO:</p>
+            <p class='hydration-weekly-label'>4 days ago:</p>
             <h4 class='hydration-weekly-amount'><span class='daily-oz' id='hydration-calendar-ounces-4day'></span> oz</h4>
           </div>
           <div class='hydration-data-line'>
-            <p class='hydration-weekly-label'>5 DAYS AGO:</p>
+            <p class='hydration-weekly-label'>5 days ago:</p>
             <h4 class='hydration-weekly-amount'><span class='daily-oz' id='hydration-calendar-ounces-5day'></span> oz</h4>
           </div>
           <div class='hydration-data-line'>
-            <p class='hydration-weekly-label'>6 DAYS AGO:</p>
+            <p class='hydration-weekly-label'>6 days ago:</p>
             <h4 class='hydration-weekly-amount'><span class='daily-oz' id='hydration-calendar-ounces-6day'></span> oz</h4>
           </div>
         </section>
@@ -137,27 +137,27 @@
         <section class='main-card' id='stairs-main-card'>
           <div class='main-card-top-row'>
             <button type='button' name='button' class='info-button stairs-info-button'></button>
-            <h3>YOU HAVE CLIMBED</h3>
+            <h3>You have climbed</h3>
             <button type='button' name='button' class='friends-button stairs-friends-button'></button>
           </div>
           <h2 id='stairs-user-stairs-today'></h2>
           <div class='main-card-top-row'>
             <button type='button' name='button' class='trending-button stairs-trending-button'></button>
-            <h3>STAIRS TODAY</h3>
+            <h3>Stairs today</h3>
             <button type='button' name='button' class='calendar-button stairs-calendar-button'></button>
           </div>
         </section>
         <section class='info-card hide' id='stairs-info-card'>
           <button type='button' name='button' class='go-back-button stairs-go-back-button'></button>
           <div class='card-data-line'>
-            <p>FLIGHTS CLIMBED TODAY</p>
+            <p>Flights climbed today</p>
             <h4 id='stairs-info-flights-today'></h4>
           </div>
         </section>
         <section class='friends-card hide' id='stairs-friends-card'>
           <button type='button' name='button' class='go-back-button stairs-go-back-button'></button>
           <div class='card-data-line'>
-            <p>ALL USERS' AVERAGE FLIGHTS TODAY</p>
+            <p>All users' average flights today</p>
             <h4 id='stairs-friend-flights-average-today'></h4>
           </div>
         </section>
@@ -169,11 +169,11 @@
         <section class='calendar-card hide' id='stairs-calendar-card'>
           <button type='button' name='button' class='go-back-button stairs-go-back-button'></button>
           <div class='card-data-line'>
-            <p>YOUR WEEKLY FLIGHTS CLIMBED</p>
+            <p>Your weekly flights climbed</p>
             <h4 id='stairs-calendar-flights-average-weekly'></h4>
           </div>
           <div class='card-data-line'>
-            <p>YOUR WEEKLY STAIRS CLIMBED</p>
+            <p>Your weekly stairs climbed</p>
             <h4 id='stairs-calendar-stairs-average-weekly'></h4>
           </div>
         </section>
@@ -182,31 +182,31 @@
         <section class='main-card' id='sleep-main-card'>
           <div class='main-card-top-row'>
             <button type='button' name='button' class='info-button sleep-info-button'></button>
-            <h3>YOU SLEPT</h3>
+            <h3>You slept</h3>
             <button type='button' name='button' class='friends-button sleep-friends-button'></button>
           </div>
           <h2 id='sleep-user-hours-today'></h2>
           <div class='main-card-bottom-row'>
-            <h3>HOURS LAST NIGHT</h3>
+            <h3>Hours last night</h3>
             <button type='button' name='button' class='calendar-button sleep-calendar-button'></button>
           </div>
         </section>
         <section class='info-card hide' id='sleep-info-card'>
           <button type='button' name='button' class='go-back-button sleep-go-back-button'></button>
           <div class='card-data-line'>
-            <p>SLEEP QUALITY LAST NIGHT</p>
+            <p>Sleep quality last night</p>
             <h4 id='sleep-info-quality-today'></h4>
           </div>
           <div class='card-data-line'>
-            <p>OVERALL NUMBER OF HOURS AVERAGE</p>
+            <p>Overall number of hours average</p>
             <h4 id='sleep-info-hours-average-alltime'></h4>
           </div>
           <div class='card-data-line'>
-            <p>OVERALL SLEEP QUALITY AVERAGE</p>
+            <p>Overall sleep quality average</p>
             <h4 id='sleep-info-quality-average-alltime'></h4>
           </div>
         </section>
-        <section class='friends-card hide' id='sleep-friends-card'>
+        <!-- <section class='friends-card hide' id='sleep-friends-card'>
           <button type='button' name='button' class='go-back-button sleep-go-back-button'></button>
           <div class='card-data-line'>
             <p>LAST NIGHT'S SUPERIOR SLEEPER</p>
@@ -216,20 +216,20 @@
             <p>LAST NIGHT'S INFERIOR SLEEPER</p>
             <h4 id='sleep-friend-worst-sleeper'></h4>
           </div>
-        </section>
+        </section> -->
         <section class='calendar-card hide' id='sleep-calendar-card'>
           <button type='button' name='button' class='go-back-button sleep-go-back-button'></button>
           <div class='card-data-line'>
-            <p>LAST WEEK'S HOURLY AVERAGE</p>
+            <p>Last week's hourly average</p>
             <h4 id='sleep-calendar-hours-average-weekly'></h4>
           </div>
           <div class='card-data-line'>
-            <p>LAST WEEK'S QUALITY AVERAGE</p>
+            <p>Last week's quality average</p>
             <h4 id='sleep-calendar-quality-average-weekly'></h4>
           </div>
         </section>
       </section>
-    </main>  
+    </main>
     <script src="bundle.js"></script>
   </body>
 </html>
