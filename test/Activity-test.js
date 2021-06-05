@@ -13,7 +13,6 @@ describe.only('Activity', () => {
     user1 = testUserData[0];
     user = new User(user1);
     activity = new Activity(user.id, testActivityData);
-    // dataRepo = new DataRepository(user.id, testActivityData);
   });
 
 
@@ -62,6 +61,17 @@ describe.only('Activity', () => {
     let feetWalked = user1.strideLength * testActivityData[0].numSteps;
     expect(activity.getMilesWalked("2019/06/15", user1)).to.equal(feetWalked / 5280);
    });
+
+  it('should return the number of minutes a user was active on a given day', function() {
+    expect(activity.getMinutesActive("2019/06/15")).to.equal(140);
+   });
+
+  // it('should return the number of flights a user did on a given day', function() {
+  //   let feetWalked = user1.strideLength * testActivityData[0].numSteps;
+  //   expect(activity.getMilesWalked("2019/06/15", user1)).to.equal(feetWalked / 5280);
+  //  });
+
+   
 
    it('should return the minutes active for a specific user for a given day', function() {
       expect(activity.getMinutesActive("2019/06/15", user1.id)).to.equal(140);
