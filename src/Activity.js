@@ -25,14 +25,12 @@ class Activity extends DataRepository {
     return (steps === null ? null : steps * strideLength / 5280);
   };
 
-  getAvgActivityThruWeek(id, endDate) {
-    return this.getWeeklyAverage(id, 'minutesActive', endDate)
-    // add another parameter to get weekly average that is the id?
+  getAvgActivityThruWeek(endDate) {
+    return super.getWeeklyAverage(endDate, 'minutesActive')
   }
 
-  getAvgStepsThruWeek(id, endDate) {
-    return this.getWeeklyAverage(id, 'numSteps', endDate)
-    // add another parameter to get weekly average that is the id?
+  getAvgStepsThruWeek(endDate) {
+    return super.getWeeklyAverage(endDate, 'numSteps')
   }
 
   getAvgFlightsThruWeek(id, endDate) {
@@ -80,26 +78,6 @@ class Activity extends DataRepository {
       total += user[stat];
       return total;
     }, 0) / userDataDate.length;
-  }
-
-findFriendsTotalStepsForWeek(users, date) {
-    this.friends.map(friend => {
-      let matchedFriend = users.find(user => user.id === friend);
-      matchedFriend.calculateTotalStepsThisWeek(date);
-      this.friendsActivityRecords.push(
-        {
-          'id': matchedFriend.id,
-          'firstName': matchedFriend.name.toUpperCase().split(' ')[0],
-          'totalWeeklySteps': matchedFriend.totalStepsThisWeek
-        })
-    })
-    this.calculateTotalStepsThisWeek(date);
-    this.friendsActivityRecords.push({
-      'id': this.id,
-      'firstName': 'YOU',
-      'totalWeeklySteps': this.totalStepsThisWeek
-    });
-    this.friendsActivityRecords = this.friendsActivityRecords.sort((a, b) => b.totalWeeklySteps - a.totalWeeklySteps);
   }
 
 }

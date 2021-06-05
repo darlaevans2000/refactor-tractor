@@ -67,6 +67,13 @@ describe.only('Activity', () => {
       expect(activity.getMinutesActive("2019/06/15", user1.id)).to.equal(140);
     });
 
+    it('should return the average number of minutes of activity for a week', function() {
+      expect(activity.getAvgActivityThruWeek('2019/06/24')).to.equal(153.9);
+    });
+
+    it('should return the average number of steps for a week', function() {
+      expect(activity.getAvgStepsThruWeek('2019/06/24')).to.equal(9355.6);
+    });
 
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
