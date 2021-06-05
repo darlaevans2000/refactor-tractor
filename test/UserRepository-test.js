@@ -76,61 +76,11 @@ describe.only('UserRepository', function() {
   });
 
   it('calculateAverageSleepQuality should return average sleep quality for all users', function() {
-    // user1.sleepQualityAverage = 3.3;
-    // user2.sleepQualityAverage = 5;
-    // user3.sleepQualityAverage = 1;
     expect(userRepository.calculateAverageSleepQuality(testSleepData)).to.equal(2.9);
   });
 
-  it.skip('should have a method that calculates friends average ounces of water', function() {
-    // Not in the spec
-    user1.ouncesRecord = [
-      {"2019/06/15": 1},
-      {"2019/06/15": 1},
-      {"2019/06/16": 5}
-    ]
-    user2.ouncesRecord = [
-      {"2019/06/15": 1},
-      {"2019/06/15": 1},
-      {"2019/06/16": 8}
-    ]
-    user3.ouncesRecord = [
-      {"2019/06/15": 1},
-      {"2019/06/15": 1},
-      {"2019/06/16": 4}
-    ]
-    expect(userRepository.calculateAverageDailyWater("2019/06/16")).to.equal(5)
-  });
-
-// Sleep quality > 3 for a given week
-  it.skip('should have a method that finds the best sleepers', function() {
-    expect(userRepository.findBestSleepers("2019/06/16")).to.deep.equal([user1, user2]);
-  });
-
-// Highest hoursSlept on a given day
   it('should have a method that finds the longest sleepers', function() {
     expect(userRepository.getLongestSleepers("2019/06/15", testSleepData)).to.equal(3);
-  });
-
-// Not in the spec
-  it.skip('should have a method that finds the worst sleepers', function() {
-    sleepData = [{
-      "userID": 1,
-      "date": "2019/06/15",
-      "hoursSlept": 6.1,
-      "sleepQuality": 1000
-    }, {
-      "userID": 2,
-      "date": "2019/06/15",
-      "hoursSlept": 7.3,
-      "sleepQuality": 500
-    }, {
-      "userID": 3,
-      "date": "2019/06/15",
-      "hoursSlept": 9.3,
-      "sleepQuality": 1.4
-    }];
-    expect(userRepository.getWorstSleepers("2019/06/15")).to.equal(1);
   });
 
   it('should calculate the average number of stairs climbed by all users on a given day', function() {
@@ -144,4 +94,9 @@ describe.only('UserRepository', function() {
   it('should have a method that calculates average number of active minutes for users', function() {
     expect(userRepository.calculateAverageActivity(testActivityData, '2019/06/21', 'minutesActive')).to.equal(163);
   });
+
+  // // Sleep quality > 3 for a given week
+  // it.skip('should have a method that finds the best sleepers', function() {
+  //   expect(userRepository.findBestSleepers("2019/06/16")).to.deep.equal([user1, user2]);
+  // });
 });
