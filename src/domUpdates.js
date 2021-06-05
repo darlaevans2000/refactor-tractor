@@ -15,24 +15,24 @@ let domUpdates = {
     dropdownName.innerText = user.name.toUpperCase();
   };
 
-  displayHydrationCard() {
+  displayMainCards(currentUser) {
     let hydrationMainCard = document.getElementById('hydrationMainCard');
+    let stepsUserStepsToday = document.getElementById('stepsUserStepsToday');
+    let stairsUserStairsToday = document.getElementById('stairsUser-stairsToday');
+    let sleepUserHoursToday = document.getElementById('sleepUserHoursToday');
 
     let todayDate = "2019/09/22";
     let ozToday = hydration.getOzOnDate(todayDate, 'numOunces');
-    hydrationMainCard.innerHTML = `
-    <section class='main-Card' id='hydrationMainCard'>
-      <div class='main-card-top-row'>
-        <button type='button' name='button' class='info-button hydration-info-button'></button>
-        <h3>YOU HAVE HAD</h3>
-        <button type='button' name='button' class='friends-button hydration-friends-button'></button>
-      </div>
-      <h2 id='hydration-user-ounces-today'>${ozToday}</h2>
-      <div class='main-card-bottom-row'>
-        <h3>OZ OF WATER TODAY</h3>
-        <button type='button' name='button' class='calendar-button hydration-calendar-button'></button>
-      </div>
-    </section>`
+    let stepsToday = activity.getStepsTaken(todayDate, currentUser.id);
+    let stairsToday = activity.getFlightsClimbed(todayDate, currentUser.id)
+    let sleepToday = sleep.getHoursSleptOnDate(todayDate);
+    hydrationMainCard.innerText = `${ozToday}`;
+    stepsUserStepsToday.innerText = `${stepsToday}`;
+    stepsUserStairsToday.innerText = `${stairsToday}`;
+    sleepUserHoursToday.innerText = `${sleepToday}`;
+
+  }
+  displayHydrationCard() {
   }
   displayStepsCard() {
     let stepsMainCard = document.getElementById('stepsMainCard');
@@ -48,7 +48,6 @@ let domUpdates = {
     let stepsFriendActiveMinutesAverageToday = document.getElementById('stepsFriendActiveMinutesAverageToday');
     let stepsFriendStepsAverageToday = document.getElementById('stepsFriendStepsAverageToday');
     let stepsTrendingButton = document.getElementById('.steps-trendingButton');
-    let stepsUserStepsToday = document.getElementById('stepsUserStepsToday');
 
   }
 
@@ -63,7 +62,6 @@ let domUpdates = {
     let stairsMainCard = document.getElementById('stairsMainCard');
     let stairsTrendingButton = document.getElementByClass('stairsTrendingButton');
     let stairsTrendingCard = document.getElementById('stairs-trendingCard');
-    let stairsUserStairsToday = document.getElementById('stairsUser-stairsToday');
   }
 
   displaySleepCard() {
