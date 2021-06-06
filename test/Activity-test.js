@@ -113,6 +113,12 @@ describe.only('Activity', () => {
       expect(activity.getStepsRecord(user1)).to.equal(14478);
     });
 
+    it('should identify the user day that had the most active for a single day in a given month and return the user id and how many mintues they had', function() {
+      const june = '2019/06/01';
+      const july = '2019/07/01';
+      expect(activity.getMonthlyActivityChampion(june, july)).to.deep.equal({userID: 1, record: 275})
+    });
+
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
   // });

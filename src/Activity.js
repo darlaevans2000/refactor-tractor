@@ -89,8 +89,15 @@ class Activity extends DataRepository {
     }, 0);
   };
 
-
-
+ getMonthlyActivityChampion(beginDate, endDate) {
+    const result = this.dataSet.reduce((record, current) => {
+      let check = record.record;
+      let test = ((beginDate, endDate) ? Math.max(record.record, current.minutesActive) : record.record);
+      return (check === test ? record : {userID: current.userID, record: current.minutesActive});
+    }, {userID: null, record: 0});
+    return result;
+  }
 
 }
+
 export default Activity 
