@@ -41,9 +41,8 @@ class DataRepository {
   }
 
   getHighestValue(dataSet, property) {
-    this.dataSet.sort((a,b) => {
-      return b[property] - a[property]
-    })[0][property]
+    let sortedData = dataSet.sort((a,b) => b[property] - a[property]);
+    return sortedData[0][property];
   }
 
   getWeeklyAverage(endDate, property) {
