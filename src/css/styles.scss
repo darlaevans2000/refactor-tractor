@@ -175,55 +175,40 @@ main {
 
 /* BUTTONS */
 .info-button {
-  background: none;
+  @include buttonsMainStyling();
   color: $white-color;
   font-size: 3.4vw;
-  border: none;
   display: inline;
-  height: 3.4vw;
   margin-left: 1vw;
-  width: 3.4vw;
 }
 
 .friends-button {
-  background: none;
+  @include buttonsMainStyling();
   color: $white-color;
   font-size: 3vw;
-  border: none;
   display: inline;
-  height: 3.4vw;
   margin-right: 1vw;
-  width: 3.4vw;
 }
 
 .calendar-button {
-  background: none;
+  @include buttonsMainStyling();
   color: $white-color;
   font-size: 3.4vw;
-  border: none;
   display: inline;
   float: right;
-  height: 3.4vw;
   margin-right: 1vw;
-  width: 3.4vw;
 }
 
 .trending-button {
-  background: none;
-  border: none;
-  height: 3.4vw;
+  @include buttonsMainStyling();
   margin-left: 1vw;
-  width: 3.4vw;
 }
 
 .go-back-button {
-  background: none;
+  @include buttonsMainStyling();
   color: $white-color;
   font-size: 3.4vw;
-  border: none;
-  height: 3.4vw;
   margin-left: 1vw;
-  width: 3.4vw;
 }
 
 

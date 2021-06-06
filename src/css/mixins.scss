@@ -3,3 +3,10 @@
     grid-area: $grid-area;
     margin: $margin;
 }
+
+@mixin buttonsMainStyling() {
+  background: none;
+  border: none;
+  height: 3.4vw;
+  width: 3.4vw;
+}
