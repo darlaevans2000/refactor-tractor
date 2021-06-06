@@ -12,21 +12,19 @@ import testActivityData from '..//test/test-data/test-activity';
 let domUpdates = {
 
   greetUser(user) {
-    // let user = new User(testUserData[0]);
     let headerName = document.getElementById('headerName');
     headerName.innerText = `${user.getFirstName()}'S `
   },
 
-  displayUserDetails(user) {
-    // let user = new User(testUserData[0]);
-    let dropdownEmail = document.getElementById('dropdownEmail')
-    let dropdownGoal = document.getElementById('dropdownGoal')
-    let dropdownName = document.getElementById('dropdownName')
-
-    dropdownGoal.innerText = `DAILY STEP GOAL | ${user.dailyStepGoal}`
-    dropdownEmail.innerText = `EMAIL | ${user.email}`
-    dropdownName.innerText = user.name.toUpperCase();
-  },
+  // displayUserDetails(user) {
+  //   let dropdownEmail = document.getElementById('dropdownEmail')
+  //   let dropdownGoal = document.getElementById('dropdownGoal')
+  //   let dropdownName = document.getElementById('dropdownName')
+  //
+  //   dropdownGoal.innerText = `DAILY STEP GOAL | ${user.dailyStepGoal}`
+  //   dropdownEmail.innerText = `EMAIL | ${user.email}`
+  //   dropdownName.innerText = user.name.toUpperCase();
+  // },
 
   displayMainCards(user, hydration, activity, sleep) {
     let hydrationUserOuncesToday = document.getElementById('hydrationUserOuncesToday');
@@ -45,85 +43,92 @@ let domUpdates = {
     sleepUserHoursToday.innerText = `${sleepToday}`
   },
 
-  // flipCard(cardToHide, cardToShow) {
-  //   cardToHide.classList.add('hide');
-  //   cardToShow.classList.remove('hide');
-  // },
-
-  displayHydrationCard(event, hydration, todayDate) {
+  displayHydrationWeek(event, hydration, todayDate) {
     let hydrationMainCard = document.getElementById('hydrationMainCard');
 
-    let hydrationInfo = event.target.closest('button').id
     hydrationMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
-    if (hydrationInfo.includes('Calendar')) {
-      let week = hydration.getWeekOfOz(todayDate, 'numOunces')
-      let daysOunces = week.forEach(day => {
-         return  hydrationMainCard.innerHTML += `${day.date} : ${day.numOunces}`
-       })
-    }
-    if (hydrationInfo.includes('Info')) {
-      let avg = hydration.getAllTimeAvgOz();
-      return  hydrationMainCard.innerHTML += `Your average daily consumption is: ${avg} oz!`
-    }
+    let week = hydration.getWeekOfOz(todayDate, 'numOunces')
+    let daysOunces = week.forEach(day => {
+        return  hydrationMainCard.innerHTML += `${day.date} : ${day.numOunces}`
+      });
+    },
+
+  displayHydrationAvg(event, hydration) {
+    let hydrationMainCard = document.getElementById('hydrationMainCard');
+    hydrationMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+
+    let avg = hydration.getAllTimeAvgOz();
+    return  hydrationMainCard.innerHTML += `Your average daily consumption is: ${avg} oz!`
   },
 
-  displayStepsCard(event, activity, todayDate) {
+  displayStepsWeek(event, activity, todayDate) {
     let stepsMainCard = document.getElementById('stepsMainCard');
-    let stepsInfo = event.target.closest('button').id
+
     stepsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
-    if (stepsInfo.includes('Calendar')) {
-      let weekSteps = activity.getAvgStepsThruWeek(todayDate);
-      let weekActiveMin = activity.getAvgActivityThruWeek(todayDate);
-         return  stepsMainCard.innerHTML += `
-         Your average daily steps this week was: ${weekSteps}
-         Your average minutes active was: ${weekActiveMin}`
-    }
-    if (stepsInfo.includes('Info')) {
-      let avgStepDay = activity.getAvgStepsOnDay();
-      let avgMinDay = activity.getAvgMinutesOnDay();
-      return  stepsMainCard.innerHTML += `
-      Your average daily steps: ${avgStepDay}
-      Your average daily active minutes: ${avgMinDay}
-      `
-    }
+    let weekSteps = activity.getAvgStepsThruWeek(todayDate);
+    let weekActiveMin = activity.getAvgActivityThruWeek(todayDate);
+       return  stepsMainCard.innerHTML += `
+       Your average daily steps this week was: ${weekSteps}
+       Your average minutes active was: ${weekActiveMin}`
+    },
+
+  displayStepsAvg(event, activity) {
+    let stepsMainCard = document.getElementById('stepsMainCard');
+
+    stepsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    let avgStepDay = activity.getAvgStepsOnDay();
+    let avgMinDay = activity.getAvgMinutesOnDay();
+    return  stepsMainCard.innerHTML += `
+    Your average daily steps: ${avgStepDay}
+    Your average daily active minutes: ${avgMinDay}
+    `
   },
 
   displayStairsCard(event, activity, todayDate) {
     let stairsMainCard = document.getElementById('stairsMainCard');
-    let stairsInfo = event.target.closest('button').id
     stairsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
-    if (stairsInfo.includes('Calendar')) {
-      let week = activity.getAvgFlightsThruWeek(todayDate);
-         return  stairsMainCard.innerHTML += `
-         Your average flights this week was: ${week}
-         `
-    }
-    if (stairsInfo.includes('Info')) {
-      let avgFlights = activity.getAvgFlightsOnDay();
-      return  stairsMainCard.innerHTML += `
-      Your average daily flights: ${avgFlights}
-      `
-    }
+    let week = activity.getAvgFlightsThruWeek(todayDate);
+    return  stairsMainCard.innerHTML += `
+    Your average flights this week was: ${week}
+    `
   },
 
-  displaySleepCard(event, sleep, todayDate) {
+  displayStairsAvg(event, activity) {
+    let stairsMainCard = document.getElementById('stairsMainCard');
+    stairsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+
+    let avgFlights = activity.getAvgFlightsOnDay();
+    return  stairsMainCard.innerHTML += `
+    Your average daily flights: ${avgFlights}
+    `
+  },
+
+  displaySleepWeek(event, sleep, todayDate) {
     let sleepMainCard = document.querySelector('#sleepMainCard');
-    let sleepInfo = event.target.closest('button').id
+    let week = sleep.getWeekOfSleepData(todayDate)
+    let avgWeekHr = sleep.calculateAverageHoursThisWeek(todayDate)
+    let avgWeekQual = sleep.calculateAverageQualityThisWeek(todayDate)
+    sleepMainCard.innerHTML = `
+    <button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
+    Average hours slept: ${avgWeekHr}
+    Average quality this week: ${avgWeekQual}
+    `
+    let dailyHours = week.forEach(day => {
+      return  sleepMainCard.innerHTML += `${day.date} : ${day.hoursSlept}`
+    })
+  },
+
+  displaySleepAvg(event, sleep) {
+    let sleepMainCard = document.querySelector('#sleepMainCard');
     sleepMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
-    if (sleepInfo.includes('Calendar')) {
-      let week = sleep.getWeekOfSleepData(todayDate)
-      let dailyHours = week.forEach(day => {
-         return  sleepMainCard.innerHTML += `${day.date} : ${day.hoursSlept}`
-       })
-    }
-    if (sleepInfo.includes('Info')) {
-      let avgStepDay = activity.getAvgStepsOnDay();
-      let avgMinDay = activity.getAvgMinutesOnDay();
-      return  sleepMainCard.innerHTML += `
-      Your average daily sleep: ${avgStepDay}
-      Your average daily active minutes: ${avgMinDay}
-      `
-    }
+
+    let avgHours = sleep.getAvgHoursSleptPerDay();
+    let avgQuality = sleep.getAllTimeAvgSleepQuality();
+
+    return  sleepMainCard.innerHTML += `
+    Average daily hours of sleep: ${avgHours}
+    Average daily quality of sleep: ${avgQuality}
+    `
   },
 
 

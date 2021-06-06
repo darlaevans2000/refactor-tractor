@@ -52,20 +52,44 @@ function loadPageInfo() {
 }
 
 function changeHydroCards(event) {
-    domUpdates.displayHydrationCard(event, hydration, todayDate);
-}
+  let hydrationInfo = event.target.closest('button').id
+  if (hydrationInfo.includes('Calendar')) {
+    domUpdates.displayHydrationWeek(event, hydration, todayDate);
+  }
+  if (hydrationInfo.includes('Info')) {
+    domUpdates.displayHydrationAvg(event, hydration)
+  }
+};
 
 function changeStepsCards(event) {
-  domUpdates.displayStepsCard(event, activity, todayDate);
+  let stepsInfo = event.target.closest('button').id
+  if (stepsInfo.includes('Calendar')) {
+    domUpdates.displayStepsWeek(event, activity, todayDate);
+  }
+  if (stepsInfo.includes('Info')) {
+    domUpdates.displayStepsAvg(event, activity);
+  }
 }
 
 function changeStairsCards(event) {
-  domUpdates.displayStairsCard(event, activity, todayDate);
+  let stairsInfo = event.target.closest('button').id
+  if (stairsInfo.includes('Calendar')) {
+  domUpdates.displayStairsWeek(event, activity, todayDate);
 }
+  if (stairsInfo.includes('Info')) {
+    domUpdates.displayStairsAvg(event, activity);
+  }
+};
 
 function changeSleepCards(event) {
-  domUpdates.displaySleepCard(event, sleep, todayDate);
-}
+  let sleepInfo = event.target.closest('button').id
+  if (sleepInfo.includes('Calendar')) {
+    domUpdates.displaySleepWeek(event, sleep, todayDate);
+  }
+  if (sleepInfo.includes('Info')) {
+    domUpdates.displaySleepAvg(event, sleep)
+  }
+};
 // userData.forEach(user => {
 //   user = new User(user);
 //   userRepository.users.push(user)
