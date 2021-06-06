@@ -52,7 +52,7 @@ describe.only('Activity', () => {
   it('should return the number of minutes a user was active on a given day', function() {
     expect(activity.getMinutesActive("2019/06/15")).to.equal(140);
   });
-  
+
   it('should return the number of flights of stairs a user did on a given day', function() {
     expect(activity.getFlightsClimbed("2019/06/15")).to.equal(16);
   });
@@ -119,25 +119,4 @@ describe.only('Activity', () => {
       expect(activity.getMonthlyActivityChampion(june, july)).to.deep.equal({userID: 1, record: 275})
     });
 
-  // it('should have a default value of 0 for miles walked', function() {
-  //   expect(activity.milesWalked).to.equal(0);
-  // });
-//   it('should have a default value of null for reached step goal', function() {
-//     expect(activity2.reachedStepGoal).to.equal(null);
-//   });
-//   it('doActivity should add activities to user record', function() {
-//     expect(user1.activityRecord.length).to.equal(1);
-//   });
-//   it('should have a method that calculate miles walked', function() {
-//     expect(activity1.calculateMiles(userRepository)).to.equal('3.0');
-//   });
-//   describe('compareStepGoal', function() {
-//     it('should return false if goal isn\'t met', function() {
-//       activity1.compareStepGoal(userRepository);
-//       expect(activity1.reachedStepGoal).to.equal(false);
-//     });
-//     it('should return true if goal is met', function() {
-//       activity2.compareStepGoal(userRepository);
-//       expect(activity2.reachedStepGoal).to.equal(true);
-//     });
-});
+  });
