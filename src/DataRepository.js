@@ -1,6 +1,7 @@
 class DataRepository {
   constructor(id, dataSet) {
     this.userData = [];
+    this.dataSet = dataSet;
     this.findUserData(id, dataSet);
   }
 

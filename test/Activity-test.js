@@ -89,9 +89,18 @@ describe.only('Activity', () => {
 
 
   it('should return true if a given user has exceeded their step goal for a given day', function() {
-    const date = testActivityData[8];
-      expect(activity.achievedGoal(user, date)).to.equal(true);
+    const date1 = testActivityData[8];
+      expect(activity.achievedGoal(user, date1)).to.equal(true);
     });
+
+    it('should return all the days a given user has exceeded their step goal', function() {
+      const date1 = testActivityData[8];
+      const date2 = testActivityData[20];
+      const date3 = testActivityData[28];
+      const date4 = testActivityData[32];
+      expect(activity.getDaysExceededGoal(user1)).to.deep.equal([date1, date2, date3, date4])
+    });
+
 
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);

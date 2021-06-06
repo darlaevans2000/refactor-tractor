@@ -51,12 +51,13 @@ class Activity extends DataRepository {
     return date.numSteps > user.dailyStepGoal;
   };
 
-  getDaysAchievedGoal(user, dataSet, date) {
-    let daysExceeded = dataSet.filter((date) => {
+  getDaysExceededGoal(user) {
+     let daysExceeded = this.dataSet.filter((date) => {
       return this.achievedGoal(user, date)
     })
     return daysExceeded || [];
   };
+
 
   getStairRecord(user) {
     if(this.findUserData(user.id, users).length ===0) {
