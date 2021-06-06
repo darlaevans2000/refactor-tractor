@@ -34,7 +34,7 @@ class Activity extends DataRepository {
     return super.getWeeklyAverage(endDate, 'flightsOfStairs')
   }
 
-  getAvgStepsOnDay () {
+  getAvgStepsOnDay() {
     return super.getAllTimeAvgDaily('numSteps');
   };
 
@@ -52,7 +52,7 @@ class Activity extends DataRepository {
   };
 
   getDaysExceededGoal(user) {
-     let daysExceeded = this.dataSet.filter((date) => {
+    let daysExceeded = this.dataSet.filter((date) => {
       return this.achievedGoal(user, date)
     })
     return daysExceeded || [];
@@ -60,8 +60,8 @@ class Activity extends DataRepository {
 
 
   getStairRecord(user) {
-    const userData = super.findUserData(user.id, 'flightsOfStairs'); 
-    if(userData.length === 0) {
+    const userData = super.findUserData(user.id, 'flightsOfStairs');
+    if (userData.length === 0) {
       return null;
     }
     return super.findUserData(user.id, 'flightsOfStairs').reduce((a, b) => {
@@ -69,9 +69,9 @@ class Activity extends DataRepository {
     }, 0);
   };
 
-   getMinActiveRecord(user) {
-    const userData = super.findUserData(user.id, 'minutesActive'); 
-    if(userData.length === 0) {
+  getMinActiveRecord(user) {
+    const userData = super.findUserData(user.id, 'minutesActive');
+    if (userData.length === 0) {
       return null;
     }
     return super.findUserData(user.id, 'minutesActive').reduce((a, b) => {
@@ -80,8 +80,8 @@ class Activity extends DataRepository {
   };
 
   getStepsRecord(user) {
-    const userData = super.findUserData(user.id, 'numSteps'); 
-    if(userData.length === 0) {
+    const userData = super.findUserData(user.id, 'numSteps');
+    if (userData.length === 0) {
       return null;
     }
     return super.findUserData(user.id, 'numSteps').reduce((a, b) => {
@@ -89,15 +89,21 @@ class Activity extends DataRepository {
     }, 0);
   };
 
- getMonthlyActivityChampion(beginDate, endDate) {
+  getMonthlyActivityChampion(beginDate, endDate) {
     const result = this.dataSet.reduce((record, current) => {
       let check = record.record;
       let test = ((beginDate, endDate) ? Math.max(record.record, current.minutesActive) : record.record);
-      return (check === test ? record : {userID: current.userID, record: current.minutesActive});
-    }, {userID: null, record: 0});
+      return (check === test ? record : {
+        userID: current.userID,
+        record: current.minutesActive
+      });
+    }, {
+      userID: null,
+      record: 0
+    });
     return result;
   }
 
 }
 
-export default Activity 
+export default Activity
