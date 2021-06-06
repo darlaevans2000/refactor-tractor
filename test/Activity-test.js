@@ -1,8 +1,6 @@
 import { expect } from 'chai'
 import Activity from '../src/Activity';
-import UserRepository from '../src/UserRepository';
 import User from '../src/User';
-import DataRepository from '../src/DataRepository';
 import testActivityData from './test-data/test-activity';
 import testUserData from './test-data/test-users';
 
