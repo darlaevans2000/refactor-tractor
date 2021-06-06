@@ -130,25 +130,25 @@ main {
 }
 
 .steps-container {
-  background-color: #F5634B;
+  background-color: $steps-walked-card-color;
   grid-area: steps;
   margin: .5vw;
 }
 
 .hydration-container {
-  background-color: #54C6BE;
+  background-color: $water-card-color;
   grid-area: hydration;
   margin: .5vw;
 }
 
 .stairs-container {
-  background-color: #8975B2;
+  background-color: $stairs-climbed-card-color;
   grid-area: stairs;
   margin: .5vw;
 }
 
 .sleep-container {
-  background-color: #FBD089;
+  background-color: $sleep-card-color;
   grid-area: sleep;
   margin: .5vw;
 }
