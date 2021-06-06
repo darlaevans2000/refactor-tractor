@@ -199,6 +199,6 @@ const testHydrationData = [
     "date": "2019/06/24",
     "numOunces": 66
   },
-]
+];
 
 export default testHydrationData;

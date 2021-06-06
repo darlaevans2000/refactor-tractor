@@ -5,6 +5,7 @@ class DataRepository {
     this.findUserData(id, dataSet);
   }
 
+
   findUserData(id) {
     let matchingData = this.dataSet.filter(element => element.userID === id);
     return this.userData = matchingData;

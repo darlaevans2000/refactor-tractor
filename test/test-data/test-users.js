@@ -8,8 +8,8 @@ const testUserData = [
     "dailyStepGoal": 10000,
     "friends": [
       2,
-      4,
-      3
+      3,
+      4
     ]
   },
   {
@@ -51,6 +51,6 @@ const testUserData = [
       3
     ]
   },
-]
+];
 
 export default testUserData;
