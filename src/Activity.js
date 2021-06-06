@@ -46,16 +46,16 @@ class Activity extends DataRepository {
     return this.getAllTimeAvgDaily('flightsOfStairs');
   }
 
-  achievedGoal(user, day) {
-    if (user === undefined || day === undefined || user.id !== day.userID) return null;
-    return day.numSteps > user.dailyStepGoal;
+  achievedGoal(user, date) {
+    if (user === undefined || date === undefined || user.id !== date.userID) return null;
+    return date.numSteps > user.dailyStepGoal;
   };
 
-  getDaysAchievedGoal(user) {
-    let daysAchieved = this.dataSet.filter((date) => {
+  getDaysAchievedGoal(user, dataSet, date) {
+    let daysExceeded = dataSet.filter((date) => {
       return this.achievedGoal(user, date)
     })
-    return daysAchieved || [];
+    return daysExceeded || [];
   };
 
   getStairRecord(user) {

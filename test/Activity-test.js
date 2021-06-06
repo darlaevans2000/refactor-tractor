@@ -7,11 +7,12 @@ import testActivityData from './test-data/test-activity';
 import testUserData from './test-data/test-users';
 
 describe.only('Activity', () => {
-  let activity, user, user1;
+  let activity, userActivity, user, user1;
 
   beforeEach(() => {
     user1 = testUserData[0];
     user = new User(user1);
+    userActivity = testActivityData[0];
     activity = new Activity(user.id, testActivityData);
   });
 
@@ -80,6 +81,18 @@ describe.only('Activity', () => {
   it('Should calculate the average flights of stairs climbed per day for all time', function() {
     expect(activity.getAvgFlightsOnDay()).to.equal(16.5);
   });
+
+  it('should return false if a given user has not exceeded their step goal for a given day', function() {
+    let date = testActivityData[0];
+      expect(activity.achievedGoal(user, date)).to.equal(false);
+    });
+
+
+  it('should return true if a given user has exceeded their step goal for a given day', function() {
+    const date = testActivityData[8];
+      expect(activity.achievedGoal(user, date)).to.equal(true);
+    });
+
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
   // });
