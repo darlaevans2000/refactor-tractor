@@ -27,6 +27,21 @@ describe.only('DataRepository', () => {
     });
   });
 
+  it('Should contain data for multiple users', () => {
+    expect(dataRepo.dataSet[0]).to.deep.equal({
+      'userID': 1,
+      'date': '2019/06/15',
+      'hoursSlept': 6.1,
+      'sleepQuality': 2.2
+    });
+    expect(dataRepo.dataSet[2]).to.deep.equal({
+      'userID': 3,
+      'date': '2019/06/15',
+      'hoursSlept': 10.8,
+      'sleepQuality': 4.7
+    });
+  });
+
   it('Should contain data for a particular user ID', () => {
     expect(dataRepo.userData[1].userID).to.equal(2);
     expect(dataRepo.userData[2].userID).to.equal(2);
@@ -40,46 +55,46 @@ describe.only('DataRepository', () => {
   it('Should get a week of values for a given date and property', () => {
     expect(dataRepo.getWeekValues('2019/06/24', 'sleepQuality')).to.deep.equal([
       {
-        "userID": 2,
-        "date": "2019/06/18",
-        "hoursSlept": 10.8,
-        "sleepQuality": 3.2
+        'userID': 2,
+        'date': '2019/06/18',
+        'hoursSlept': 10.8,
+        'sleepQuality': 3.2
       },
       {
-        "userID": 2,
-        "date": "2019/06/19",
-        "hoursSlept": 9.6,
-        "sleepQuality": 2.5
+        'userID': 2,
+        'date': '2019/06/19',
+        'hoursSlept': 9.6,
+        'sleepQuality': 2.5
       },
       {
-        "userID": 2,
-        "date": "2019/06/20",
-        "hoursSlept": 10.1,
-        "sleepQuality": 2.4
+        'userID': 2,
+        'date': '2019/06/20',
+        'hoursSlept': 10.1,
+        'sleepQuality': 2.4
       },
       {
-        "userID": 2,
-        "date": "2019/06/21",
-        "hoursSlept": 4.3,
-        "sleepQuality": 4.8
+        'userID': 2,
+        'date': '2019/06/21',
+        'hoursSlept': 4.3,
+        'sleepQuality': 4.8
       },
       {
-        "userID": 2,
-        "date": "2019/06/22",
-        "hoursSlept": 4.8,
-        "sleepQuality": 3.3
+        'userID': 2,
+        'date': '2019/06/22',
+        'hoursSlept': 4.8,
+        'sleepQuality': 3.3
       },
       {
-        "userID": 2,
-        "date": "2019/06/23",
-        "hoursSlept": 8,
-        "sleepQuality": 4.9
+        'userID': 2,
+        'date': '2019/06/23',
+        'hoursSlept': 8,
+        'sleepQuality': 4.9
       },
       {
-        "userID": 2,
-        "date": "2019/06/24",
-        "hoursSlept": 10.8,
-        "sleepQuality": 1
+        'userID': 2,
+        'date': '2019/06/24',
+        'hoursSlept': 10.8,
+        'sleepQuality': 1
       }
     ]);
   });
