@@ -69,6 +69,18 @@ class Activity extends DataRepository {
     }, 0);
   };
 
+    getMinActiveRecord(user) {
+    const userData = super.findUserData(user.id, 'minutesActive'); 
+    if(userData.length === 0) {
+      return null;
+    }
+    return super.findUserData(user.id, 'minutesActive').reduce((a, b) => {
+      return (b.userID === user.id ? Math.max(a, b.minutesActive) : a);
+    }, 0);
+  };
+
+
+
 
 }
 export default Activity 
