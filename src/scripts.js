@@ -1,10 +1,10 @@
 import './css/base.scss';
 import './css/styles.scss';
 
-import userData from './data/users';
-import activityData from './data/activity';
-import sleepData from './data/sleep';
-import hydrationData from './data/hydration';
+import testUserData from '../test/test-data/test-users';
+import testHydrationData from '..//test/test-data/test-hydration';
+import testSleepData from '..//test/test-data/test-sleep';
+import testActivityData from '..//test/test-data/test-activity';
 
 import UserRepository from './UserRepository';
 import User from './User';
@@ -13,14 +13,32 @@ import Hydration from './Hydration';
 import Sleep from './Sleep';
 import domUpdates from './domUpdates';
 
-
-
+/* GLOBAL VARIABLES*/
+let user = new User(testUserData[0]);
+let hydration = new Hydration(user.id, testHydrationData);
+let activity = new Activity(user.id, testActivityData);
+let sleep = new Sleep(user.id, testSleepData);
 let userRepository = new UserRepository();
-window.addEventListener('load', function() {
-  domUpdates.displayMainCards(),
-  domUpdates.greetUser()
-});
 
+/*QUERY SELECTORS*/
+let hydrationMainCard = document.getElementById('hydrationMainCard');
+
+/*EVENT LISTENERS*/
+window.addEventListener('load', loadPageInfo);
+
+hydrationMainCard.addEventListener('click', function() {
+  changeCards(event);
+})
+
+
+function loadPageInfo() {
+  domUpdates.displayMainCards(user, hydration, activity, sleep),
+  domUpdates.greetUser(user)
+}
+
+function changeCards() {
+  domUpdates.displayHydrationCard(event, hydration);
+}
 // userData.forEach(user => {
 //   user = new User(user);
 //   userRepository.users.push(user)

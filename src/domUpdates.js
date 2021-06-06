@@ -11,14 +11,14 @@ import testActivityData from '..//test/test-data/test-activity';
 
 let domUpdates = {
 
-  greetUser() {
-    let user = new User(testUserData[0]);
+  greetUser(user) {
+    // let user = new User(testUserData[0]);
     let headerName = document.getElementById('headerName');
     headerName.innerText = `${user.getFirstName()}'S `
   },
 
-  displayUserDetails() {
-    let user = new User(testUserData[0]);
+  displayUserDetails(user) {
+    // let user = new User(testUserData[0]);
     let dropdownEmail = document.getElementById('dropdownEmail')
     let dropdownGoal = document.getElementById('dropdownGoal')
     let dropdownName = document.getElementById('dropdownName')
@@ -28,12 +28,7 @@ let domUpdates = {
     dropdownName.innerText = user.name.toUpperCase();
   },
 
-  displayMainCards() {
-    let user = new User(testUserData[0]);
-    let hydration = new Hydration(user.id, testHydrationData);
-    let activity = new Activity(user.id, testActivityData);
-    let sleep = new Sleep(user.id, testSleepData);
-
+  displayMainCards(user, hydration, activity, sleep) {
     let hydrationUserOuncesToday = document.getElementById('hydrationUserOuncesToday');
     let stepsUserStepsToday = document.getElementById('stepsUserStepsToday');
     let stairsUserStairsToday = document.getElementById('stairsUserStairsToday');
@@ -41,7 +36,6 @@ let domUpdates = {
 
     let todayDate = "2019/06/22";
     let ozToday = hydration.getOzOnDate(todayDate, 'numOunces');
-    console.log('working')
     let stepsToday = activity.getStepsTaken(todayDate, user.id);
     let stairsToday = activity.getFlightsClimbed(todayDate, user.id)
     let sleepToday = sleep.getHoursSleptOnDate(todayDate);
@@ -51,25 +45,32 @@ let domUpdates = {
     sleepUserHoursToday.innerText = `${sleepToday}`
   },
 
-  flipCard(cardToHide, cardToShow) {
-    cardToHide.classList.add('hide');
-    cardToShow.classList.remove('hide');
-  },
+  // flipCard(cardToHide, cardToShow) {
+  //   cardToHide.classList.add('hide');
+  //   cardToShow.classList.remove('hide');
+  // },
 
-  displayHydrationCard() {
+  displayHydrationCard(event, hydration) {
     let hydrationMainCard = document.getElementById('hydrationMainCard');
-    let hydrationInfo = event.target.id
-    if (hydrationInfo === hydrationInfo) {
-       this.flipCard(hydrationMainCard, hydrationInfo)
-    }
+    let todayDate = "2019/06/22";
 
-    // let hydrationCalendarCard = document.querySelector('#hydration-calendar-card');
-    // let hydrationFriendOuncesToday = document.querySelector('#hydration-friend-ounces-today');
-    // let hydrationFriendsCard = document.querySelector('#hydration-friends-card');
-    // let hydrationInfoCard = document.querySelector('#hydration-info-card');
-    // let hydrationInfoGlassesToday = document.querySelector('#hydration-info-glasses-today');
-    // let hydrationMainCard = document.querySelector('#hydration-main-card');
-    // let hydrationU serOuncesToday = document.querySelector('#hydration-user-ounces-today');
+    let hydrationInfo = event.target.closest('button').id
+    hydrationMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    if (hydrationInfo.includes('Calendar')) {
+      let week = hydration.getWeekOfOz(todayDate, 'numOunces')
+      let daysOunces = week.forEach(day => {
+         return  hydrationMainCard.innerHTML += `${day.date} : ${day.numOunces}`
+       })
+    }
+    // hydrationUserOuncesToday.innerText = hydrationData.find(hydration => {
+    //   return hydration.userID === user.id && hydration.date === todayDate;
+    // }).numOunces;
+    //
+    // hydrationFriendOuncesToday.innerText = userRepository.calculateAverageDailyWater(todayDate);
+    //
+    // hydrationInfoGlassesToday.innerText = hydrationData.find(hydration => {
+    //   return hydration.userID === user.id && hydration.date === todayDate;
+    // }).numOunces / 8;
 
   },
 
