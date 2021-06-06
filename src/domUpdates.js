@@ -106,6 +106,26 @@ let domUpdates = {
     }
   },
 
+  displaySleepCard(event, sleep, todayDate) {
+    let sleepMainCard = document.querySelector('#sleepMainCard');
+    let sleepInfo = event.target.closest('button').id
+    sleepMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    if (sleepInfo.includes('Calendar')) {
+      let week = sleep.getWeekOfSleepData(todayDate)
+      let dailyHours = week.forEach(day => {
+         return  sleepMainCard.innerHTML += `${day.date} : ${day.hoursSlept}`
+       })
+    }
+    if (sleepInfo.includes('Info')) {
+      let avgStepDay = activity.getAvgStepsOnDay();
+      let avgMinDay = activity.getAvgMinutesOnDay();
+      return  sleepMainCard.innerHTML += `
+      Your average daily sleep: ${avgStepDay}
+      Your average daily active minutes: ${avgMinDay}
+      `
+    }
+  },
+
 
 
 }
