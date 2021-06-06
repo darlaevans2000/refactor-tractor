@@ -1,7 +1,8 @@
 $primary-font-body: 'Oswald', sans-serif;
 $secondary-font-header: 'Work Sans', sans-serif;
 $white-color: #ffffff;
-$steps-walked-card-color: #F5634B;
-$water-card-color: #54C6BE;
-$stairs-climbed-card-color: #8975B2;
-$sleep-card-color: #FBD089;
+$main-pg-card-margin: .5vw;
+$steps-walked-card-styling: #F5634B, steps, .5vw; 
+$hydration-card-styling: #54C6BE, hydration, .5vw;
+$stairs-climbed-card-styling: #8975B2, stairs, .5vw;
+$sleep-card-styling: #FBD089, sleep, .5vw;
