@@ -5,9 +5,9 @@ class DataRepository {
     this.findUserData(id, dataSet);
   }
 
-  findUserData(id, dataSet) {
-    let matchingData = dataSet.filter(element => element.userID === id);
-    this.userData = matchingData;
+  findUserData(id) {
+    let matchingData = this.dataSet.filter(element => element.userID === id);
+    return this.userData = matchingData;
   }
 
   getGivenDayValue(date, property) {

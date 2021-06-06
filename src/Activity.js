@@ -60,13 +60,13 @@ class Activity extends DataRepository {
 
 
   getStairRecord(user) {
-    if(this.findUserData(user.id, users).length ===0) {
+    const userData = super.findUserData(user.id, 'flightsOfStairs'); 
+    if(userData.length === 0) {
       return null;
     }
-    return this.findUserData(user.id, users).reduce((a, b) => {
+    return super.findUserData(user.id, 'flightsOfStairs').reduce((a, b) => {
       return (b.userID === user.id ? Math.max(a, b.flightsOfStairs) : a);
     }, 0);
-    // we may have to change findUserData a little to get this working
   };
 
 

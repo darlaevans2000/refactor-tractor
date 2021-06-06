@@ -101,6 +101,9 @@ describe.only('Activity', () => {
       expect(activity.getDaysExceededGoal(user1)).to.deep.equal([date1, date2, date3, date4])
     });
 
+    it('should return the most stairs climbed in a single day for a given user', function() {
+      expect(activity.getStairRecord(user1)).to.equal(36);
+    });
 
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
