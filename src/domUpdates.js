@@ -50,9 +50,8 @@ let domUpdates = {
   //   cardToShow.classList.remove('hide');
   // },
 
-  displayHydrationCard(event, hydration) {
+  displayHydrationCard(event, hydration, todayDate) {
     let hydrationMainCard = document.getElementById('hydrationMainCard');
-    let todayDate = "2019/06/22";
 
     let hydrationInfo = event.target.closest('button').id
     hydrationMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
@@ -62,64 +61,67 @@ let domUpdates = {
          return  hydrationMainCard.innerHTML += `${day.date} : ${day.numOunces}`
        })
     }
-    // hydrationUserOuncesToday.innerText = hydrationData.find(hydration => {
-    //   return hydration.userID === user.id && hydration.date === todayDate;
-    // }).numOunces;
-    //
-    // hydrationFriendOuncesToday.innerText = userRepository.calculateAverageDailyWater(todayDate);
-    //
-    // hydrationInfoGlassesToday.innerText = hydrationData.find(hydration => {
-    //   return hydration.userID === user.id && hydration.date === todayDate;
-    // }).numOunces / 8;
-
+    if (hydrationInfo.includes('Info')) {
+      let avg = hydration.getAllTimeAvgOz();
+      return  hydrationMainCard.innerHTML += `Your average daily consumption is: ${avg} oz!`
+    }
   },
 
-  displayStepsCard() {
+  displayStepsCard(event, activity, todayDate) {
     let stepsMainCard = document.getElementById('stepsMainCard');
-    let stepsInfoCard = document.getElementById('stepsInfoCard');
-    let stepsFriendsCard = document.getElementById('stepsFriendsCard');
-    let stepsTrendingCard = document.getElementById('stepsTrendingCard');
-    let stepsCalendarCard = document.getElementById('stepsCalendarCard');
-    let stepsCalendarTotalActiveMinutesWeekly = document.getElementById('stepsCalendarTotalActiveMinutesWeekly');
-    let stepsCalendarTotalStepsWeekly = document.getElementById('stepsCalendarTotalStepsWeekly');
-    let stepsFriendAverageStepGoal = document.getElementById('stepsFriendAverageStepGoal');
-    let stepsInfoActiveMinutesToday = document.getElementById('stepsInfoActiveMinutesToday');
-    let stepsInfoMilesWalkedToday = document.getElementById('stepsInfo-miles-walkedToday');
-    let stepsFriendActiveMinutesAverageToday = document.getElementById('stepsFriendActiveMinutesAverageToday');
-    let stepsFriendStepsAverageToday = document.getElementById('stepsFriendStepsAverageToday');
-    let stepsTrendingButton = document.getElementById('.steps-trendingButton');
-
+    let stepsInfo = event.target.closest('button').id
+    stepsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    if (stepsInfo.includes('Calendar')) {
+      let weekSteps = activity.getAvgStepsThruWeek(todayDate);
+      let weekActiveMin = activity.getAvgActivityThruWeek(todayDate);
+         return  stepsMainCard.innerHTML += `
+         Your average daily steps this week was: ${weekSteps}
+         Your average minutes active was: ${weekActiveMin}`
+    }
+    if (stepsInfo.includes('Info')) {
+      let avgStepDay = activity.getAvgStepsOnDay();
+      let avgMinDay = activity.getAvgMinutesOnDay();
+      return  stepsMainCard.innerHTML += `
+      Your average daily steps: ${avgStepDay}
+      Your average daily active minutes: ${avgMinDay}
+      `
+    }
   },
 
-  displayStairsCard() {
-    let stairsCalendarCard = document.getElementById('stairsCalendarCard');
-    let stairsCalendarFlightsAverageWeekly = document.getElementById('stairsCalendarFlightsAverageWeekly');
-    let stairsCalendarStairsAverageWeekly = document.getElementById('stairsCalendarStairsAverageWeekly');
-    let stairsFriendFlightsAverageToday = document.getElementById('stairsFriendFlightsAverageToday');
-    let stairsFriendsCard = document.getElementById('stairsFriendsCard');
-    let stairsInfoCard = document.getElementById('stairsInfoCard');
-    let stairsInfoFlightsToday = document.getElementById('stairsInfoFlightsToday');
+  displayStairsCard(event, activity, todayDate) {
     let stairsMainCard = document.getElementById('stairsMainCard');
-    let stairsTrendingButton = document.getElementByClass('stairsTrendingButton');
-    let stairsTrendingCard = document.getElementById('stairs-trendingCard');
+    let stairsInfo = event.target.closest('button').id
+    stairsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    if (stairsInfo.includes('Calendar')) {
+      let week = activity.getAvgFlightsThruWeek(todayDate);
+         return  stairsMainCard.innerHTML += `
+         Your average flights this week was: ${week}
+         `
+    }
+    if (stairsInfo.includes('Info')) {
+      let avgFlights = activity.getAvgFlightsOnDay();
+      return  stairsMainCard.innerHTML += `
+      Your average daily flights: ${avgFlights}
+      `
+    }
   },
 
-  displaySleepCard() {
-    let sleepCalendarCard = document.querySelector('#sleepCalendarCard');
-    let sleepCalendarHoursAverageWeekly = document.querySelector('#sleepCalendarHoursAverageWeekly');
-    let sleepCalendarQualityAverageWeekly = document.querySelector('#sleepCalendarQualityAverageWeekly');
-    let sleepFriendLongestSleeper = document.querySelector('#sleepFriendLongestSleeper');
-    let sleepFriendsCard = document.querySelector('#sleepFriendsCard');
-    let sleepFriendWorstSleeper = document.querySelector('#sleepFriendWorstSleeper');
-    let sleepInfoCard = document.querySelector('#sleepInfoCard');
-    let sleepInfoHoursAverageAlltime = document.querySelector('#sleepInfoHoursAverageAlltime');
-    let sleepInfoQualityAverageAlltime = document.querySelector('#sleepInfoQualityAverageAlltime');
-    let sleepInfoQualityToday = document.querySelector('#sleepInfoQualityToday');
-    let sleepMainCard = document.querySelector('#sleepMainCard');
-    let sleepUserHoursToday = document.querySelector('#sleepUserHoursToday');
 
-  },
 
 }
+
+// let stepsInfoCard = document.getElementById('stepsInfoCard');
+// let stepsFriendsCard = document.getElementById('stepsFriendsCard');
+// let stepsTrendingCard = document.getElementById('stepsTrendingCard');
+// let stepsCalendarCard = document.getElementById('stepsCalendarCard');
+// let stepsCalendarTotalActiveMinutesWeekly = document.getElementById('stepsCalendarTotalActiveMinutesWeekly');
+// let stepsCalendarTotalStepsWeekly = document.getElementById('stepsCalendarTotalStepsWeekly');
+// let stepsFriendAverageStepGoal = document.getElementById('stepsFriendAverageStepGoal');
+// let stepsInfoActiveMinutesToday = document.getElementById('stepsInfoActiveMinutesToday');
+// let stepsInfoMilesWalkedToday = document.getElementById('stepsInfo-miles-walkedToday');
+// let stepsFriendActiveMinutesAverageToday = document.getElementById('stepsFriendActiveMinutesAverageToday');
+// let stepsFriendStepsAverageToday = document.getElementById('stepsFriendStepsAverageToday');
+// let stepsTrendingButton = document.getElementById('.steps-trendingButton');
+
 
 export default domUpdates;

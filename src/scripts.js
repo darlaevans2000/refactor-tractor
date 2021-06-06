@@ -19,15 +19,30 @@ let hydration = new Hydration(user.id, testHydrationData);
 let activity = new Activity(user.id, testActivityData);
 let sleep = new Sleep(user.id, testSleepData);
 let userRepository = new UserRepository();
+let todayDate = "2019/06/22";
+
+
 
 /*QUERY SELECTORS*/
 let hydrationMainCard = document.getElementById('hydrationMainCard');
+let stepsMainCard = document.getElementById('stepsMainCard');
+let stairsMainCard = document.getElementById('stairsMainCard');
+let sleepMainCard = document.getElementById('sleepMainCard');
 
 /*EVENT LISTENERS*/
 window.addEventListener('load', loadPageInfo);
 
 hydrationMainCard.addEventListener('click', function() {
-  changeCards(event);
+  changeHydroCards(event);
+})
+stepsMainCard.addEventListener('click', function() {
+  changeStepsCards(event);
+})
+stairsMainCard.addEventListener('click', function() {
+  changeStairsCards(event);
+})
+sleepMainCard.addEventListener('click', function() {
+  changeSleepCards(event);
 })
 
 
@@ -36,8 +51,20 @@ function loadPageInfo() {
   domUpdates.greetUser(user)
 }
 
-function changeCards() {
-  domUpdates.displayHydrationCard(event, hydration);
+function changeHydroCards(event) {
+    domUpdates.displayHydrationCard(event, hydration, todayDate);
+}
+
+function changeStepsCards(event) {
+  domUpdates.displayStepsCard(event, activity, todayDate);
+}
+
+function changeStairsCards(event) {
+  domUpdates.displayStairsCard(event, activity, todayDate);
+}
+
+function changeSleepCards(event) {
+  domUpdates.displaySleepCard(event, sleep, todayDate);
 }
 // userData.forEach(user => {
 //   user = new User(user);
