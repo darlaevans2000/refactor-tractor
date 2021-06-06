@@ -109,6 +109,10 @@ describe.only('Activity', () => {
       expect(activity.getMinActiveRecord(user1)).to.equal(275);
     });
 
+    it('should return the most steps in a single day for a given user', function() {
+      expect(activity.getStepsRecord(user1)).to.equal(14478);
+    });
+
   // it('should have a default value of 0 for miles walked', function() {
   //   expect(activity.milesWalked).to.equal(0);
   // });
