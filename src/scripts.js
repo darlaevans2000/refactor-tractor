@@ -43,26 +43,41 @@ main.addEventListener('click', function() {
   displayMain(event);
 })
 
-function fetchData(param) {
-  fetch(`http://localhost:3001/api/v1/${param}`)
+const fetchData = (param) => {
+  return fetch(`http://localhost:3001/api/v1/${param}`)
     .then(response => response.json())
     .catch(err => console.error(err))
 }
 
 function loadPageInfo() {
   fetchData('users')
-    .then(userData => {user = new User(userData.userData[0])})
-    .then((user) => domUpdates.greetUser(user))
+    .then(userData => {
+      user = new User(userData.userData[0])
+      console.log(user)
+    })
+    .then(() => domUpdates.greetUser(user))
+    .then(() => fetchAllData())
+}
 
+const fetchAllData = () => {
   fetchData('hydration')
-    .then(hydroData => {hydration = new Hydration(hydroData.hydrationData)});
+    .then(hydroData => {
+      hydration = new Hydration(user.id, hydroData.hydrationData)
+      console.log(hydration)
+    });
 
   fetchData('sleep')
-    .then(sleepData => {sleep = new Sleep(sleepData.sleepData)});
+    .then(sleepData => {
+      sleep = new Sleep(user.id, sleepData.sleepData)
+      console.log(sleep)
+    });
 
   fetchData('activity')
-    .then(activityData => {activity = new Activity(activityData.ActivityData)})
-    .then(data => domUpdates.displayMainCards(user, hydration, activity, sleep));
+    .then(activityData => {
+      activity = new Activity(user.id, activityData.activityData)
+      console.log(activity)
+    })
+    .then(() => domUpdates.displayMainCards(user, hydration, activity, sleep));
 }
 
 function displayMain(event) {
