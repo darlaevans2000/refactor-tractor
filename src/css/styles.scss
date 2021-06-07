@@ -18,6 +18,20 @@ body {
 header {
   text-align: center;
   height: 9vw;
+      h1 {
+      color: $white-color;
+      display: inline;
+      font-size: 5.4vw;
+      letter-spacing: .2em;
+    }
+    .dropdown-p {
+      font-size: 1.2vw;
+      font-weight: 300;
+      padding-bottom: 1vw;
+      padding-top: 0;
+      text-align: center;
+      width: 100%;
+    }
 }
 
 button:active {
@@ -48,22 +62,7 @@ button:active {
   z-index: 100;
 }
 
-.dropdown-p {
-  font-size: 1.2vw;
-  font-weight: 300;
-  padding-bottom: 1vw;
-  padding-top: 0;
-  text-align: center;
-  width: 100%;
-}
-
 /* TEXT ELEMENTS */
-h1 {
-  color: $white-color;
-  display: inline;
-  font-size: 5.4vw;
-  letter-spacing: .2em;
-}
 
 h2 {
   display: inline;
@@ -229,24 +228,6 @@ main {
   color: #F8BA00;
 }
 
-@media screen and (max-width: 1660px) {
-   main {
-  display: grid;
-  grid-template-areas:
-  'steps'
-  'hydration'
-  'stairs' 
-  'sleep';
-  height: 100%;
-  }
-  .main-card {
-  align-items: center;
-  display: flex;
-  flex-direction: column;
-  height: 40vw;
-  justify-content: center;
-  }
-}
 @media screen and (max-width: 1434px) {
    main {
   display: grid;
