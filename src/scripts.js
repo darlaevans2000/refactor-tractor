@@ -53,29 +53,25 @@ function loadPageInfo() {
   fetchData('users')
     .then(userData => {
       user = new User(userData.userData[0])
-      console.log(user)
     })
     .then(() => domUpdates.greetUser(user))
-    .then(() => fetchAllData())
+    .then(() => setUpRepos())
 }
 
-const fetchAllData = () => {
+const setUpRepos = () => {
   fetchData('hydration')
     .then(hydroData => {
       hydration = new Hydration(user.id, hydroData.hydrationData)
-      console.log(hydration)
     });
 
   fetchData('sleep')
     .then(sleepData => {
       sleep = new Sleep(user.id, sleepData.sleepData)
-      console.log(sleep)
     });
 
   fetchData('activity')
     .then(activityData => {
       activity = new Activity(user.id, activityData.activityData)
-      console.log(activity)
     })
     .then(() => domUpdates.displayMainCards(user, hydration, activity, sleep));
 }
