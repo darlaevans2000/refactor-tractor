@@ -1,12 +1,14 @@
 class DataRepository {
   constructor(id, dataSet) {
     this.userData = [];
+    this.dataSet = dataSet;
     this.findUserData(id, dataSet);
   }
 
-  findUserData(id, dataSet) {
-    let matchingData = dataSet.filter(element => element.userID === id);
-    this.userData = matchingData;
+
+  findUserData(id) {
+    let matchingData = this.dataSet.filter(element => element.userID === id);
+    return this.userData = matchingData;
   }
 
   getGivenDayValue(date, property) {
@@ -39,9 +41,8 @@ class DataRepository {
   }
 
   getHighestValue(dataSet, property) {
-    this.dataSet.sort((a,b) => {
-      return b[property] - a[property]
-    })[0][property]
+    let sortedData = dataSet.sort((a,b) => b[property] - a[property]);
+    return sortedData[0][property];
   }
 
   getWeeklyAverage(endDate, property) {
