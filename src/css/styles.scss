@@ -24,6 +24,18 @@ header {
       font-size: 5.4vw;
       letter-spacing: .2em;
     }
+    .profile-button {
+  background: none;
+  font-size: 5.6vw;
+  border: none;
+  display: inline;
+  float: right;
+  height: 5.6vw;
+  margin-right: .5vw;
+  margin-top: 1.6vw;
+  width: 5.6vw;
+  color: $white-color;
+}
     .dropdown-p {
       font-size: 1.2vw;
       font-weight: 300;
@@ -37,19 +49,6 @@ header {
 button:active {
   border: none;
   outline: none;
-}
-
-.profile-button {
-  background: none;
-  font-size: 5.6vw;
-  border: none;
-  display: inline;
-  float: right;
-  height: 5.6vw;
-  margin-right: .5vw;
-  margin-top: 1.6vw;
-  width: 5.6vw;
-  color: $white-color;
 }
 
 #user-info-dropdown {
