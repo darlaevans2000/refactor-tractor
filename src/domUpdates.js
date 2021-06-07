@@ -43,110 +43,132 @@ let domUpdates = {
     sleepUserHoursToday.innerText = `${sleepToday}`
   },
 
-  displayHydrationWeek(event, hydration, todayDate) {
-    let hydrationMainCard = document.getElementById('hydrationMainCard');
+  flipCard(cardToHide, cardToShow) {
+    cardToHide.classList.add('hide');
+    cardToShow.classList.remove('hide');
+  },
 
-    hydrationMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
-    let week = hydration.getWeekOfOz(todayDate, 'numOunces')
-    let daysOunces = week.forEach(day => {
-        return  hydrationMainCard.innerHTML += `${day.date} : ${day.numOunces}`
-      });
+  changeCardsToMain(event, property) {
+    let main = document.getElementById(`${property}MainCard`)
+    console.log(main)
+    let button = event.target.closest('button').id
+    if (button.includes('GoBack')) {
+      this.flipCard(event.target.closest('button').parentNode, main)
+      }
     },
+
+  displayHydrationWeek(todayDate, hydration) {
+    let hydrationMainCard = document.getElementById('hydrationMainCard');
+    let hydrationCalendarCard = document.getElementById('hydrationCalendarCard');
+      this.flipCard(hydrationMainCard, hydrationCalendarCard);
+
+    hydrationCalendarCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    let hydrationDay = document.getElementById('hydrationDay');
+    let hydrationCalendarOunces = document.getElementById('hydrationCalendarOunces');
+    let week = hydration.getWeekOfOz(todayDate, 'numOunces')
+    let date = week.forEach(day => {
+         return  hydrationCalendarCard.innerHTML += `${day.date}: ${day.numOunces}`
+       });
+  },
 
   displayHydrationAvg(event, hydration) {
     let hydrationMainCard = document.getElementById('hydrationMainCard');
-    hydrationMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    let hydrationInfoCard = document.getElementById('hydrationInfoCard');
+    this.flipCard(hydrationMainCard, hydrationInfoCard )
+    hydrationInfoCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
 
     let avg = hydration.getAllTimeAvgOz();
-    return  hydrationMainCard.innerHTML += `Your average daily consumption is: ${avg} oz!`
+    return  hydrationInfoCard.innerHTML += `Your average daily consumption is: ${avg} oz!`
   },
 
   displayStepsWeek(event, activity, todayDate) {
     let stepsMainCard = document.getElementById('stepsMainCard');
+    let stepsCalendarCard = document.getElementById('stepsCalendarCard');
+    this.flipCard(stepsMainCard, stepsCalendarCard)
 
-    stepsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    stepsCalendarCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="stepsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
     let weekSteps = activity.getAvgStepsThruWeek(todayDate);
     let weekActiveMin = activity.getAvgActivityThruWeek(todayDate);
-       return  stepsMainCard.innerHTML += `
+       return  stepsCalendarCard.innerHTML += `
        Your average daily steps this week was: ${weekSteps}
        Your average minutes active was: ${weekActiveMin}`
     },
 
   displayStepsAvg(event, activity) {
     let stepsMainCard = document.getElementById('stepsMainCard');
+    let stepsInfoCard = document.getElementById('stepsInfoCard');
+    this.flipCard(stepsMainCard, stepsInfoCard)
 
-    stepsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+
+    stepsInfoCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="stepsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
     let avgStepDay = activity.getAvgStepsOnDay();
     let avgMinDay = activity.getAvgMinutesOnDay();
-    return  stepsMainCard.innerHTML += `
+    return  stepsInfoCard.innerHTML += `
     Your average daily steps: ${avgStepDay}
     Your average daily active minutes: ${avgMinDay}
     `
   },
 
-  displayStairsCard(event, activity, todayDate) {
+  displayStairsWeek(event, activity, todayDate) {
     let stairsMainCard = document.getElementById('stairsMainCard');
-    stairsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    let stairsCalendarCard = document.getElementById('stairsCalendarCard');
+    this.flipCard(stairsMainCard, stairsCalendarCard)
+
+    stairsCalendarCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="stairsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
     let week = activity.getAvgFlightsThruWeek(todayDate);
-    return  stairsMainCard.innerHTML += `
+    return  stairsCalendarCard.innerHTML += `
     Your average flights this week was: ${week}
     `
   },
 
   displayStairsAvg(event, activity) {
     let stairsMainCard = document.getElementById('stairsMainCard');
-    stairsMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    let stairsInfoCard = document.getElementById('stairsInfoCard')
+    this.flipCard(stairsMainCard, stairsInfoCard)
 
+    stairsInfoCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="stairsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
     let avgFlights = activity.getAvgFlightsOnDay();
-    return  stairsMainCard.innerHTML += `
+    return  stairsInfoCard.innerHTML += `
     Your average daily flights: ${avgFlights}
     `
   },
 
   displaySleepWeek(event, sleep, todayDate) {
-    let sleepMainCard = document.querySelector('#sleepMainCard');
+    let sleepMainCard = document.getElementById('sleepMainCard');
+    let sleepCalendarCard = document.getElementById('sleepCalendarCard');
+    this.flipCard(sleepMainCard, sleepCalendarCard)
+
     let week = sleep.getWeekOfSleepData(todayDate)
     let avgWeekHr = sleep.calculateAverageHoursThisWeek(todayDate)
     let avgWeekQual = sleep.calculateAverageQualityThisWeek(todayDate)
-    sleepMainCard.innerHTML = `
-    <button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
+    sleepCalendarCard.innerHTML = `
+    <button type="button" name="button" class="go-back-button" id="sleepGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
     Average hours slept: ${avgWeekHr}
     Average quality this week: ${avgWeekQual}
     `
     let dailyHours = week.forEach(day => {
-      return  sleepMainCard.innerHTML += `${day.date} : ${day.hoursSlept}`
+      return  sleepCalendarCard.innerHTML += `${day.date} : ${day.hoursSlept}`
     })
   },
 
   displaySleepAvg(event, sleep) {
-    let sleepMainCard = document.querySelector('#sleepMainCard');
-    sleepMainCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
+    let sleepMainCard = document.getElementById('sleepMainCard');
+    let sleepInfoCard = document.getElementById('sleepInfoCard');
+    this.flipCard(sleepMainCard, sleepInfoCard)
+
+    sleepInfoCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="sleepGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
 
     let avgHours = sleep.getAvgHoursSleptPerDay();
     let avgQuality = sleep.getAllTimeAvgSleepQuality();
 
-    return  sleepMainCard.innerHTML += `
+    return  sleepInfoCard.innerHTML += `
     Average daily hours of sleep: ${avgHours}
     Average daily quality of sleep: ${avgQuality}
     `
   },
 
 
-
 }
-
-// let stepsInfoCard = document.getElementById('stepsInfoCard');
-// let stepsFriendsCard = document.getElementById('stepsFriendsCard');
-// let stepsTrendingCard = document.getElementById('stepsTrendingCard');
-// let stepsCalendarCard = document.getElementById('stepsCalendarCard');
-// let stepsCalendarTotalActiveMinutesWeekly = document.getElementById('stepsCalendarTotalActiveMinutesWeekly');
-// let stepsCalendarTotalStepsWeekly = document.getElementById('stepsCalendarTotalStepsWeekly');
-// let stepsFriendAverageStepGoal = document.getElementById('stepsFriendAverageStepGoal');
-// let stepsInfoActiveMinutesToday = document.getElementById('stepsInfoActiveMinutesToday');
-// let stepsInfoMilesWalkedToday = document.getElementById('stepsInfo-miles-walkedToday');
-// let stepsFriendActiveMinutesAverageToday = document.getElementById('stepsFriendActiveMinutesAverageToday');
-// let stepsFriendStepsAverageToday = document.getElementById('stepsFriendStepsAverageToday');
-// let stepsTrendingButton = document.getElementById('.steps-trendingButton');
 
 
 export default domUpdates;

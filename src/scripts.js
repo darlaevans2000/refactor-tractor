@@ -28,6 +28,7 @@ let hydrationMainCard = document.getElementById('hydrationMainCard');
 let stepsMainCard = document.getElementById('stepsMainCard');
 let stairsMainCard = document.getElementById('stairsMainCard');
 let sleepMainCard = document.getElementById('sleepMainCard');
+let main = document.getElementById('cardContainer')
 
 /*EVENT LISTENERS*/
 window.addEventListener('load', loadPageInfo);
@@ -44,6 +45,9 @@ stairsMainCard.addEventListener('click', function() {
 sleepMainCard.addEventListener('click', function() {
   changeSleepCards(event);
 })
+main.addEventListener('click', function() {
+  displayMain(event);
+})
 
 
 function loadPageInfo() {
@@ -51,12 +55,30 @@ function loadPageInfo() {
   domUpdates.greetUser(user)
 }
 
+function displayMain(event) {
+  let property = event.target.closest('button').id
+  console.log(property)
+  if (property.includes('sleep')) {
+    property = 'sleep'
+  }
+  if (property.includes('hydration')) {
+    property = 'hydration'
+  }
+  if (property.includes('stairs')) {
+    property = 'stairs'
+  }
+  if (property.includes('steps')) {
+    property = 'steps'
+  }
+  domUpdates.changeCardsToMain(event, property);
+}
+
 function changeHydroCards(event) {
   let hydrationInfo = event.target.closest('button').id
   if (hydrationInfo.includes('Calendar')) {
-    domUpdates.displayHydrationWeek(event, hydration, todayDate);
+    domUpdates.displayHydrationWeek(todayDate, hydration);
   }
-  if (hydrationInfo.includes('Info')) {
+   if (hydrationInfo.includes('Info')) {
     domUpdates.displayHydrationAvg(event, hydration)
   }
 };
@@ -67,7 +89,7 @@ function changeStepsCards(event) {
     domUpdates.displayStepsWeek(event, activity, todayDate);
   }
   if (stepsInfo.includes('Info')) {
-    domUpdates.displayStepsAvg(event, activity);
+  domUpdates.displayStepsAvg(event, activity);
   }
 }
 
