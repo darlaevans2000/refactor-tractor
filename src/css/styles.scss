@@ -36,6 +36,15 @@ header {
   width: 5.6vw;
   color: $white-color;
 }
+#user-info-dropdown {
+  background-color: #1F1F1F;
+  color: $white-color;
+  margin-left: 60%;
+  margin-top: -1.2%;
+  position: relative;
+  text-align: center;
+  z-index: 100;
+}
     .dropdown-p {
       font-size: 1.2vw;
       font-weight: 300;
@@ -49,16 +58,6 @@ header {
 button:active {
   border: none;
   outline: none;
-}
-
-#user-info-dropdown {
-  background-color: #1F1F1F;
-  color: $white-color;
-  margin-left: 60%;
-  margin-top: -1.2%;
-  position: relative;
-  text-align: center;
-  z-index: 100;
 }
 
 /* TEXT ELEMENTS */
