@@ -106,4 +106,4 @@ class Activity extends DataRepository {
 
 }
 
-export default Activity
+export default Activity;

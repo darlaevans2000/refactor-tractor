@@ -12,6 +12,7 @@ class Hydration extends DataRepository {
   }
 
   getOzOnDate(date, property) {
+    console.log(this)
     return super.getGivenDayValue(date, property);
   }
 
