@@ -228,3 +228,70 @@ main {
 .yellow-text {
   color: #F8BA00;
 }
+
+@media screen and (max-width: 1660px) {
+   main {
+  display: grid;
+  grid-template-areas:
+  'steps'
+  'hydration'
+  'stairs' 
+  'sleep';
+  height: 100%;
+  }
+  .main-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 40vw;
+  justify-content: center;
+  }
+}
+@media screen and (max-width: 1434px) {
+   main {
+  display: grid;
+  grid-template-areas:
+  'steps'
+  'hydration'
+  'stairs' 
+  'sleep';
+  height: 100%;
+  }
+}
+@media screen and (max-width: 1022px) {
+   main {
+  display: grid;
+  grid-template-areas:
+  'steps'
+  'hydration'
+  'stairs' 
+  'sleep';
+  height: 100%;
+  }
+  .main-card {
+  align-items: center;
+  display: flex;
+  flex-direction: column;
+  height: 40vw;
+  justify-content: center;
+  }
+}
+@media screen and (max-width: 725px) {
+  main {
+  display: grid;
+  grid-template-areas:
+  'steps'
+  'hydration'
+  'stairs' 
+  'sleep';
+  height: 100%;
+  }
+  
+  // .main-card {
+  // align-items: center;
+  // display: flex;
+  // flex-direction: column;
+  // height: 40vw;
+  // justify-content: center;
+  // }
+}
