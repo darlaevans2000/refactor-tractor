@@ -1,10 +1,10 @@
 import './css/base.scss';
 import './css/styles.scss';
 
-import testUserData from '../test/test-data/test-users';
-import testHydrationData from '..//test/test-data/test-hydration';
-import testSleepData from '..//test/test-data/test-sleep';
-import testActivityData from '..//test/test-data/test-activity';
+// import testUserData from '../test/test-data/test-users';
+// import testHydrationData from '..//test/test-data/test-hydration';
+// import testSleepData from '..//test/test-data/test-sleep';
+// import testActivityData from '..//test/test-data/test-activity';
 
 import UserRepository from './UserRepository';
 import User from './User';
@@ -14,13 +14,7 @@ import Sleep from './Sleep';
 import domUpdates from './domUpdates';
 
 /* GLOBAL VARIABLES*/
-let user = new User(testUserData[0]);
-let hydration = new Hydration(user.id, testHydrationData);
-let activity = new Activity(user.id, testActivityData);
-let sleep = new Sleep(user.id, testSleepData);
-let userRepository = new UserRepository();
-let todayDate = "2019/06/22";
-
+let user, hydration, activity, sleep, userRepository;
 
 
 /*QUERY SELECTORS*/
@@ -49,10 +43,37 @@ main.addEventListener('click', function() {
   displayMain(event);
 })
 
+const fetchData = (param) => {
+  return fetch(`http://localhost:3001/api/v1/${param}`)
+    .then(response => response.json())
+    .catch(err => console.error(err))
+}
 
 function loadPageInfo() {
-  domUpdates.displayMainCards(user, hydration, activity, sleep),
-  domUpdates.greetUser(user)
+  fetchData('users')
+    .then(userData => {
+      user = new User(userData.userData[0])
+    })
+    .then(() => domUpdates.greetUser(user))
+    .then(() => setUpRepos())
+}
+
+const setUpRepos = () => {
+  fetchData('hydration')
+    .then(hydroData => {
+      hydration = new Hydration(user.id, hydroData.hydrationData)
+    });
+
+  fetchData('sleep')
+    .then(sleepData => {
+      sleep = new Sleep(user.id, sleepData.sleepData)
+    });
+
+  fetchData('activity')
+    .then(activityData => {
+      activity = new Activity(user.id, activityData.activityData)
+    })
+    .then(() => domUpdates.displayMainCards(user, hydration, activity, sleep));
 }
 
 function displayMain(event) {
