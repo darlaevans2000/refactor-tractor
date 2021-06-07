@@ -16,15 +16,19 @@ let domUpdates = {
     headerName.innerText = `${user.getFirstName()}'S `
   },
 
-  // displayUserDetails(user) {
-  //   let dropdownEmail = document.getElementById('dropdownEmail')
-  //   let dropdownGoal = document.getElementById('dropdownGoal')
-  //   let dropdownName = document.getElementById('dropdownName')
-  //
-  //   dropdownGoal.innerText = `DAILY STEP GOAL | ${user.dailyStepGoal}`
-  //   dropdownEmail.innerText = `EMAIL | ${user.email}`
-  //   dropdownName.innerText = user.name.toUpperCase();
-  // },
+  displayUserDetails(user) {
+    console.log('working')
+
+    let userInfoDropdown = document.getElementById('userInfoDropdown')
+    userInfoDropdown.classList.toggle('hide');
+
+    let dropdownEmail = document.getElementById('dropdownEmail')
+    let dropdownGoal = document.getElementById('dropdownGoal')
+    let dropdownName = document.getElementById('dropdownName')
+    dropdownGoal.innerText = `DAILY STEP GOAL | ${user.dailyStepGoal}`
+    dropdownEmail.innerText = `EMAIL | ${user.email}`
+    dropdownName.innerText = user.name.toUpperCase();
+  },
 
   displayMainCards(user, hydration, activity, sleep) {
     let hydrationUserOuncesToday = document.getElementById('hydrationUserOuncesToday');
@@ -32,7 +36,7 @@ let domUpdates = {
     let stairsUserStairsToday = document.getElementById('stairsUserStairsToday');
     let sleepUserHoursToday = document.getElementById('sleepUserHoursToday');
 
-    let todayDate = "2019/06/22";
+    let todayDate = "2020/01/22";
     let ozToday = hydration.getOzOnDate(todayDate, 'numOunces');
     let stepsToday = activity.getStepsTaken(todayDate, user.id);
     let stairsToday = activity.getFlightsClimbed(todayDate, user.id)
