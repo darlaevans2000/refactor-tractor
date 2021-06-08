@@ -16,13 +16,16 @@ import domUpdates from './domUpdates';
 /* GLOBAL VARIABLES*/
 let user, hydration, activity, sleep, userRepository;
 
+let todayDate = '2020/01/22'
+
 
 /*QUERY SELECTORS*/
 let hydrationMainCard = document.getElementById('hydrationMainCard');
 let stepsMainCard = document.getElementById('stepsMainCard');
 let stairsMainCard = document.getElementById('stairsMainCard');
 let sleepMainCard = document.getElementById('sleepMainCard');
-let main = document.getElementById('cardContainer')
+let main = document.getElementById('cardContainer');
+let profileButton = document.getElementById('profileButton');
 
 /*EVENT LISTENERS*/
 window.addEventListener('load', loadPageInfo);
@@ -42,6 +45,7 @@ sleepMainCard.addEventListener('click', function() {
 main.addEventListener('click', function() {
   displayMain(event);
 })
+profileButton.addEventListener('click', displayProfile);
 
 const fetchData = (param) => {
   return fetch(`http://localhost:3001/api/v1/${param}`)
@@ -74,6 +78,10 @@ const setUpRepos = () => {
       activity = new Activity(user.id, activityData.activityData)
     })
     .then(() => domUpdates.displayMainCards(user, hydration, activity, sleep));
+}
+
+function displayProfile() {
+  domUpdates.displayUserDetails(user)
 }
 
 function displayMain(event) {
