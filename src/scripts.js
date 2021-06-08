@@ -151,15 +151,12 @@ sleepPostBtn.addEventListener('click', function() {
   validateForm();
 });
 openSleepModal.addEventListener('click', function() {
-  toggleHidden(postModal);
+  domUpdates.toggleHidden(postModal);
 });
 closeModal.addEventListener('click', function() {
-  toggleHidden(postModal);
+  domUpdates.toggleHidden(postModal);
+  clearForm();
 })
-
-let toggleHidden = (element) => {
-  element.classList.toggle('hide');
-}
 
 let checkDate = (element) => {
   let dateFormat = /^\d{4}\/\d{2}\/\d{2}$/;
@@ -184,24 +181,41 @@ let validateForm = () => {
   let hoursInput = checkNumber(sleepHours);
   let qualityInput = checkNumber(sleepQuality);
 
+  clearErrors();
+
   if (!dateInput) {
-    document.getElementById('dateError').classList.remove('hide');
+    domUpdates.toggleHidden(document.getElementById('dateError'));
   }
 
   if(!hoursInput) {
-    document.getElementById('hourError').classList.remove('hide');
+    domUpdates.toggleHidden(document.getElementById('hourError'));
   }
 
   if(!qualityInput) {
-    document.getElementById('qualityError').classList.remove('hide');
+    domUpdates.toggleHidden(document.getElementById('qualityError'));
   }
 
   if (dateInput && hoursInput && qualityInput) {
     assignData();
+    clearErrors();
     console.log(postData);
-    toggleHidden(successMsg);
+    domUpdates.toggleHidden(successMsg);
+    setTimeout(clearForm, 1000);
   }
 };
+
+let clearErrors = () => {
+  document.getElementById('dateError').classList.add('hide');
+  document.getElementById('hourError').classList.add('hide');
+  document.getElementById('qualityError').classList.add('hide');
+}
+
+let clearForm = () => {
+  sleepDate.value = '';
+  sleepHours.value = '';
+  sleepQuality.value = '';
+  domUpdates.toggleHidden(successMsg);
+}
 
 let assignData = () => {
   postData =
