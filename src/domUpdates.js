@@ -147,8 +147,8 @@ let domUpdates = {
     let avgWeekQual = sleep.calculateAverageQualityThisWeek(todayDate)
     sleepCalendarCard.innerHTML = `
     <button type="button" name="button" class="go-back-button" id="sleepGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
-    <p class="info-text">Average hours slept: ${avgWeekHr}</p>
-    <p class="info-text">Average quality this week: ${avgWeekQual}</p>
+    <!-- <p class="info-text">Average hours slept: ${avgWeekHr}</p>
+    <p class="info-text">Average quality this week: ${avgWeekQual}</p> -->
     `
     let dailyHours = week.forEach(day => {
       return  sleepCalendarCard.innerHTML += `<p class="calendar-text">${day.date} : ${day.hoursSlept}</p>`

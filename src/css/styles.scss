@@ -191,11 +191,13 @@ main {
 }
 
 .info-text{
-  font-size: 4vw;
+  font-size: 3vw;
+  text-align: center;
+  margin: 0.3em;
 }
 
 .calendar-text {
-  font-size: 3vw;
+  font-size: 1.8vw;
 }
 
 /* BUTTONS */
@@ -224,22 +226,6 @@ main {
   position: absolute;
   top: 1vh;
   left: 0.8vw;
-}
-/* CHANGING CLASSES */
-.hide {
-  display: none;
-}
-
-.green-text {
-  color: green;
-}
-
-.red-text {
-  color: red;
-}
-
-.yellow-text {
-  color: #F8BA00;
 }
 
 /*SLEEP FORM*/
@@ -312,11 +298,17 @@ label {
   text-transform: uppercase;
 }
 
-.error-msg,
-.success-msg {
+.error-msg {
   font-size: 1.5vw;
   color: red;
 }
+
+.success-msg{
+  font-size: 2vw;
+  color: #54C6BE;
+  margin-bottom: 2vh;
+}
+
 
 /*SCREEN SIZES*/
 
@@ -329,6 +321,11 @@ label {
     height: 100vh;
   }
   .card-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 800px;
     height: 20vh;
     width: auto;
@@ -353,6 +350,11 @@ label {
     width: 100%
   }
   .card-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 800px;
     height: 30vh;
     width: auto;
@@ -369,8 +371,30 @@ label {
     height: 100%;
   }
   .card-container {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
     max-width: 800px;
     height: 40vh;
     width: auto;
   }
+}
+
+/* CHANGING CLASSES */
+.hide {
+  display: none;
+}
+
+.green-text {
+  color: green;
+}
+
+.red-text {
+  color: red;
+}
+
+.yellow-text {
+  color: #F8BA00;
 }
