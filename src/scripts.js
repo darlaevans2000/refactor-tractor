@@ -16,13 +16,16 @@ import domUpdates from './domUpdates';
 /* GLOBAL VARIABLES*/
 let user, hydration, activity, sleep, userRepository;
 
+let todayDate = '2020/01/22'
+
 
 /*QUERY SELECTORS*/
 let hydrationMainCard = document.getElementById('hydrationMainCard');
 let stepsMainCard = document.getElementById('stepsMainCard');
 let stairsMainCard = document.getElementById('stairsMainCard');
 let sleepMainCard = document.getElementById('sleepMainCard');
-let main = document.getElementById('cardContainer')
+let main = document.getElementById('cardContainer');
+let profileButton = document.getElementById('profileButton');
 
 /*EVENT LISTENERS*/
 window.addEventListener('load', loadPageInfo);
@@ -42,6 +45,7 @@ sleepMainCard.addEventListener('click', function() {
 main.addEventListener('click', function() {
   displayMain(event);
 })
+profileButton.addEventListener('click', displayProfile);
 
 const fetchData = (param) => {
   return fetch(`http://localhost:3001/api/v1/${param}`)
@@ -74,6 +78,10 @@ const setUpRepos = () => {
       activity = new Activity(user.id, activityData.activityData)
     })
     .then(() => domUpdates.displayMainCards(user, hydration, activity, sleep));
+}
+
+function displayProfile() {
+  domUpdates.displayUserDetails(user)
 }
 
 function displayMain(event) {
@@ -133,6 +141,100 @@ function changeSleepCards(event) {
     domUpdates.displaySleepAvg(event, sleep)
   }
 };
+
+// Form test
+
+let sleepPostBtn = document.getElementById('sleepPost');
+let sleepDate = document.getElementById('sleepDate');
+let sleepHours = document.getElementById('sleepHours');
+let sleepQuality = document.getElementById('sleepQuality');
+let openSleepModal = document.getElementById('openSleepModal');
+let closeModal = document.getElementById('closeModal');
+let postModal = document.getElementById('postModal');
+let successMsg = document.getElementById('successMsg');
+let postData;
+
+sleepPostBtn.addEventListener('click', function() {
+  event.preventDefault();
+  validateForm();
+});
+openSleepModal.addEventListener('click', function() {
+  domUpdates.toggleHidden(postModal);
+});
+closeModal.addEventListener('click', function() {
+  domUpdates.toggleHidden(postModal);
+  clearForm();
+})
+
+let checkDate = (element) => {
+  let dateFormat = /^\d{4}\/\d{2}\/\d{2}$/;
+
+  if (element.value.match(dateFormat)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+let checkNumber = element => {
+  if (isNaN(element.value) || element.value === '') {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+let validateForm = () => {
+  let dateInput = checkDate(sleepDate);
+  let hoursInput = checkNumber(sleepHours);
+  let qualityInput = checkNumber(sleepQuality);
+
+  clearErrors();
+
+  if (!dateInput) {
+    domUpdates.toggleHidden(document.getElementById('dateError'));
+  }
+
+  if(!hoursInput) {
+    domUpdates.toggleHidden(document.getElementById('hourError'));
+  }
+
+  if(!qualityInput) {
+    domUpdates.toggleHidden(document.getElementById('qualityError'));
+  }
+
+  if (dateInput && hoursInput && qualityInput) {
+    assignData();
+    clearErrors();
+    console.log(postData);
+    domUpdates.toggleHidden(successMsg);
+    setTimeout(clearForm, 1000);
+  }
+};
+
+let clearErrors = () => {
+  document.getElementById('dateError').classList.add('hide');
+  document.getElementById('hourError').classList.add('hide');
+  document.getElementById('qualityError').classList.add('hide');
+}
+
+let clearForm = () => {
+  sleepDate.value = '';
+  sleepHours.value = '';
+  sleepQuality.value = '';
+  domUpdates.toggleHidden(successMsg);
+}
+
+let assignData = () => {
+  postData =
+    {
+      'userID': user.id,
+      'date': sleepDate.value,
+      'hoursSlept': parseFloat(sleepHours.value),
+      'sleepQuality': parseFloat(sleepQuality.value)
+    };
+};
+
 // userData.forEach(user => {
 //   user = new User(user);
 //   userRepository.users.push(user)
