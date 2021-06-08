@@ -16,15 +16,23 @@ body {
 }
 /* HEADER */
 header {
-  text-align: center;
-  height: 9vw;
+  position: relative;
+  display: flex;
+  justify-content: center;
+  // text-align: center;
+  height: 7vh;
+
   h1 {
+    align-self: center;
     color: $white-color;
     display: inline;
     font-size: 5.4vw;
     letter-spacing: 0.2em;
   }
   .profile-button {
+    position: fixed;
+    right: 5vw;
+    top: 1.5vh;
     background: none;
     font-size: 5.6vw;
     border: none;
@@ -100,7 +108,7 @@ main {
   display: grid;
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1.5fr);
-  padding: 6rem;
+  padding: 10vw;
   grid-gap: 2rem;
   // grid-template-areas: 'steps hydration' 'stairs sleep';
   height: 100vh;
