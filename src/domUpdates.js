@@ -11,10 +11,6 @@ import testActivityData from '..//test/test-data/test-activity';
 
 let domUpdates = {
 
-  toggleHidden(element) {
-    element.classList.toggle('hide');
-  },
-
   greetUser(user) {
     let headerName = document.getElementById('headerName');
     headerName.innerText = `${user.getFirstName()}'S `
@@ -75,7 +71,7 @@ let domUpdates = {
     let hydrationCalendarOunces = document.getElementById('hydrationCalendarOunces');
     let week = hydration.getWeekOfOz(todayDate, 'numOunces')
     let date = week.forEach(day => {
-         return  hydrationCalendarCard.innerHTML += `${day.date}: ${day.numOunces}`
+         return  hydrationCalendarCard.innerHTML += `<p class="calendar-text">${day.date}: ${day.numOunces}</p>`
        });
   },
 
@@ -86,7 +82,7 @@ let domUpdates = {
     hydrationInfoCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
 
     let avg = hydration.getAllTimeAvgOz();
-    return  hydrationInfoCard.innerHTML += `Your average daily consumption is: ${avg} oz!`
+    return  hydrationInfoCard.innerHTML += `<p class="info-text">Your average daily consumption is: ${avg} oz!</p>`
   },
 
   displayStepsWeek(event, activity, todayDate) {
@@ -98,8 +94,8 @@ let domUpdates = {
     let weekSteps = activity.getAvgStepsThruWeek(todayDate);
     let weekActiveMin = activity.getAvgActivityThruWeek(todayDate);
        return  stepsCalendarCard.innerHTML += `
-       Your average daily steps this week was: ${weekSteps}
-       Your average minutes active was: ${weekActiveMin}`
+      <p class="info-text">Average daily steps this week was: ${weekSteps}</p>
+      <p class="info-text">Average minutes active was: ${weekActiveMin}</p>`
     },
 
   displayStepsAvg(event, activity) {
@@ -112,8 +108,8 @@ let domUpdates = {
     let avgStepDay = activity.getAvgStepsOnDay();
     let avgMinDay = activity.getAvgMinutesOnDay();
     return  stepsInfoCard.innerHTML += `
-    Your average daily steps: ${avgStepDay}
-    Your average daily active minutes: ${avgMinDay}
+      <p class="info-text">Average daily steps: ${avgStepDay}</p>
+      <p class="info-text">Average daily active minutes: ${avgMinDay}</p>
     `
   },
 
@@ -125,7 +121,7 @@ let domUpdates = {
     stairsCalendarCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="stairsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
     let week = activity.getAvgFlightsThruWeek(todayDate);
     return  stairsCalendarCard.innerHTML += `
-    Your average flights this week was: ${week}
+    <p class="info-text">Your average flights this week was: ${week}</p>
     `
   },
 
@@ -137,7 +133,7 @@ let domUpdates = {
     stairsInfoCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="stairsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
     let avgFlights = activity.getAvgFlightsOnDay();
     return  stairsInfoCard.innerHTML += `
-    Your average daily flights: ${avgFlights}
+    <p class="info-text">Average daily flights: ${avgFlights}</p>
     `
   },
 
@@ -151,11 +147,11 @@ let domUpdates = {
     let avgWeekQual = sleep.calculateAverageQualityThisWeek(todayDate)
     sleepCalendarCard.innerHTML = `
     <button type="button" name="button" class="go-back-button" id="sleepGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
-    Average hours slept: ${avgWeekHr}
-    Average quality this week: ${avgWeekQual}
+    <!-- <p class="info-text">Average hours slept: ${avgWeekHr}</p>
+    <p class="info-text">Average quality this week: ${avgWeekQual}</p> -->
     `
     let dailyHours = week.forEach(day => {
-      return  sleepCalendarCard.innerHTML += `${day.date} : ${day.hoursSlept}`
+      return  sleepCalendarCard.innerHTML += `<p class="calendar-text">${day.date} : ${day.hoursSlept}</p>`
     })
   },
 
@@ -170,8 +166,8 @@ let domUpdates = {
     let avgQuality = sleep.getAllTimeAvgSleepQuality();
 
     return  sleepInfoCard.innerHTML += `
-    Average daily hours of sleep: ${avgHours}
-    Average daily quality of sleep: ${avgQuality}
+    <p class="info-text">Average daily hours of sleep: ${avgHours}</p>
+    <p class="info-text">Average daily quality of sleep: ${avgQuality}</p>
     `
   },
 
@@ -180,6 +176,11 @@ let domUpdates = {
     document.getElementById('hourError').classList.add('hide');
     document.getElementById('qualityError').classList.add('hide');
   },
+
+  toggleHidden(element) {
+    element.classList.toggle('hide');
+  },
+
 }
 
 
