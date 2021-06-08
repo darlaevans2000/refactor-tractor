@@ -97,8 +97,8 @@
       <section class="modal-content" id="modalContent">
         <button class="close-modal" id="closeModal">&times;</button>
         <p id="modalInfo">
-          <h2>Add new sleep data</h2>
-          <form id="sleepForm">
+          <h2 class="form-title">Add new sleep data</h2>
+          <form class="form" id="sleepForm">
             <label for="date">Date (YYYY/MM/DD)</label>
             <input type="text" name="date" placeholder="2019/06/24" id="sleepDate"></input>
             <p class="error-msg hide" id="dateError">Please enter a date in the YYYY/MM/DD format</p>
@@ -108,9 +108,9 @@
             <label for="sleepQuality">Sleep Quality</label>
             <input type="text" name="sleepQuality" placeholder="3.4" id="sleepQuality"></input>
             <p class="error-msg hide" id="qualityError">Please enter a number</p>
-            <button class="post-button" id="sleepPost">Post!</button>
-            <p class="success-msg hide" id="successMsg">Your data was added successfully!</p>
           </form>
+          <button class="post-button" id="sleepPost">Post!</button>
+          <p class="success-msg hide" id="successMsg">Your data was added successfully!</p>
         </p>
       </section>
     </section>

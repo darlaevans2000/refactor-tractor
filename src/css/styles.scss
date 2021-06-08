@@ -113,7 +113,6 @@ main {
   height: 100vh;
 }
 
-
 .card-container {
   position: relative;
   max-width: 800px;
@@ -248,13 +247,75 @@ main {
 .modal-content {
   display: flex;
   flex-direction: column;
+  justify-content: center;
+  align-items: center;
   position: absolute;
   left: 30vw;
   top: 15vh;
   background-color: $white-color;
-  height: 40vh;
-  width: 40vw;
+  max-width: 50vw;
+  height: auto;
+  width: 100%;
   border-radius: 10px;
+  border: 3px solid #FBD089;
+}
+
+.form {
+  height: 30vh;
+  width: 30vw;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+input {
+  width: 20vw;
+  height: 5vh;
+  border: 0.5px solid lightgrey;
+  border-radius: 5px;
+  font-size: 2.3vw;
+  text-align: center;
+}
+
+label {
+  font-size: 2vw;
+}
+
+.close-modal,
+.post-button{
+  background-color: darkgrey;
+  color: $white-color;
+  border-radius: 5px;
+  height: 4vh;
+}
+
+.close-modal{
+  align-self: flex-end;
+  margin-right: 2vw;
+  margin-top: 1vh;
+  width: 3vw;
+  font-size: 3vw;
+}
+
+.post-button{
+  align-self: flex-start;
+  margin-left: 2vw;
+  margin-bottom: 1vh;
+  width: 7vw;
+  font-size: 2.5vw;
+}
+
+.form-title {
+  font-size: 3vw;
+  letter-spacing: 0;
+  text-transform: uppercase;
+}
+
+.error-msg,
+.success-msg {
+  font-size: 1.5vw;
+  color: red;
 }
 
 /*SCREEN SIZES*/

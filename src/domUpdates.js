@@ -108,10 +108,8 @@ let domUpdates = {
     let avgStepDay = activity.getAvgStepsOnDay();
     let avgMinDay = activity.getAvgMinutesOnDay();
     return  stepsInfoCard.innerHTML += `
-    <section class="info-text-container">
       <p class="info-text">Average daily steps: ${avgStepDay}</p>
       <p class="info-text">Average daily active minutes: ${avgMinDay}</p>
-    </section>
     `
   },
 
