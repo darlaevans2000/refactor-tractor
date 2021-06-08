@@ -72,13 +72,13 @@ button:active {
 h2 {
   display: inline;
   font-family: $secondary-font-header;
-  font-size: 3vw;
+  font-size: 2.5vw;
   font-weight: 700;
-  letter-spacing: 0.2em;
+  letter-spacing: 0.1em;
 }
 
 h3 {
-  font-size: 7vw;
+  font-size: 4.5vw;
   letter-spacing: 0.1em;
 }
 
@@ -116,8 +116,9 @@ main {
 
 .card-container {
   position: relative;
-  height: 40vw;
-  width: 80vw;
+  max-width: 800px;
+  height: 20VH;
+  width: 100%;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -145,7 +146,6 @@ main {
   display: flex;
   flex-direction: column;
   align-items: center;
-  width: 100%;
 }
 
 .steps-container {
@@ -257,41 +257,59 @@ main {
   border-radius: 10px;
 }
 
-// @media screen and (min-width: 1200px) {
-//   main {
-//     display: grid;
-//     grid-template-areas: 'steps' 'hydration' 'stairs' 'sleep';
-//     height: 100%;
-//   }
-//   .card-container {
-//     height: 100%;
-//     width: 80vw;
-//   }
-// }
-// @media screen and (min-width: 800px) {
-//   main {
-//     display: grid;
-//     grid-template-areas: 'steps' 'hydration' 'stairs' 'sleep';
-//     height: 100%;
-//   }
-//
-//   .main-card {
-//     align-items: center;
-//     display: flex;
-//     flex-direction: column;
-//     height: 40vw;
-//     justify-content: center;
-//   }
-//
-//   .card-container {
-//     height: 100%;
-//     width: 80vw;
-//   }
-// }
-// @media screen and (max-width: 725px) {
-//   main {
-//     display: grid;
-//     grid-template-areas: 'steps' 'hydration' 'stairs' 'sleep';
-//     height: 100%;
-//   }
-// }
+/*SCREEN SIZES*/
+
+@media screen and (min-width: 600px) {
+  main {
+    display: grid;
+    grid-template-columns: 1fr;
+    grid-template-rows: repeat(4, 1fr);
+    padding: 3vh 10vw 3vh 10vw;
+    height: 100vh;
+  }
+  .card-container {
+    max-width: 800px;
+    height: 20vh;
+    width: auto;
+  }
+}
+
+
+@media screen and (min-width: 900px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(2,1fr);
+    grid-template-rows: repeat(2, 1fr);
+    height: 100%;
+    grid-gap: 2rem;
+  }
+  .main-card {
+    align-items: center;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    height: 40vw;
+    width: 100%
+  }
+  .card-container {
+    max-width: 800px;
+    height: 30vh;
+    width: auto;
+  }
+}
+
+@media screen and (min-width: 1200px) {
+  main {
+    display: grid;
+    grid-template-columns: repeat(2, 0.5fr);
+    grid-template-rows: repeat(2, 0.5fr);
+    padding: 3rem;
+    grid-gap: 2rem;
+    height: 100%;
+  }
+  .card-container {
+    max-width: 800px;
+    height: 40vh;
+    width: auto;
+  }
+}
