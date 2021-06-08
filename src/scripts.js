@@ -133,6 +133,86 @@ function changeSleepCards(event) {
     domUpdates.displaySleepAvg(event, sleep)
   }
 };
+
+// Form test
+
+let sleepPostBtn = document.getElementById('sleepPost');
+let sleepDate = document.getElementById('sleepDate');
+let sleepHours = document.getElementById('sleepHours');
+let sleepQuality = document.getElementById('sleepQuality');
+let openSleepModal = document.getElementById('openSleepModal');
+let closeModal = document.getElementById('closeModal');
+let postModal = document.getElementById('postModal');
+let successMsg = document.getElementById('successMsg');
+let postData;
+
+sleepPostBtn.addEventListener('click', function() {
+  event.preventDefault();
+  validateForm();
+});
+openSleepModal.addEventListener('click', function() {
+  toggleHidden(postModal);
+});
+closeModal.addEventListener('click', function() {
+  toggleHidden(postModal);
+})
+
+let toggleHidden = (element) => {
+  element.classList.toggle('hide');
+}
+
+let checkDate = (element) => {
+  let dateFormat = /^\d{4}\/\d{2}\/\d{2}$/;
+
+  if (element.value.match(dateFormat)) {
+    return true;
+  } else {
+    return false;
+  }
+}
+
+let checkNumber = element => {
+  if (isNaN(element.value) || element.value === '') {
+    return false;
+  } else {
+    return true;
+  }
+}
+
+let validateForm = () => {
+  let dateInput = checkDate(sleepDate);
+  let hoursInput = checkNumber(sleepHours);
+  let qualityInput = checkNumber(sleepQuality);
+
+  if (!dateInput) {
+    document.getElementById('dateError').classList.remove('hide');
+  }
+
+  if(!hoursInput) {
+    document.getElementById('hourError').classList.remove('hide');
+  }
+
+  if(!qualityInput) {
+    document.getElementById('qualityError').classList.remove('hide');
+  }
+
+  if (dateInput && hoursInput && qualityInput) {
+    assignData();
+    console.log(postData);
+    toggleHidden(successMsg);
+  }
+};
+
+let assignData = () => {
+  postData =
+    {
+      'userID': user.id,
+      'date': sleepDate.value,
+      'hoursSlept': parseFloat(sleepHours.value),
+      'sleepQuality': parseFloat(sleepQuality.value)
+    };
+};
+
 // userData.forEach(user => {
 //   user = new User(user);
 //   userRepository.users.push(user)
