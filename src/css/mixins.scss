@@ -1,9 +1,8 @@
 @mixin mainPgContainers($background-color, $grid-area, $margin) {
-    background-color: $background-color;
-    grid-area: $grid-area;
-    margin: $margin;
+  background-color: $background-color;
+  grid-area: $grid-area;
+  margin: $margin;
 }
-
 @mixin buttonsMainStyling() {
   background: none;
   border: none;
