@@ -142,7 +142,8 @@ function changeSleepCards(event) {
   }
 };
 
-// Form test
+
+// New Data POST form
 
 let sleepPostBtn = document.getElementById('sleepPost');
 let sleepDate = document.getElementById('sleepDate');
@@ -189,7 +190,7 @@ let validateForm = () => {
   let hoursInput = checkNumber(sleepHours);
   let qualityInput = checkNumber(sleepQuality);
 
-  clearErrors();
+  domUpdates.clearErrors();
 
   if (!dateInput) {
     domUpdates.toggleHidden(document.getElementById('dateError'));
@@ -205,24 +206,16 @@ let validateForm = () => {
 
   if (dateInput && hoursInput && qualityInput) {
     assignData();
-    clearErrors();
-    console.log(postData);
-    domUpdates.toggleHidden(successMsg);
-    setTimeout(clearForm, 1000);
+    domUpdates.clearErrors();
+    postNewData();
   }
 };
-
-let clearErrors = () => {
-  document.getElementById('dateError').classList.add('hide');
-  document.getElementById('hourError').classList.add('hide');
-  document.getElementById('qualityError').classList.add('hide');
-}
 
 let clearForm = () => {
   sleepDate.value = '';
   sleepHours.value = '';
   sleepQuality.value = '';
-  domUpdates.toggleHidden(successMsg);
+  successMsg.classList.add('hide');
 }
 
 let assignData = () => {
@@ -234,6 +227,30 @@ let assignData = () => {
       'sleepQuality': parseFloat(sleepQuality.value)
     };
 };
+
+let makePostRequest = (type) => {
+  return fetch(`http://localhost:3001/api/v1/${type}`, {
+    method: 'POST',
+    headers: { 'Content-Type': 'application/json' },
+    body: JSON.stringify(postData)
+  })
+}
+
+let postNewData = () => {
+  assignData();
+  domUpdates.clearErrors();
+  makePostRequest('sleep')
+    .then(response => {
+      if (response.ok) {
+        successMsg.classList.remove('hide');
+        setTimeout(clearForm, 1500);
+        return response.json();
+      } else {
+        throw new Error('Unable to post data, please try again')
+      }
+    })
+  console.log(postData);
+}
 
 // userData.forEach(user => {
 //   user = new User(user);
