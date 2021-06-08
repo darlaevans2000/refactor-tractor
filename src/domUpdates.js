@@ -11,6 +11,10 @@ import testActivityData from '..//test/test-data/test-activity';
 
 let domUpdates = {
 
+  toggleHidden(element) {
+    element.classList.toggle('hide');
+  },
+
   greetUser(user) {
     let headerName = document.getElementById('headerName');
     headerName.innerText = `${user.getFirstName()}'S `
