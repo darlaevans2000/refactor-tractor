@@ -231,6 +231,93 @@ main {
   width: 3.4vw;
 }
 
+// Form Modal
+input {
+  margin-bottom: 1vw;
+  width: 40%;
+  padding: 2vw;
+  font-size: 1.5vw;
+}
+
+label {
+  display: block;
+  text-align: center;
+  line-height: 2vw;
+}
+
+.post-button {
+  width: 8vw;
+  height: 3vw;
+  background-color: #000000;
+  font-size: 2vw;
+  color: #ffffff;
+  border: none;
+  border-radius: 1vw;
+  display: block;
+  align-self: center;
+
+  &:hover {
+    background-color: gray;
+  }
+}
+
+.post-modal {
+  position: fixed;
+  z-index: 1;
+  padding-top: 4%;
+  left: 0;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  overflow: auto;
+  background-color: rgba(0,0,0,0.4);
+  text-align: center;
+}
+
+.modal-content {
+  margin: auto;
+  background-color: white;
+  padding: 2% 4%;
+  border: 1px solid gray;
+  height: auto;
+  width: 70%;
+  overflow: auto;
+  font-size: 3vw;
+  font-weight: 500;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+
+  h2 {
+    margin: 2vw;
+  }
+}
+
+.close-modal {
+  background: none;
+  border: none;
+  color: gray;
+  align-self: self-end;
+  font-size: 4vw;
+  font-weight: bold;
+  transition: transform 400ms;
+}
+
+.close-modal:hover {
+  cursor: pointer;
+  transform: scale(1.5, 1.5);
+}
+
+.success-msg {
+  color: green;
+  font-size: 2vw;
+}
+
+.error-msg {
+  color: red;
+  font-size: 1.5vw;
+}
+
 
 /* CHANGING CLASSES */
 .hide {
