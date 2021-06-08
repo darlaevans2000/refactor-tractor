@@ -94,8 +94,8 @@ let domUpdates = {
     let weekSteps = activity.getAvgStepsThruWeek(todayDate);
     let weekActiveMin = activity.getAvgActivityThruWeek(todayDate);
        return  stepsCalendarCard.innerHTML += `
-      <p class="info-text">Your average daily steps this week was: ${weekSteps}</p>
-      <p class="info-text">Your average minutes active was: ${weekActiveMin}</p>`
+      <p class="info-text">Average daily steps this week was: ${weekSteps}</p>
+      <p class="info-text">Average minutes active was: ${weekActiveMin}</p>`
     },
 
   displayStepsAvg(event, activity) {
@@ -108,8 +108,10 @@ let domUpdates = {
     let avgStepDay = activity.getAvgStepsOnDay();
     let avgMinDay = activity.getAvgMinutesOnDay();
     return  stepsInfoCard.innerHTML += `
-    <p class="info-text">Your average daily steps: ${avgStepDay}</p>
-    <p class="info-text">Your average daily active minutes: ${avgMinDay}</p>
+    <section class="info-text-container">
+      <p class="info-text">Average daily steps: ${avgStepDay}</p>
+      <p class="info-text">Average daily active minutes: ${avgMinDay}</p>
+    </section>
     `
   },
 
@@ -133,7 +135,7 @@ let domUpdates = {
     stairsInfoCard.innerHTML = `<button type="button" name="button" class="go-back-button" id="stairsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>`
     let avgFlights = activity.getAvgFlightsOnDay();
     return  stairsInfoCard.innerHTML += `
-    <p class="info-text">Your average daily flights: ${avgFlights}</p>
+    <p class="info-text">Average daily flights: ${avgFlights}</p>
     `
   },
 
@@ -171,6 +173,9 @@ let domUpdates = {
     `
   },
 
+  toggleHidden(element) {
+    element.classList.toggle('hide');
+  }
 
 }
 

@@ -121,6 +121,7 @@ main {
   display: flex;
   flex-direction: column;
   justify-content: center;
+  align-items: center;
 }
 
 .main-card {
@@ -189,6 +190,15 @@ main {
   text-align: center;
   width: 20vw;
 }
+
+.info-text{
+  font-size: 4vw;
+}
+
+.calendar-text {
+  font-size: 3vw;
+}
+
 /* BUTTONS */
 .info-button {
   @include buttonsMainStyling();
@@ -196,14 +206,6 @@ main {
   font-size: 3.4vw;
   display: inline;
   margin-left: 1vw;
-}
-
-.friends-button {
-  @include buttonsMainStyling();
-  color: $white-color;
-  font-size: 3vw;
-  display: inline;
-  margin-right: 1vw;
 }
 
 .calendar-button {
@@ -215,16 +217,14 @@ main {
   margin-right: 1vw;
 }
 
-.trending-button {
-  @include buttonsMainStyling();
-  margin-left: 1vw;
-}
-
 .go-back-button {
   @include buttonsMainStyling();
   color: $white-color;
   font-size: 3.4vw;
   margin-left: 1vw;
+  position: absolute;
+  top: 1vh;
+  left: 0.8vw;
 }
 /* CHANGING CLASSES */
 .hide {
@@ -241,6 +241,20 @@ main {
 
 .yellow-text {
   color: #F8BA00;
+}
+
+/*SLEEP FORM*/
+
+.modal-content {
+  display: flex;
+  flex-direction: column;
+  position: absolute;
+  left: 30vw;
+  top: 15vh;
+  background-color: $white-color;
+  height: 40vh;
+  width: 40vw;
+  border-radius: 10px;
 }
 
 // @media screen and (min-width: 1200px) {
