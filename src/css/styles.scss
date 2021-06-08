@@ -20,7 +20,7 @@ header {
   display: flex;
   justify-content: center;
   // text-align: center;
-  height: 7vh;
+  height: 10vh;
 
   h1 {
     align-self: center;
@@ -30,28 +30,30 @@ header {
     letter-spacing: 0.2em;
   }
   .profile-button {
-    position: fixed;
-    right: 5vw;
-    top: 1.5vh;
+    position: absolute;
+    top: 1vh;
+    right: 2vw;
+    align-self: center;
     background: none;
     font-size: 5.6vw;
     border: none;
-    display: inline;
-    float: right;
     height: 5.6vw;
-    margin-right: 0.5vw;
-    margin-top: 1.6vw;
     width: 5.6vw;
     color: $white-color;
   }
-  #userInfoDropdown {
+  .user-info-dropdown {
     background-color: $background-color;
     color: $white-color;
     margin-left: 60%;
     margin-top: -1.2%;
-    position: relative;
+    position: absolute;
+    top: 11.5vh;
+    right: 5vw;
     text-align: center;
     z-index: 100;
+    border: 1px solid $white-color;
+    height: 18vh;
+    width: 20vw;
   }
   .dropdown-p {
     font-size: 1.2vw;
@@ -107,40 +109,42 @@ p {
 main {
   display: grid;
   grid-template-columns: 1fr;
-  grid-template-rows: repeat(4, 1.5fr);
-  padding: 10vw;
-  grid-gap: 2rem;
+  grid-template-rows: repeat(4, 1fr);
+  padding: 3vh 10vw 3vh 10vw;
   // grid-template-areas: 'steps hydration' 'stairs sleep';
   height: 100vh;
 }
 
 
 .card-container {
+  position: relative;
   height: 40vw;
   width: 80vw;
-  margin: 3vh 10vw 3vh 10vw;
+  // margin: 3vh 10vw 3vh 10vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
 }
 
 .main-card {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
   align-items: center;
+  height: 80vw;
+}
+
+.more-info{
+  position: absolute;
+  top: 1vh;
+  width: 100%;
+  height: 5vh;
+}
+
+.main-card-text {
   display: flex;
   flex-direction: column;
-  height: 60vw;
-  justify-content: center;
-}
-
-.main-card-top-row {
   align-items: center;
-  display: flex;
-  justify-content: space-between;
-  width: 100%;
-}
-
-.main-card-bottom-row {
-  text-align: center;
   width: 100%;
 }
 

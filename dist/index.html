@@ -12,7 +12,7 @@
     <header>
       <h1><span id="headerName"></span>FitLit</h1>
       <button type="button" class="profile-button" name="button" id="profileButton"><i class="fas fa-user-circle"></i></button>
-      <section class="hide" id="userInfoDropdown">
+      <section class="user-info-dropdown hide" id="userInfoDropdown">
         <h5 id="dropdownName"></h5>
         <p class="dropdown-p" id="dropdownEmail"></p>
         <p class="dropdown-p" id="dropdownGoal"></p>
@@ -24,65 +24,35 @@
     <main id='cardContainer'>
       <section class="card-container steps-container" id="stepsCardContainer">
         <section class="main-card" id="stepsMainCard">
-          <div class="main-card-top-row">
+          <div class="more-info">
             <button type="button" name="button" class="info-button" id="stepsInfoButton"><i class="fas fa-info-circle"></i></button>
-            <h2>You have walked</h2>
-            <button type="button" name="button" class="friends-button" id="stepsFriendsButton"><i class="fas fa-users"></i></button>
-          </div>
-          <h3 id="stepsUserStepsToday">X</h3>
-          <div class="main-card-bottom-row">
-            <!-- <button type="button" name="button" class="trending-button steps-trending-button">x</button> -->
-            <h2>steps today</h2>
             <button type="button" name="button" class="calendar-button" id="stepsCalendarButton"><i class="far fa-calendar-alt"></i></button>
+          </div>
+          <div class="main-card-text">
+            <h2>You have walked</h2>
+            <h3 id="stepsUserStepsToday">X</h3>
+            <h2>steps today</h2>
           </div>
         </section>
         <section class="info-card hide" id="stepsInfoCard">
         </section>
-        <!-- <section class="friends-card hide" id="stepsFriendsCard">
-          <button type="button" name="button" class="go-back-button" id="stepsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
-          <div class="card-data-line">
-            <h4>All users' average active minutes today:</h4>
-            <p id="stepsFriendActiveMinutesAverageToday"></p>
-          </div>
-          <div class="card-data-line">
-            <h4>All users' average steps today:</h4>
-            <p id="stepsFriendStepsAverageToday"></p>
-          </div>
-          <div class="card-data-line">
-            <h4>All users' average step goal:</h4>
-            <p id="stepsFriendAverageStepGoal"></p>
-          </div>
-        </section> -->
-        <!-- <section class="trending-card hide" id="steps-trending-card">
-          <button type="button" name="button" class="go-back-button steps-go-back-button"></button>
-          <div class="card-data-line trending-steps-phrase-container">
-          </div>
-        </section> -->
         <section class="calendar-card hide" id="stepsCalendarCard">
         </section>
       </section>
       <section class="card-container hydration-container" id="hydrationCardContainer">
         <section class="main-card" id="hydrationMainCard">
-          <div class="main-card-top-row">
+          <div class="more-info">
             <button type="button" name="button" class="info-button" id="hydrationInfoButton"><i class="fas fa-info-circle"></i></button>
-            <h2>You have had</h2>
-            <button type="button" name="button" class="friends-button" id="hydrationFriendsButton"><i class="fas fa-users"></i></button>
-          </div>
-          <h3 id="hydrationUserOuncesToday"></h3>
-          <div class="main-card-bottom-row">
-            <h2>ounces of water today</h2>
             <button type="button" name="button" class="calendar-button" id="hydrationCalendarButton"><i class="far fa-calendar-alt"></i></button>
+          </div>
+          <div class="main-card-text">
+            <h2>You have had</h2>
+            <h3 id="hydrationUserOuncesToday"></h3>
+            <h2>ounces of water today</h2>
           </div>
         </section>
         <section class="info-card hide" id="hydrationInfoCard">
         </section>
-        <!-- <section class="friends-card hide" id="hydrationFriendsCard">
-          <button type="button" name="button" class="go-back-button" id="hydrationGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
-          <div class="card-data-line">
-            <h4>All users' average daily ounces:</h4>
-            <p id="hydrationFriendOuncesToday"></p>
-          </div>
-        </section> -->
         <section class="calendar-card hide" id="hydrationCalendarCard">
         </section>
       </section>
@@ -103,18 +73,6 @@
         <section class="info-card hide" id="stairsInfoCard">
 
         </section>
-        <!-- <section class="friends-card hide" id="stairsFriendsCard">
-          <button type="button" name="button" class="go-back-button" id="stairsGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
-          <div class="card-data-line">
-            <h4>All users' average flights today</h4>
-            <p id="stairsFriendFlightsAverageToday"></p>
-          </div>
-        </section> -->
-        <!-- <section class="trending-card hide" id="stairs-trending-card">
-          <button type="button" name="button" class="go-back-button stairs-go-back-button"></button>
-          <div class="card-data-line trending-stairs-phrase-container">
-          </div>
-        </section> -->
         <section class="calendar-card hide" id="stairsCalendarCard">
         </section>
       </section>
@@ -147,17 +105,6 @@
             <p id="sleepInfoQualityAverageAlltime"></p>
           </div>
         </section>
-        <!-- <section class="friends-card hide" id="sleep-friends-card">
-          <button type="button" name="button" class="go-back-button sleep-go-back-button"></button>
-          <div class="card-data-line">
-            <p>LAST NIGHT'S SUPERIOR SLEEPER</p>
-            <h4 id="sleep-friend-longest-sleeper"></h4>
-          </div>
-          <div class="card-data-line">
-            <p>LAST NIGHT'S INFERIOR SLEEPER</p>
-            <h4 id="sleep-friend-worst-sleeper"></h4>
-          </div>
-        </section> -->
         <section class="calendar-card hide" id="sleepCalendarCard">
           <button type="button" name="button" class="go-back-button" id="sleepGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
           <div class="card-data-line">
