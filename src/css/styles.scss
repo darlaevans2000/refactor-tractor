@@ -31,7 +31,7 @@ header {
   }
   .profile-button {
     position: absolute;
-    top: 1vh;
+    top: 1.5vh;
     right: 2vw;
     align-self: center;
     background: none;
@@ -44,15 +44,14 @@ header {
   .user-info-dropdown {
     background-color: $background-color;
     color: $white-color;
-    margin-left: 60%;
     margin-top: -1.2%;
     position: absolute;
-    top: 11.5vh;
+    top: 11.2vh;
     right: 5vw;
     text-align: center;
     z-index: 100;
     border: 1px solid $white-color;
-    height: 18vh;
+    height: 16vh;
     width: 20vw;
   }
   .dropdown-p {
@@ -111,7 +110,6 @@ main {
   grid-template-columns: 1fr;
   grid-template-rows: repeat(4, 1fr);
   padding: 3vh 10vw 3vh 10vw;
-  // grid-template-areas: 'steps hydration' 'stairs sleep';
   height: 100vh;
 }
 
@@ -120,7 +118,6 @@ main {
   position: relative;
   height: 40vw;
   width: 80vw;
-  // margin: 3vh 10vw 3vh 10vw;
   display: flex;
   flex-direction: column;
   justify-content: center;
@@ -136,6 +133,8 @@ main {
 
 .more-info{
   position: absolute;
+  display: flex;
+  justify-content: space-between;
   top: 1vh;
   width: 100%;
   height: 5vh;

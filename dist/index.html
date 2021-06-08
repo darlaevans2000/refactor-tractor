@@ -17,8 +17,6 @@
         <p class="dropdown-p" id="dropdownEmail"></p>
         <p class="dropdown-p" id="dropdownGoal"></p>
         <br />
-        <!-- <p class="dropdown-p" id="dropdown-friends">FRIENDS TOTAL STEPS THIS WEEK</p>
-        <div id="dropdown-friends-steps-container"></div> -->
       </section>
     </header>
     <main id='cardContainer'>
@@ -58,16 +56,14 @@
       </section>
       <section class="card-container stairs-container" id="stairsCardContainer">
         <section class="main-card" id="stairsMainCard">
-          <div class="main-card-top-row">
+          <div class="more-info">
             <button type="button" name="button" class="info-button" id="stairsInfoButton"><i class="fas fa-info-circle"></i></button>
-            <h2>You have climbed</h2>
-            <button type="button" name="button" class="friends-button" id="stairsFriendsButton"><i class="fas fa-users"></i></button>
-          </div>
-          <h3 id="stairsUserStairsToday"></h3>
-          <div class="main-card-bottom-row">
-            <!-- <button type="button" name="button" class="trending-button stairs-trending-button">x</button> -->
-            <h2>stairs today</h2>
             <button type="button" name="button" class="calendar-button" id="stairsCalendarButton"><i class="far fa-calendar-alt"></i></button>
+          </div>
+          <div class="main-card-text">
+            <h2>You have climbed</h2>
+            <h3 id="stairsUserStairsToday"></h3>
+            <h2>stairs today</h2>
           </div>
         </section>
         <section class="info-card hide" id="stairsInfoCard">
@@ -78,42 +74,20 @@
       </section>
       <section class="card-container sleep-container" id="sleepCardContainer">
         <section class="main-card" id="sleepMainCard">
-          <div class="main-card-top-row">
+          <div class="more-info">
             <button type="button" name="button" class="info-button" id="sleepInfoButton"><i class="fas fa-info-circle"></i></button>
-            <h2>You slept</h2>
-            <button type="button" name="button" class="friends-button" "sleepFriendsButton"><i class="fas fa-users"></i></button>
-          </div>
-          <h3 id="sleepUserHoursToday"></h3>
-          <div class="main-card-top-row">
             <button class="info-button" id="openSleepModal"><i class="fas fa-plus"></i></button>
-            <h2>hours last night</h2>
             <button type="button" name="button" class="calendar-button" id="sleepCalendarButton"><i class="far fa-calendar-alt"></i></button>
+          </div>
+          <div class="main-card-text">
+            <h2>You slept</h2>
+            <h3 id="sleepUserHoursToday"></h3>
+            <h2>hours last night</h2>
           </div>
         </section>
         <section class="info-card hide" id="sleepInfoCard">
-          <button type="button" name="button" class="go-back-button" id="sleepGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
-          <div class="card-data-line">
-            <h4>Sleep quality last night</h4>
-            <p id="sleepInfoQualityToday"></p>
-          </div>
-          <div class="card-data-line">
-            <h4>Overall number of hours average</h4>
-            <p id="sleepInfoHoursAverageAlltime"></p>
-          </div>
-          <div class="card-data-line">
-            <h4>Overall sleep quality average</h4>
-            <p id="sleepInfoQualityAverageAlltime"></p>
-          </div>
         </section>
         <section class="calendar-card hide" id="sleepCalendarCard">
-          <button type="button" name="button" class="go-back-button" id="sleepGoBackButton"><i class="fas fa-arrow-alt-circle-left"></i></button>
-          <div class="card-data-line">
-            <h4>Last week's hourly average</h4>
-            <p id="sleepCalendarHoursAverageWeekly"></p>
-          </div>
-          <div class="card-data-line">
-            <h4>Last week's quality average</h4>
-            <p id="sleepCalendarQualityAverageWeekly"></p>
           </div>
         </section>
       </section>
