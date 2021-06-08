@@ -17,14 +17,12 @@ body {
 header {
   text-align: center;
   height: 9vw;
-
   h1 {
     color: $white-color;
     display: inline;
     font-size: 5.4vw;
     letter-spacing: 0.2em;
   }
-
   .profile-button {
     background: none;
     font-size: 5.6vw;
@@ -37,7 +35,6 @@ header {
     width: 5.6vw;
     color: $white-color;
   }
-
   #user-info-dropdown {
     background-color: $background-color;
     color: $white-color;
@@ -47,7 +44,6 @@ header {
     text-align: center;
     z-index: 100;
   }
-
   .dropdown-p {
     font-size: 1.2vw;
     font-weight: 300;
