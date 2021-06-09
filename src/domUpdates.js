@@ -171,9 +171,15 @@ let domUpdates = {
     `
   },
 
+  clearErrors() {
+    document.getElementById('dateError').classList.add('hide');
+    document.getElementById('hourError').classList.add('hide');
+    document.getElementById('qualityError').classList.add('hide');
+  },
+
   toggleHidden(element) {
     element.classList.toggle('hide');
-  }
+  },
 
 }
 
