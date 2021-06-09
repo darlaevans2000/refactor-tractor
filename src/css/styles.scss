@@ -358,13 +358,25 @@ label {
   h3 {
     font-size: 3.5vw;
   }
+  h5 {
+    font-size: 4.8vw;
+  }
   .info-button,
   .calendar-button,
   .go-back-button {
     font-size: $smaller-button;
   }
-  header .profile-button {
-    font-size: 9vw;
+  header {
+    .profile-button {
+      font-size: 9vw;
+    }
+    .user-info-dropdown {
+      height: 20vw;
+      width: 40vw;
+    }
+    .dropdown-p {
+      font-size: 2.2vw;
+    }
   }
 }
 
@@ -387,8 +399,20 @@ label {
     height: 40vh;
     width: auto;
   }
-  header .profile-button {
-    font-size: 5.6vw;
+  h5 {
+    font-size: 1.8vw;
+  }
+  header {
+    .profile-button {
+      font-size: 5.6vw;
+    }
+    .user-info-dropdown {
+      height: 12vw;
+      width: 20vw;
+    }
+    .dropdown-p {
+      font-size: 1.2vw;
+    }
   }
 }
 
