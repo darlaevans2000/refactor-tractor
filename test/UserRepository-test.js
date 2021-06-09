@@ -7,7 +7,7 @@ import Sleep from '../src/Sleep';
 import testSleepData from './test-data/test-sleep';
 import testActivityData from './test-data/test-activity';
 
-describe.only('UserRepository', function() {
+describe('UserRepository', function() {
   let user1, user2, user3, userRepository;
 
   beforeEach(() => {
@@ -94,9 +94,4 @@ describe.only('UserRepository', function() {
   it('should have a method that calculates average number of active minutes for users', function() {
     expect(userRepository.calculateAverageActivity(testActivityData, '2019/06/21', 'minutesActive')).to.equal(163);
   });
-
-  // // Sleep quality > 3 for a given week
-  // it.skip('should have a method that finds the best sleepers', function() {
-  //   expect(userRepository.findBestSleepers("2019/06/16")).to.deep.equal([user1, user2]);
-  // });
 });

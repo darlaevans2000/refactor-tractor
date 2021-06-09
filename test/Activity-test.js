@@ -4,7 +4,7 @@ import User from '../src/User';
 import testActivityData from './test-data/test-activity';
 import testUserData from './test-data/test-users';
 
-describe.only('Activity', () => {
+describe('Activity', () => {
   let activity, userActivity, user, user1;
 
   beforeEach(() => {

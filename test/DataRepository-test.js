@@ -3,7 +3,7 @@ import { expect } from 'chai';
 import DataRepository from '../src/DataRepository';
 import testSleepData from './test-data/test-sleep';
 
-describe.only('DataRepository', () => {
+describe('DataRepository', () => {
   let dataRepo;
 
   beforeEach(() => {
