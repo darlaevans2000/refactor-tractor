@@ -14,6 +14,7 @@ body {
   background-color: $background-color;
   font-family: $primary-font-body;
 }
+
 /* HEADER */
 header {
   position: relative;
@@ -28,6 +29,7 @@ header {
     font-size: 5.4vw;
     letter-spacing: 0.2em;
   }
+
   .profile-button {
     position: absolute;
     top: 1.5vh;
@@ -38,6 +40,7 @@ header {
     border: none;
     color: $white-color;
   }
+
   .user-info-dropdown {
     background-color: #1F1F1F;
     color: #ffffff;
@@ -51,6 +54,7 @@ header {
     height: 35vw;
     width: 60vw;
   }
+
   .dropdown-p {
     font-size: 4.2vw;
     font-weight: 300;
@@ -198,6 +202,14 @@ main {
 }
 
 /* BUTTONS */
+button {
+  transition: transform 400ms;
+  &:hover {
+    cursor: pointer;
+    transform: scale(1.1, 1.1);
+  }
+}
+
 .info-button {
   @include buttonsMainStyling();
   display: inline;
@@ -224,14 +236,13 @@ main {
 .modal-content {
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   position: absolute;
   left: 30vw;
   top: 15vh;
   background-color: $white-color;
   max-width: 50vw;
-  height: 75%;
+  height: 50%;
   width: 100%;
   border-radius: 10px;
   border: 3px solid #FBD089;
@@ -259,24 +270,25 @@ label {
   font-size: 2vw;
 }
 
-.close-modal,
-.post-button{
-  background-color: darkgrey;
-  color: $white-color;
-  border-radius: 5px;
-  height: 7vh;
-  padding: 1%;
-}
-
-.close-modal{
-  align-self: flex-end;
+.close-modal {
+  background: none;
+  border: none;
+  color: gray;
   margin-right: 2vw;
   margin-top: 1vh;
-  width: 3vw;
-  font-size: 3vw;
+  align-self: flex-end;
+  font-size: 5vw;
+  font-weight: 600;
 }
 
-.post-button{
+.post-button {
+  width: 8vw;
+  height: 3vw;
+  background-color: $background-color;
+  font-size: 2vw;
+  color: $white-color;
+  border: none;
+  border-radius: 1vw;
   align-self: flex-start;
   margin-left: 2vw;
   margin-bottom: 1vh;
@@ -296,7 +308,7 @@ label {
   color: red;
 }
 
-.success-msg{
+.success-msg {
   font-size: 2vw;
   color: #54C6BE;
   margin-bottom: 2vh;
@@ -328,6 +340,10 @@ label {
 
 
 @media screen and (min-width: 900px) {
+  .modal-content {
+    height: 75%;
+  }
+
   main {
     display: grid;
     grid-template-columns: repeat(2,1fr);
@@ -344,6 +360,7 @@ label {
     height: 40vw;
     width: 100%
   }
+
   .card-container {
     position: relative;
     display: flex;
