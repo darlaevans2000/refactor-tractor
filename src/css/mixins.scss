@@ -7,6 +7,6 @@
 @mixin buttonsMainStyling() {
   background: none;
   border: none;
-  height: 3.4vw;
-  width: 3.4vw;
+  color: $white-color;
+  font-size: 8vw;
 }

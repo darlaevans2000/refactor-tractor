@@ -19,7 +19,6 @@ header {
   position: relative;
   display: flex;
   justify-content: center;
-  // text-align: center;
   height: 10vh;
 
   h1 {
@@ -32,30 +31,28 @@ header {
   .profile-button {
     position: absolute;
     top: 1.5vh;
-    right: 2vw;
+    right: 4vw;
     align-self: center;
     background: none;
-    font-size: 5.6vw;
+    font-size: 12vw;
     border: none;
-    height: 5.6vw;
-    width: 5.6vw;
     color: $white-color;
   }
   .user-info-dropdown {
-    background-color: $background-color;
-    color: $white-color;
+    background-color: #1F1F1F;
+    color: #ffffff;
     margin-top: -1.2%;
     position: absolute;
     top: 11.2vh;
     right: 5vw;
     text-align: center;
     z-index: 100;
-    border: 1px solid $white-color;
-    height: 16vh;
-    width: 20vw;
+    border: 1px solid #ffffff;
+    height: 35vw;
+    width: 60vw;
   }
   .dropdown-p {
-    font-size: 1.2vw;
+    font-size: 4.2vw;
     font-weight: 300;
     padding-bottom: 1vw;
     padding-top: 0;
@@ -72,13 +69,13 @@ button:active {
 h2 {
   display: inline;
   font-family: $secondary-font-header;
-  font-size: 2.5vw;
+  font-size: 4.5vw;
   font-weight: 700;
   letter-spacing: 0.1em;
 }
 
 h3 {
-  font-size: 4.5vw;
+  font-size: 5.5vw;
   letter-spacing: 0.1em;
 }
 
@@ -95,7 +92,7 @@ h4 {
 }
 
 h5 {
-  font-size: 1.8vw;
+  font-size: 6.8vw;
   padding-bottom: 1vw;
   text-align: center;
 }
@@ -116,7 +113,7 @@ main {
 .card-container {
   position: relative;
   max-width: 800px;
-  height: 20VH;
+  height: 37vw;
   width: 100%;
   display: flex;
   flex-direction: column;
@@ -203,26 +200,20 @@ main {
 /* BUTTONS */
 .info-button {
   @include buttonsMainStyling();
-  color: $white-color;
-  font-size: 3.4vw;
   display: inline;
-  margin-left: 1vw;
+  margin-left: 2vw;
 }
 
 .calendar-button {
   @include buttonsMainStyling();
-  color: $white-color;
-  font-size: 3.4vw;
   display: inline;
   float: right;
-  margin-right: 1vw;
+  margin-right: 2vw;
 }
 
 .go-back-button {
   @include buttonsMainStyling();
-  color: $white-color;
-  font-size: 3.4vw;
-  margin-left: 1vw;
+  margin-left: 2vw;
   position: absolute;
   top: 1vh;
   left: 0.8vw;
