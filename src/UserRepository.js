@@ -40,10 +40,6 @@ class UserRepository {
     return sortedMatches[0].userID;
   }
 
-  // Sleep quality > 3 for a given week
-  // findBestSleepers(date) {
-  //   return this.users.filter(user => user.calculateAverageQualityThisWeek(date) > 3);
-  // }
 }
 
 export default UserRepository;

@@ -313,6 +313,7 @@ label {
     padding: 8vw 10vw 3vh 10vw;
     height: 100vh;
   }
+
   .card-container {
     position: relative;
     display: flex;
@@ -334,6 +335,7 @@ label {
     height: 100%;
     grid-gap: 2rem;
   }
+
   .main-card {
     align-items: center;
     display: flex;
@@ -352,28 +354,35 @@ label {
     height: 30vh;
     width: auto;
   }
+
   h2 {
     font-size: 2.5vw;
   }
+
   h3 {
     font-size: 3.5vw;
   }
+
   h5 {
     font-size: 4.8vw;
   }
+
   .info-button,
   .calendar-button,
   .go-back-button {
     font-size: $smaller-button;
   }
+
   header {
     .profile-button {
       font-size: 9vw;
     }
+
     .user-info-dropdown {
       height: 20vw;
       width: 40vw;
     }
+
     .dropdown-p {
       font-size: 2.2vw;
     }
@@ -389,6 +398,7 @@ label {
     grid-gap: 2rem;
     height: 100%;
   }
+
   .card-container {
     position: relative;
     display: flex;
@@ -399,17 +409,21 @@ label {
     height: 40vh;
     width: auto;
   }
+
   h5 {
     font-size: 1.8vw;
   }
+
   header {
     .profile-button {
       font-size: 5.6vw;
     }
+
     .user-info-dropdown {
       height: 12vw;
       width: 20vw;
     }
+
     .dropdown-p {
       font-size: 1.2vw;
     }
@@ -419,16 +433,4 @@ label {
 /* CHANGING CLASSES */
 .hide {
   display: none;
-}
-
-.green-text {
-  color: green;
-}
-
-.red-text {
-  color: red;
-}
-
-.yellow-text {
-  color: #F8BA00;
 }

@@ -17,7 +17,6 @@ let domUpdates = {
   },
 
   displayUserDetails(user) {
-    console.log('working')
 
     let userInfoDropdown = document.getElementById('userInfoDropdown')
     userInfoDropdown.classList.toggle('hide');
@@ -54,7 +53,7 @@ let domUpdates = {
 
   changeCardsToMain(event, property) {
     let main = document.getElementById(`${property}MainCard`)
-    console.log(main)
+
     let button = event.target.closest('button').id
     if (button.includes('GoBack')) {
       this.flipCard(event.target.closest('button').parentNode, main)

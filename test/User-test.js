@@ -4,16 +4,11 @@ import User from '../src/User';
 import testUserData from './test-data/test-users';
 
 
-describe.only('User', () => {
+describe('User', () => {
   let user;
-  // user1, user2, user3, usersFriends;
 
   beforeEach(() => {
     user = new User(testUserData[0])
-    // user1 = testUserData[1];
-    // user2 = testUserData[2];
-    // user3 = testUserData[3];
-    // usersFriends = [user1, user2, user3];
   })
   it('should be a function', () => {
     expect(User).to.be.a('function');
@@ -45,8 +40,4 @@ describe.only('User', () => {
   it('getFirstName should return the first name of the user', () => {
     expect(user.getFirstName()).to.equal('LUISA');
   });
-  // it('findFriendsNames should find the first names of friends', () => {
-  //   user.findFriendsNames(usersFriends);
-  //   expect(user.friendsNames).to.deep.equal(['JARVIS', 'HERMINIA', 'MAE']);
-  // });
 });
